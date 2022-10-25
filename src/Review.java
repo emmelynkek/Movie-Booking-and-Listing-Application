@@ -32,4 +32,11 @@ public class Review {
     public int getReviewId(){
         return reviewId;
     }
+    
+    public void displayReview(){
+        System.out.printf("************************\n");
+        System.out.printf("Review %d\n", reviewId);
+        System.out.printf("Description: %s\n", description);
+        System.out.printf("Rating: %f\n",rating);
+    }
 }
