@@ -1,33 +1,24 @@
 import java.util.*;
 
-public class UserMovieManager{
-    private List <Movie> movieList;    //contains List of all avaliable movies 
-
-    public UserMovieManager(){
-        movieList = new ArrayList<Movie>();
-    }
-
-    public void addMovie(Movie movie){
-        movieList.add(movie);
-    }
-
-    public void displayMovieList(){
-        for (Movie movie: movieList){
-            System.out.println("Movie title: "+ movie.getTitle());
+public class UserMovieManager{  // Contains only static methods, can call directly with Class name
+    public static void displayMovieList(List <CinemaMovie> movieList){
+        for (CinemaMovie movie: movieList){
+            System.out.println("Movie title: "+ movie.getMovie().getTitle());
             System.out.println("Showing status: "+ movie.getStatus());
             System.out.println("Movie type: "+ movie.getType());
-            System.out.print("Overall reviewer rating: "+ movie.getOverallRating());
+            System.out.println("Overall reviewer rating: "+ movie.getOverallRating());
+            System.out.printf("Overall ticket sales: $%.2f\n", movie.getTicketSales());
             System.out.printf("\n");
         }
     }
 
-    public void displayMovieDetails(Movie movie){
-        System.out.println("Movie title: "+ movie.getTitle());
+    public static void displayMovieDetails(CinemaMovie movie){
+        System.out.println("Movie title: "+ movie.getMovie().getTitle());
         System.out.println("Showing status: "+ movie.getStatus());
-        System.out.println("SYNOPSIS: "+ movie.getSynopsis());
-        System.out.println("Director: "+ movie.getDirectorName());
+        System.out.println("SYNOPSIS: "+ movie.getMovie().getSynopsis());
+        System.out.println("Director: "+ movie.getMovie().getDirectorName());
         System.out.print("Cast: ");
-        for (String name: movie.getCastNames())
+        for (String name: movie.getMovie().getCastNames())
             System.out.printf("%s   ", name);
         System.out.printf("\n");
         System.out.println("Overall reviewer rating: "+ movie.getOverallRating());
@@ -36,12 +27,11 @@ public class UserMovieManager{
             review.displayReview();
         System.out.printf("\n");
 
-        //List reviews
     }
 
-    public Movie searchMovie(String title){
-        for (Movie movie: movieList){
-            if (movie.getTitle().equals(title)){
+    public static CinemaMovie searchMovie(List <CinemaMovie> movieList, String title){
+        for (CinemaMovie movie: movieList){
+            if (movie.getMovie().getTitle().equals(title)){
                 //System.out.printf("Movie found!\n");
                 return movie;
             }
