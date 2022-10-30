@@ -1,4 +1,6 @@
-public class Cinema {
+import java.io.Serializable;
+
+public class Cinema implements Serializable{
     enum cinemaType {
         PLATINUM,
         REGULAR;

@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.*;
 
-public class Top5List {
+public class Top5List implements Serializable{
     enum sortBy{
         SALES, RATING; 
     }

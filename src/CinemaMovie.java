@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.*;
 
-public class CinemaMovie{
+public class CinemaMovie implements Serializable{
 
     enum Status{
         COMING_SOON, PREVIEW, NOW_SHOWING; 

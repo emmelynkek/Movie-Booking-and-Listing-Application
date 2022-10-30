@@ -1,7 +1,8 @@
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class Booking {
+public class Booking implements Serializable{
     private String transactionID;
     private String cinemaCode;
     private String cineplex;
