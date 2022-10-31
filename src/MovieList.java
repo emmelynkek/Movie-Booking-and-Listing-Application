@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.*;
 
-public class MovieList {
+public class MovieList implements Serializable{
     private List <CinemaMovie> movieList;    //contains List of all avaliable movies 
 
     public MovieList(){

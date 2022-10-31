@@ -1,4 +1,6 @@
-public class SeatLayout {
+import java.io.Serializable;
+
+public class SeatLayout implements Serializable{
     private int column; 
     private int row; 
 
