@@ -8,8 +8,8 @@ public class SeatLayout implements Serializable{
 
 
     public SeatLayout(){ //default constructor
-		row = 9;
-		column = 9;
+		row = 10;
+		column = 10;
 		seats = new Seat[row][column];
 		initializeSeat();
 	}
@@ -34,24 +34,51 @@ public class SeatLayout implements Serializable{
     public void getSeatlayout(){ 
         System.out.println();
         System.out.println("Cinema:");
+        System.out.println("    ----------------------Screen----------------------    ");
+        System.out.println();
 
       
-        System.out.print(" ");
+        System.out.print("   ");
 
         for (int i = 0; i < column; i++) {
-            System.out.print(" " + (i+1) + " ");
+            if(i==5){ 
+                System.out.print("    " + (i+1) + "  ");
+
+            }else{
+            System.out.print("  " + (i+1) + "  ");}
         }
 
         System.out.println();
 
         for (int i = 0; i < row; i++) {
-            System.out.print(i+1 + " ");
+            if(i != 9){ 
+                System.out.print(i+1 + "   ");
+
+            }
+            else{ 
+                System.out.print(i+1 + "  ");
+
+            }
+
+
             for (int j = 0; j < column ; j++) {
+               
                 if (seats[i][j].getAvailable() == true){ 
-                    System.out.print('N' + "  ");
+                   if(j==4){ 
+                    System.out.print("[ ]" + "    ");
+
+                   }else{ 
+                    System.out.print("[ ]" + "  ");
+
+                   }
+
                     
                 }else{ 
-                    System.out.print('B' + "  ");
+                    if(j==4){ 
+                        System.out.print("[x]" + "    ");
+
+                    }
+                    else {System.out.print("[x]" + "  ");} 
                 }
 
 
@@ -96,7 +123,7 @@ public class SeatLayout implements Serializable{
         //testing methods
 
         // SeatLayout s = new SeatLayout(); 
-        SeatLayout s = new SeatLayout(5,5);
+        SeatLayout s = new SeatLayout();
         s.setSeatavailability(5, 5, false); //booking seat
         System.out.println(s.getSeatavailability(5, 5)); //shd return false when booked 
         System.out.println(s.getSeatavailability(4, 4)); //shd return true 
