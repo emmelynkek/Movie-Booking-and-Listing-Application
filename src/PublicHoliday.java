@@ -28,7 +28,6 @@ public class PublicHoliday implements Serializable {
     }
 
 
-
     public String getName() {
         return name;
     }
