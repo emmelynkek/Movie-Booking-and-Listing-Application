@@ -14,8 +14,8 @@ public class PriceAdjustment {
     public double getAdjustedPrice(MovieGoerAge age, Cinema cinema, GregorianCalendar date, CinemaMovie movie) {
         double priceAdjustment = 0;
         // assuming that the original price for Adults is $9
-        if
-        else if (age == MovieGoerAge.STUDENT) {
+    
+        if (age == MovieGoerAge.STUDENT) {
             priceAdjustment -= 2;
         } else if (age == MovieGoerAge.SENIOR_CITIZEN) {
             priceAdjustment -= 5;
