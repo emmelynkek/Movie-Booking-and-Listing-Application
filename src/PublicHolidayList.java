@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class PublicHolidayList {
-    private List <PublicHoliday> publicHolidayList;    //contains List of all avaliable movies 
+    private List <PublicHoliday> publicHolidayList;    //contains List of all avaliable public holidays 
 
     public PublicHolidayList(){
         publicHolidayList = new ArrayList <PublicHoliday>();
@@ -11,7 +11,7 @@ public class PublicHolidayList {
         return publicHolidayList;
     }
 
-    public void addPubliHoliday(PublicHoliday ph){
+    public void addPublicHoliday(PublicHoliday ph){
         publicHolidayList.add(ph);
     }
     
