@@ -11,14 +11,14 @@ public class Cinema implements Serializable{
 
     public Cinema(String code, cinemaType t) {
         this.setCode(code);
-        this.setCinemaClass(t);
+        this.setCinemaType(t);
     }
 
     public void setCode(String code) {
         this.code = code;
     }
 
-    public void setCinemaClass(cinemaType t) {
+    public void setCinemaType(cinemaType t) {
         this.type = t;
     }
 
