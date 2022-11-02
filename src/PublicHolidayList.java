@@ -1,18 +1,19 @@
+import java.lang.reflect.GenericSignatureFormatError;
 import java.util.*;
 
 public class PublicHolidayList {
-    private List <PublicHoliday> publicHolidayList;    //contains List of all avaliable public holidays 
+    private List <GregorianCalendar> publicHolidayList;    //contains List of all avaliable public holidays 
 
     public PublicHolidayList(){
-        publicHolidayList = new ArrayList <PublicHoliday>();
+        publicHolidayList = new ArrayList <GregorianCalendar>();
     }
 
-    public List <PublicHoliday> getList(){
+    public List <GregorianCalendar> getList(){
         return publicHolidayList;
     }
 
     public void addPublicHoliday(PublicHoliday ph){
-        publicHolidayList.add(ph);
+        publicHolidayList.add(ph.getDate());
     }
     
 }

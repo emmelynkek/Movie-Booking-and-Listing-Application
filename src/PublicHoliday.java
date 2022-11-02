@@ -7,13 +7,13 @@ import java.util.Date;
 
 public class PublicHoliday implements Serializable {
     private String name; //name of public holiday
-    private String date; //date shd be in form dd-MM-YYYY
-    private double rate; //rate to charge for public holiay 
+    private GregorianCalendar date; //date shd be in form dd-MM-YYYY
+   
 
-    public PublicHoliday(String name, String date, double rate) {
+    public PublicHoliday(String name, GregorianCalendar date) {
         this.name= name; 
         this.date = date; 
-        this.rate = rate;
+       
     } 
 
     public static  GregorianCalendar stringToDate(String sdate) throws ParseException{ //convert input string to gregoriancalender date format
@@ -32,17 +32,15 @@ public class PublicHoliday implements Serializable {
         return name;
     }
 
-    public String getDate() {
+    public GregorianCalendar getDate() {
         return date;
     }
 	
 
-    public double getRate() {
-        return rate;
-    }
+ 
 
 
-	public void setDate(String date) {
+	public void setDate(GregorianCalendar date) {
         this.date = date;
     }
 
@@ -50,18 +48,16 @@ public class PublicHoliday implements Serializable {
         this.name =Name;
     }
 
-    public void setRate( double rate) {
-        this.rate =rate;
+    public static void main(String[] args) throws ParseException {
+        String s = "18-10-2002"; 
+        System.out.print(stringToDate(s)); 
+
+
+
     }
 
+ 
 
-    public static void main(String[] args)throws Exception {   
-        PublicHoliday ph = new PublicHoliday("National day", "20-10-2002", 10.00); 
-        GregorianCalendar date1 = stringToDate(ph.getDate()); 
-        System.out.println(date1); 
-
-   
-    } 
 
 	
 

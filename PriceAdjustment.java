@@ -7,40 +7,122 @@ enum MovieGoerAge {
 }
 
 public class PriceAdjustment {
+    private double basePrice; 
+    private double studentPA; 
+    private double elderlyPA; 
+    private double weekdayPA; 
+    private double weekendPA; 
+    private double publicHolPA;
+    private double movTypePA;
+    private double cinemaTypePA;
+
+
     public PriceAdjustment() {
+        this.basePrice = 9.00;
+        this.studentPA = 2.00; 
+        this.elderlyPA = 5.00; 
+        this.weekdayPA = 0.50; 
+        this.weekendPA = 2.00;
+        this.publicHolPA = 2.00; 
+        this.movTypePA = 2.00;  
+        this.cinemaTypePA =10; 
 
     }
+
+    public double getBasePrice() {
+        return basePrice;
+    }
+    public double getStudentPA() {
+        return studentPA;
+    }
+    public double getElderlyPA() {
+        return elderlyPA;
+    }
+    public double getWeekdayPA() {
+        return weekdayPA;
+    }
+
+    public double getWeekendPA() {
+        return weekendPA;
+    }
+
+    public double getMovieTypePA() {
+        return movTypePA;
+    }
+    public double getCinemaTypePA() {
+        return cinemaTypePA;
+    }
+    public double getPubHolPA() {
+        return publicHolPA;
+    }
+
+
+
+    public void setBasePrice(double bp) {
+        this.basePrice= bp;
+    }
+
+    public void setStudentPA(double spa) {
+         this.studentPA = spa;
+    }
+
+    public void setElderlyPA(double epa ) {
+         this.elderlyPA = epa;
+    }
+
+    public void setWeekdayPA(double wdpa ) {
+        this.weekdayPA = wdpa;
+   }
+
+   public void setWeekendPA(double wpa ) {
+    this.weekendPA = wpa;
+  }
+
+    public void setMovieTypePA(double mtpa) {
+     this.movTypePA=mtpa ;
+    }
+    public void setCinemaTypePA(double ctpa) {
+    this.cinemaTypePA = ctpa;
+    }
+    public void setPubHolPA(double phpa) {
+        this.publicHolPA = phpa;
+    }
+
+
+
+    
+
 
     public double getAdjustedPrice(MovieGoerAge age, Cinema cinema, GregorianCalendar date, CinemaMovie movie) {
         double priceAdjustment = 0;
         // assuming that the original price for Adults is $9
     
         if (age == MovieGoerAge.STUDENT) {
-            priceAdjustment -= 2;
+            priceAdjustment -= studentPA;
         } else if (age == MovieGoerAge.SENIOR_CITIZEN) {
-            priceAdjustment -= 5;
+            priceAdjustment -= elderlyPA;
         } else {
             if (date.get(GregorianCalendar.DAY_OF_WEEK) == GregorianCalendar.MONDAY
                     || date.get(GregorianCalendar.DAY_OF_WEEK) == GregorianCalendar.TUESDAY
                     || date.get(GregorianCalendar.DAY_OF_WEEK) == GregorianCalendar.WEDNESDAY) {
-                priceAdjustment -= 0.5;
+                priceAdjustment -= weekdayPA;
                 if (movie.getType() == CinemaMovie.Type.THREE_D) {
-                    priceAdjustment += 2;
+                    priceAdjustment += movTypePA;
                 }
             } else if (date.get(GregorianCalendar.DAY_OF_WEEK) == GregorianCalendar.FRIDAY
                     || date.get(GregorianCalendar.DAY_OF_WEEK) == GregorianCalendar.SATURDAY
                     || date.get(GregorianCalendar.DAY_OF_WEEK) == GregorianCalendar.SUNDAY) {
-                priceAdjustment += 2;
+                priceAdjustment += weekendPA;
                 if (movie.getType() == CinemaMovie.Type.THREE_D) {
-                    priceAdjustment += 4;
+                    priceAdjustment += movTypePA;
                 }
             }
             if (movie.getType() == CinemaMovie.Type.BLOCKBUSTER) {
-                priceAdjustment += 1;
+                priceAdjustment += movTypePA;
             }
         }
         if (cinema.getCinemaType() == Cinema.cinemaType.PLATINUM) {
-            priceAdjustment += 10;
+            priceAdjustment += cinemaTypePA;
         }
         return priceAdjustment;
     }
