@@ -12,9 +12,6 @@ public class AdminConfigSettings {
     //5. create/update/delete movie listings (wip, waiting for update)
 
 
-    public AdminConfigSettings(){ 
-    }
-
     public static GregorianCalendar stringToDate(String sdate) throws ParseException{ //convert input string to gregoriancalender date format
         String[] splitDate = sdate.split("-");
         int days = Integer.parseInt(splitDate[0]);
@@ -27,7 +24,7 @@ public class AdminConfigSettings {
 
     }
 
-    public void CreatePublicHoliday(PublicHolidayList publicHolidayList) throws ParseException{ //admin can create public holiday
+    public static void CreatePublicHoliday(PublicHolidayList publicHolidayList) throws ParseException{ //admin can create public holiday
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Enter the Public Holiday:");
