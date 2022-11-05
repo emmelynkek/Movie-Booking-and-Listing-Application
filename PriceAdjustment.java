@@ -1,4 +1,5 @@
 import java.util.GregorianCalendar;
+import java.util.*;
 
 enum MovieGoerAge {
     ADULT,
@@ -15,6 +16,7 @@ public class PriceAdjustment {
     private double publicHolPA;
     private double movTypePA;
     private double cinemaTypePA;
+    private static List <GregorianCalendar> publicHolidayList; 
 
 
     public PriceAdjustment() {
@@ -26,6 +28,7 @@ public class PriceAdjustment {
         this.publicHolPA = 2.00; 
         this.movTypePA = 2.00;  
         this.cinemaTypePA =10; 
+        publicHolidayList = new ArrayList <GregorianCalendar>();
 
     }
 
@@ -102,6 +105,15 @@ public class PriceAdjustment {
         } else if (age == MovieGoerAge.SENIOR_CITIZEN) {
             priceAdjustment -= elderlyPA;
         } else {
+
+
+            int size = publicHolidayList.size();
+            for(int i=0; i<size; i++){ 
+                GregorianCalendar PHdate = publicHolidayList.get(i); 
+                if(date.get(GregorianCalendar.DAY_OF_MONTH) == PHdate.DAY_OF_MONTH && date.get(GregorianCalendar.MONTH) == PHdate.MONTH ){ 
+                    priceAdjustment += this.publicHolPA; 
+                } 
+
             if (date.get(GregorianCalendar.DAY_OF_WEEK) == GregorianCalendar.MONDAY
                     || date.get(GregorianCalendar.DAY_OF_WEEK) == GregorianCalendar.TUESDAY
                     || date.get(GregorianCalendar.DAY_OF_WEEK) == GregorianCalendar.WEDNESDAY) {
@@ -124,6 +136,9 @@ public class PriceAdjustment {
         if (cinema.getCinemaType() == Cinema.cinemaType.PLATINUM) {
             priceAdjustment += cinemaTypePA;
         }
-        return priceAdjustment;
+
     }
+    return priceAdjustment;
+}
+
 }

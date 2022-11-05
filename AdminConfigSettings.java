@@ -12,11 +12,12 @@ public class AdminConfigSettings {
     //5. create/update/delete movie listings (wip, waiting for update)
 
     private static List <GregorianCalendar> publicHolidayList; 
-    public static PriceAdjustment pa = new PriceAdjustment(); 
+    public static PriceAdjustment pa;
     
 
     public AdminConfigSettings(){ 
         publicHolidayList = new ArrayList <GregorianCalendar>();
+        PriceAdjustment pa = new PriceAdjustment(); 
 
     }
 
@@ -27,6 +28,7 @@ public class AdminConfigSettings {
         int year = Integer.parseInt(splitDate[2]);
 
         GregorianCalendar dateConverted = new GregorianCalendar(year, month, days);
+        // System.out.println(dateConverted);
         return dateConverted;
 
     }
@@ -39,7 +41,7 @@ public class AdminConfigSettings {
         System.out.println("Enter the date in format dd-MM-YYYY:");
         String date = sc.nextLine(); 
         GregorianCalendar date1 = stringToDate(date); 
-        // System.out.print(date1);
+        System.out.print(date1);
     
 
         PublicHoliday ph = new PublicHoliday(name, date1);
@@ -140,8 +142,24 @@ public class AdminConfigSettings {
     }
 
     public static void main(String[] args) throws Exception {
-        // CreatePublicHoliday(); 
-         ChangePriceAdjustment(); 
+        CreatePublicHoliday(); 
+        //  ChangePriceAdjustment(); 
+        // int size = publicHolidayList.size();
+        // System.out.println(size);
+        // String date = "18-10-2002"; 
+        // GregorianCalendar gdate = stringToDate(date);
+
+        // for(int i=0; i<size; i++){ 
+        //     GregorianCalendar PHdate = publicHolidayList.get(i); 
+        //     if(gdate.get(GregorianCalendar.DAY_OF_MONTH) == PHdate.DAY_OF_MONTH ){ 
+        //        System.out.println("yes can work!"); 
+        //     } 
+            
+        //     // AND date.get(GregorianCalendar.MONTH) == PHdate.MONTH
+
+            
+        // }
+
 
 
 
