@@ -16,7 +16,7 @@ public class PriceAdjustment {
     private double publicHolPA;
     private double movTypePA;
     private double cinemaTypePA;
-    private static List <GregorianCalendar> publicHolidayList; 
+    private static List <GregorianCalendar> publicHolidayList;  //*** to be deleted in main app
 
 
     public PriceAdjustment() {
@@ -28,7 +28,7 @@ public class PriceAdjustment {
         this.publicHolPA = 2.00; 
         this.movTypePA = 2.00;  
         this.cinemaTypePA =10; 
-        publicHolidayList = new ArrayList <GregorianCalendar>();
+        publicHolidayList = new ArrayList <GregorianCalendar>(); //*** to be deleted in main app
 
     }
 
@@ -106,6 +106,8 @@ public class PriceAdjustment {
             priceAdjustment -= elderlyPA;
         } else {
 
+            
+            //for public holiday
 
             int size = publicHolidayList.size();
             for(int i=0; i<size; i++){ 

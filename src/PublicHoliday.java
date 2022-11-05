@@ -35,8 +35,6 @@ public class PublicHoliday implements Serializable {
     public GregorianCalendar getDate() {
         return date;
     }
-	
-
  
 
 

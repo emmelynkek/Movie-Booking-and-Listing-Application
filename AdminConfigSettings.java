@@ -11,14 +11,8 @@ public class AdminConfigSettings {
     //4. control rankings (wip, waiting for update)
     //5. create/update/delete movie listings (wip, waiting for update)
 
-    private static List <GregorianCalendar> publicHolidayList; 
-    public static PriceAdjustment pa;
-    
 
     public AdminConfigSettings(){ 
-        publicHolidayList = new ArrayList <GregorianCalendar>();
-        PriceAdjustment pa = new PriceAdjustment(); 
-
     }
 
     public static GregorianCalendar stringToDate(String sdate) throws ParseException{ //convert input string to gregoriancalender date format
@@ -33,7 +27,7 @@ public class AdminConfigSettings {
 
     }
 
-    public static void CreatePublicHoliday() throws ParseException{ //admin can create public holiday
+    public void CreatePublicHoliday(PublicHolidayList publicHolidayList) throws ParseException{ //admin can create public holiday
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Enter the Public Holiday:");
@@ -45,11 +39,11 @@ public class AdminConfigSettings {
     
 
         PublicHoliday ph = new PublicHoliday(name, date1);
-        publicHolidayList.add(ph.getDate());
+        publicHolidayList.addPublicHoliday(ph); // *** change publicHolidayList to obj name of publichollist in main app
 
     }
 
-    public static void ChangePriceAdjustment(){ //admin can change base price and discounts
+    public static void ChangePriceAdjustment(PriceAdjustment pa){ //admin can change base price and discounts
 
         Scanner sc = new Scanner(System.in);
         boolean condition = true; 
@@ -142,7 +136,8 @@ public class AdminConfigSettings {
     }
 
     public static void main(String[] args) throws Exception {
-        CreatePublicHoliday(); 
+    
+        
         //  ChangePriceAdjustment(); 
         // int size = publicHolidayList.size();
         // System.out.println(size);
