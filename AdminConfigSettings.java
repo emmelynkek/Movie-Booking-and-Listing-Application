@@ -59,9 +59,9 @@ public class AdminConfigSettings {
             System.out.println("(4) Change weekday price adjustment");
             System.out.println("(5) Change weekend price adjustment");
             System.out.println("(6) Change public holiday price adjustment");
-            System.out.println("(7) change movie type price adjustment");
-            System.out.println("(8) change cinema type price adjustment");
-            System.out.println("(9) exit");
+            System.out.println("(7) Change movie type price adjustment");
+            System.out.println("(8) Change cinema type price adjustment");
+            System.out.println("(9) Exit");
             System.out.println("Enter the number of your choice: "); 
             int choice; 
             choice = sc.nextInt();
