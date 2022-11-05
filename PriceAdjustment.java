@@ -16,7 +16,7 @@ public class PriceAdjustment {
     private double publicHolPA;
     private double movTypePA;
     private double cinemaTypePA;
-    private static List <GregorianCalendar> publicHolidayList;  //*** to be deleted in main app
+  
 
 
     public PriceAdjustment() {
@@ -28,7 +28,7 @@ public class PriceAdjustment {
         this.publicHolPA = 2.00; 
         this.movTypePA = 2.00;  
         this.cinemaTypePA =10; 
-        publicHolidayList = new ArrayList <GregorianCalendar>(); //*** to be deleted in main app
+    
 
     }
 
@@ -96,7 +96,7 @@ public class PriceAdjustment {
     
 
 
-    public double getAdjustedPrice(MovieGoerAge age, Cinema cinema, GregorianCalendar date, CinemaMovie movie) {
+    public double getAdjustedPrice(MovieGoerAge age, Cinema cinema, GregorianCalendar date, CinemaMovie movie, PublicHolidayList phl) {
         double priceAdjustment = 0;
         // assuming that the original price for Adults is $9
     
@@ -109,10 +109,11 @@ public class PriceAdjustment {
             
             //for public holiday
 
-            int size = publicHolidayList.size();
+            int size = phl.getList().size();
+
             for(int i=0; i<size; i++){ 
-                GregorianCalendar PHdate = publicHolidayList.get(i); 
-                if(date.get(GregorianCalendar.DAY_OF_MONTH) == PHdate.DAY_OF_MONTH && date.get(GregorianCalendar.MONTH) == PHdate.MONTH ){ 
+                GregorianCalendar PHdate = phl.getList().get(i); 
+                if(date.get(GregorianCalendar.DAY_OF_MONTH) == PHdate.get(GregorianCalendar.DAY_OF_MONTH) && date.get(GregorianCalendar.MONTH) == PHdate.get(GregorianCalendar.MONTH) ){ 
                     priceAdjustment += this.publicHolPA; 
                 } 
 
