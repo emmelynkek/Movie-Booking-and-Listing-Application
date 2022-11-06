@@ -1,133 +1,132 @@
 import java.io.Serializable;
 
-public class SeatLayout implements Serializable{
-    private int column; 
-    private int row; 
+public class SeatLayout implements Serializable {
+    private int column;
+    private int row;
 
-    private Seat[][] seats; 
+    private Seat[][] seats;
 
-
-    public SeatLayout(){ //default constructor
-		row = 10;
-		column = 10;
-		seats = new Seat[row][column];
-		initializeSeat();
-	}
+    public SeatLayout() { // default constructor
+        row = 10;
+        column = 10;
+        seats = new Seat[row][column];
+        initializeSeat();
+    }
 
     public SeatLayout(int row, int col) {
-		this.row = row;
-		this.column = col;
+        this.row = row;
+        this.column = col;
         seats = new Seat[row][column];
-		initializeSeat();
-	}
-
+        initializeSeat();
+    }
 
     private void initializeSeat() {
-		for (int i = 0; i < row; i++) {
-			for (int j = 0; j < column; j++) {
-				seats[i][j] = new Seat(true);
-			}
-		}
-	}
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < column; j++) {
+                seats[i][j] = new Seat(true);
+            }
+        }
+    }
 
-
-    public void getSeatlayout(){ 
+    public void getSeatlayout() {
         System.out.println();
         System.out.println("Cinema:");
         System.out.println("    ----------------------Screen----------------------    ");
         System.out.println();
 
-      
         System.out.print("   ");
 
         for (int i = 0; i < column; i++) {
-            if(i==5){ 
-                System.out.print("    " + (i+1) + "  ");
+            if (i == 5) {
+                System.out.print("    " + (i + 1) + "  ");
 
-            }else{
-            System.out.print("  " + (i+1) + "  ");}
+            } else {
+                System.out.print("  " + (i + 1) + "  ");
+            }
         }
 
         System.out.println();
 
         for (int i = 0; i < row; i++) {
-            if(i != 9){ 
-                System.out.print(i+1 + "   ");
+            if (i != 9) {
+                System.out.print(i + 1 + "   ");
+
+            } else {
+                System.out.print(i + 1 + "  ");
 
             }
-            else{ 
-                System.out.print(i+1 + "  ");
 
-            }
+            for (int j = 0; j < column; j++) {
 
+                if (seats[i][j].getAvailable() == true) {
+                    if (j == 4) {
+                        System.out.print("[ ]" + "    ");
 
-            for (int j = 0; j < column ; j++) {
-               
-                if (seats[i][j].getAvailable() == true){ 
-                   if(j==4){ 
-                    System.out.print("[ ]" + "    ");
-
-                   }else{ 
-                    System.out.print("[ ]" + "  ");
-
-                   }
-
-                    
-                }else{ 
-                    if(j==4){ 
-                        System.out.print("[x]" + "    ");
+                    } else {
+                        System.out.print("[ ]" + "  ");
 
                     }
-                    else {System.out.print("[x]" + "  ");} 
+
+                } else {
+                    if (j == 4) {
+                        System.out.print("[x]" + "    ");
+
+                    } else {
+                        System.out.print("[x]" + "  ");
+                    }
                 }
 
-
-                
             }
             System.out.println();
         }
         System.out.println();
 
-
     }
 
-
-	public void setSeatavailability(int row, int col, boolean available) {
-		seats[row-1][col-1].setAvailable(available);
-	}
+    public void setSeatavailability(int row, int col, boolean available) {
+        seats[row - 1][col - 1].setAvailable(available);
+    }
 
     public boolean getSeatavailability(int row, int col) {
-		return seats[row-1][col-1].getAvailable();
-	}
+        return seats[row - 1][col - 1].getAvailable();
+    }
 
+    public void setRow(int row) {
+        this.row = row;
+    }
 
-    public void setRow(int row ) {
-		this.row = row;
-	}
+    public void setColumn(int column) {
+        this.column = column;
+    }
 
-	public void setColumn(int column) {
-		this.column= column;
-	}
+    public int getRow() {
+        return row;
+    }
 
+    public int getColumn() {
+        return column;
+    }
 
-	public int getRow() {
-		return row;
-	}
+    public boolean isFull() {
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < column; j++) {
+                if (seats[i][j].getAvailable() == true) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 
-	public int getColumn() {
-		return column;
-	}
+    public static void main(String[] args) {
+        // testing methods
 
-
-    public static void main(String[] args){
-        //testing methods
-
-        // SeatLayout s = new SeatLayout(); 
+        // SeatLayout s = new SeatLayout();
         SeatLayout s = new SeatLayout();
-        s.setSeatavailability(5, 5, false); //booking seat
-        System.out.println(s.getSeatavailability(5, 5)); //shd return false when booked 
-        System.out.println(s.getSeatavailability(4, 4)); //shd return true 
+        s.setSeatavailability(5, 5, false); // booking seat
+        System.out.println(s.getSeatavailability(5, 5)); // shd return false when booked
+        System.out.println(s.getSeatavailability(4, 4)); // shd return true
         s.getSeatlayout();
-       
+
     }
 }

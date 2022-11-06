@@ -141,7 +141,7 @@ public class PriceAdjustment {
         }
 
     }
-    return priceAdjustment;
+    return this.basePrice + priceAdjustment;
 }
 
 }

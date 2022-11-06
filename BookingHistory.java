@@ -16,9 +16,5 @@ public class BookingHistory implements Serializable{
         bookingList.add(b);
     }
 
-    public void printBookingHist() {
-        for (int i = 0; i < this.bookingList.size(); i++) {
-            bookingList.get(i).printBooking();
-        }
-    }
+   
 }

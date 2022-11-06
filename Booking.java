@@ -91,13 +91,4 @@ public class Booking implements Serializable{
         return this.seatID;
     }
 
-    public void printBooking() {
-        System.out.println("Transaction ID: " + this.transactionID);
-        System.out.println("Cineplex | Cinema Hall: " + this.cineplex + " | " + this.cinemaCode);
-        System.out.println("Seats Booked: " + this.seatID);
-        System.out.println("Movie: " + this.movie.getTitle());
-        System.out.println("Movie Date & Time: " + this.movieDateTime);
-        System.out.println("Total Paid: " + this.totalPrice);
-        System.out.println("Booked By: " + this.user.getName());
-    }
 }
