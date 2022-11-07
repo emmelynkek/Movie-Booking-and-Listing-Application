@@ -107,35 +107,43 @@ public class PriceAdjustment {
         } else {
 
             
-            //for public holiday
+        //for public holiday
 
-            int size = phl.getList().size();
+        int size = phl.getList().size();
 
-            for(int i=0; i<size; i++){ 
-                GregorianCalendar PHdate = phl.getList().get(i); 
-                if(date.get(GregorianCalendar.DAY_OF_MONTH) == PHdate.get(GregorianCalendar.DAY_OF_MONTH) && date.get(GregorianCalendar.MONTH) == PHdate.get(GregorianCalendar.MONTH) ){ 
-                    priceAdjustment += this.publicHolPA; 
-                } 
+        for(int i=0; i<size; i++){ 
+            GregorianCalendar PHdate = phl.getList().get(i); 
+            if(date.get(GregorianCalendar.DAY_OF_MONTH) == PHdate.get(GregorianCalendar.DAY_OF_MONTH) && date.get(GregorianCalendar.MONTH) == PHdate.get(GregorianCalendar.MONTH) ){ 
+                priceAdjustment += this.publicHolPA; 
+            } 
+        }
 
-            if (date.get(GregorianCalendar.DAY_OF_WEEK) == GregorianCalendar.MONDAY
-                    || date.get(GregorianCalendar.DAY_OF_WEEK) == GregorianCalendar.TUESDAY
-                    || date.get(GregorianCalendar.DAY_OF_WEEK) == GregorianCalendar.WEDNESDAY) {
-                priceAdjustment -= weekdayPA;
-                if (movie.getType() == CinemaMovie.Type.THREE_D) {
-                    priceAdjustment += movTypePA;
-                }
-            } else if (date.get(GregorianCalendar.DAY_OF_WEEK) == GregorianCalendar.FRIDAY
-                    || date.get(GregorianCalendar.DAY_OF_WEEK) == GregorianCalendar.SATURDAY
-                    || date.get(GregorianCalendar.DAY_OF_WEEK) == GregorianCalendar.SUNDAY) {
-                priceAdjustment += weekendPA;
-                if (movie.getType() == CinemaMovie.Type.THREE_D) {
-                    priceAdjustment += movTypePA;
-                }
+        //for weekday 
+
+        if (date.get(GregorianCalendar.DAY_OF_WEEK) == GregorianCalendar.MONDAY|| date.get(GregorianCalendar.DAY_OF_WEEK) == GregorianCalendar.TUESDAY || date.get(GregorianCalendar.DAY_OF_WEEK) == GregorianCalendar.WEDNESDAY) {
+            priceAdjustment -= weekdayPA;
+            if (movie.getType() == CinemaMovie.Type.THREE_D) {
+                priceAdjustment += movTypePA;
             }
-            if (movie.getType() == CinemaMovie.Type.BLOCKBUSTER) {
+        } 
+
+        //for weekend
+
+        else if (date.get(GregorianCalendar.DAY_OF_WEEK) == GregorianCalendar.FRIDAY || date.get(GregorianCalendar.DAY_OF_WEEK) == GregorianCalendar.SATURDAY || date.get(GregorianCalendar.DAY_OF_WEEK) == GregorianCalendar.SUNDAY) {
+            priceAdjustment += weekendPA;
+            if (movie.getType() == CinemaMovie.Type.THREE_D) {
                 priceAdjustment += movTypePA;
             }
         }
+
+        //for block buster
+
+        if (movie.getType() == CinemaMovie.Type.BLOCKBUSTER) {
+            priceAdjustment += movTypePA;
+        }
+
+        //for cinema type
+        
         if (cinema.getCinemaType() == Cinema.cinemaType.PLATINUM) {
             priceAdjustment += cinemaTypePA;
         }
