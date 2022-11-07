@@ -10,6 +10,7 @@ public class MovieGoer implements Serializable{
         this.username = name;
         this.mobileNumber = num;
         this.email = emailAddress;
+        this.history = new BookingHistory();
     }
 
     public String getName() {

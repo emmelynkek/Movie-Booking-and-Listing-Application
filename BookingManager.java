@@ -66,12 +66,12 @@ public class BookingManager {
                     st.getMovie(),
                     formattedDate, seatID);
             System.out.println("Transaction Success");
+            user.getHistory().addBooking(booking); // add the booking to the user's booking history
             printBooking(booking);
         }
     }
 
-    // the price of the ticket will be calculated based on the ages, movie show time
-    // etc.
+    // the price of the ticket will be calculated based on the ages, movie show time etc
     public double priceCalculator(ShowTime st, PublicHolidayList phl) {
         PriceAdjustment calculatePrice = new PriceAdjustment();
         MovieGoerAge age = null;
