@@ -1,9 +1,15 @@
+import java.util.GregorianCalendar;
 import java.util.Scanner;
+
 import java.text.SimpleDateFormat;
 
 public class BookingManager {
     Scanner sc = new Scanner(System.in);
 
+    public BookingManager() {
+    };
+
+    // seat selection
     public String seatSelector(SeatLayout layout) {
         layout.getSeatlayout();
         int row;
@@ -40,12 +46,18 @@ public class BookingManager {
         }
     }
 
+    // for an input showtime, user and public holiday list, a booking will be made
+    // and the receipt will be printed.
     public void makeBooking(ShowTime st, MovieGoer user, PublicHolidayList phl) {
         double finalPrice = priceCalculator(st, phl);
+        // convert the date to string format
         SimpleDateFormat formatObj = new SimpleDateFormat("dd-MMM-yyyy hh:mm");
         String formattedDate = formatObj.format(st.getDateTime().getTime());
+
+        // retrive seat layout from showtime object
         SeatLayout seatingPlan = st.getSeatingPlan();
 
+        // seat selection
         if (seatingPlan.isFull() == true) {
             System.out.println("This cinema is fully booked.");
         } else {
@@ -58,6 +70,8 @@ public class BookingManager {
         }
     }
 
+    // the price of the ticket will be calculated based on the ages, movie show time
+    // etc.
     public double priceCalculator(ShowTime st, PublicHolidayList phl) {
         PriceAdjustment calculatePrice = new PriceAdjustment();
         MovieGoerAge age = null;
@@ -81,5 +95,20 @@ public class BookingManager {
         }
         double price = calculatePrice.getAdjustedPrice(age, st.getCinema(), st.getDateTime(), st.getCinemaMovie(), phl);
         return price;
+    }
+
+    public static void main(String[] args) throws Exception {
+        GregorianCalendar timing = new GregorianCalendar(2022, 12, 20, 13, 0);
+        Cineplex jurongPoint = new Cineplex("Jurong Point");
+        Cinema c = jurongPoint.getCinema().get(0);
+        PublicHolidayList publicHoliday = new PublicHolidayList();
+        Movie Minions = new Movie();
+        Minions.setTitle("Minions");
+        CinemaMovie cinemaM = new CinemaMovie();
+        cinemaM.setType(CinemaMovie.Type.BLOCKBUSTER);
+        ShowTime sTime = new ShowTime(timing, jurongPoint, c, Minions);
+        MovieGoer user = new MovieGoer("test", 999, "test@gmail.com");
+        BookingManager manager = new BookingManager();
+        manager.makeBooking(sTime, user, publicHoliday);
     }
 }
