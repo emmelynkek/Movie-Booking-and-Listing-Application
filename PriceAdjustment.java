@@ -136,20 +136,14 @@ public class PriceAdjustment {
             }
         }
 
-        //for block buster
-
-        if (movie.getType() == CinemaMovie.Type.BLOCKBUSTER) {
-            priceAdjustment += movTypePA;
-        }
-
         //for cinema type
         
         if (cinema.getCinemaType() == Cinema.cinemaType.PLATINUM) {
             priceAdjustment += cinemaTypePA;
         }
 
-    }
-    return this.basePrice + priceAdjustment;
+         }
+        return this.basePrice + priceAdjustment;
 }
 
 }
