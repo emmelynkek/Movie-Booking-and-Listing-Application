@@ -46,14 +46,11 @@ public class Top5List implements Serializable{
         else if (type == sortBy.RATING)
             Collections.sort(temp, OverallRatingComparator);
 
-        int i=0;
-        while(top5List.size()<5 && i<temp.size()){
-            if (temp.get(i).getStatus() == Status.END_OF_SHOWING)
-                i++;
-            else{
-                top5List.add(temp.remove(i));
-                i++;
-            }
+        while(top5List.size()<5 && !temp.isEmpty()){
+            if (temp.get(0).getStatus() == Status.END_OF_SHOWING)
+                temp.remove(0);
+            else
+                top5List.add(temp.remove(0));
         }
     }
 
@@ -67,10 +64,10 @@ public class Top5List implements Serializable{
     public static final Comparator<CinemaMovie> OverallRatingComparator = new Comparator<CinemaMovie>() {
         @Override
         public int compare(CinemaMovie m1, CinemaMovie m2) {
-            double val = m2.getTicketSales() - m1.getTicketSales();
-            if (val>0 && val<1)
+            double val = m2.getOverallRating() - m1.getOverallRating();
+            if (val>0d && val<1d)
                 return 1;
-            else if (val<0 && val>-1)
+            else if (val<0d && val>-1d)
                 return -1;
             else
                 return (int) val;
