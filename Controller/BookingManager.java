@@ -56,7 +56,7 @@ public class BookingManager {
     // for an input showtime, user and public holiday list, a booking will be made
     // and the receipt will be printed.
     public static void makeBooking(CineplexList cList, MovieList mList, BookingList bList, PublicHolidayList phl,
-            User user) throws Exception {
+            User user, TicketPrice tp) throws Exception {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter Movie Title to book ticket for: ");
         String input = sc.nextLine();
@@ -85,7 +85,7 @@ public class BookingManager {
 
         GregorianCalendar cal = PublicHoliday.stringToDate(st.getDate());
 
-        double price = priceCalculator(cinema, movie, cal, phl);
+        double price = priceCalculator(cinema, movie, cal, phl,tp);
 
         // retrive seat layout from showtime object
         SeatLayout seatingPlan = st.getSeatLayout();
@@ -111,10 +111,8 @@ public class BookingManager {
 
     // the price of the ticket will be calculated based on the ages, movie show time
     // etc
-    public static double priceCalculator(Cinema cinema, CinemaMovie movie, GregorianCalendar date,
-            PublicHolidayList phl) {
+    public static double priceCalculator(Cinema cinema, CinemaMovie movie, GregorianCalendar date,PublicHolidayList phl, TicketPrice tp) {
         Scanner sc = new Scanner(System.in);
-        TicketPrice price = new TicketPrice();
         MovieGoerAge age = null;
         MenuDisplay.printAgeMenu();
         int userAge = sc.nextInt();
@@ -137,7 +135,7 @@ public class BookingManager {
                     break;
             }
         }
-        double finalPrice = price.getAdjustedPrice(age, cinema, date, movie, phl);
+        double finalPrice = tp.getAdjustedPrice(age, cinema, date, movie, phl);
         return finalPrice;
     }
 
