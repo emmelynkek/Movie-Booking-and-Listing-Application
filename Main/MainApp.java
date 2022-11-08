@@ -126,6 +126,9 @@ public class MainApp {
         SerializeDB.writeSerializedObject("Data/CineplexList.txt", cList);
         SerializeDB.writeSerializedObject("Data/MovieList.txt", mList);
         SerializeDB.writeSerializedObject("Data/Top5List.txt", t5List);
+        SerializeDB.writeSerializedObject("Data/BookingList.txt", bList);
+        SerializeDB.writeSerializedObject("Data/PublicHolidayList.txt", pList);
+        SerializeDB.writeSerializedObject("Data/TicketPrice.txt", ticketPrice);
 
         System.out.printf("\n");
         System.out.println("Thank you for using MOBLIMA!"); 
