@@ -94,20 +94,19 @@ public class CinemaMovie implements Serializable{
 
     public ShowTime searchShowTime(){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter showtime date:");
+        System.out.println("Enter showtime date (in dd-MMM-YYYY format):");
         String date = sc.nextLine();
-        System.out.println("Enter start time:");
+        System.out.println("Enter movie start time (in military time format, e.g. 0100 for 1am):");
         String start = sc.nextLine();
-        System.out.println("Enter end time:");
-        String end = sc.nextLine();
+        // System.out.println("Enter end time:");
+        // String end = sc.nextLine();
         System.out.println("Enter Cineplex name:");
         String name = sc.nextLine();
-        System.out.println("Enter cinema code:");
-        String code = sc.nextLine();
+        // System.out.println("Enter cinema code:");
+        // String code = sc.nextLine();
         for (ShowTime showTime : showTimes){
             if (showTime.getCineplexName().equals(name) && showTime.getDate().equals(date) && 
-                showTime.getStartTime().equals(start) && showTime.getEndTime().equals(end) && 
-                showTime.getCinemaCode().equals(code)){
+                showTime.getStartTime().equals(start)){
                 return showTime;
             }
         }

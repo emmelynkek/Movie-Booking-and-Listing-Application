@@ -308,7 +308,7 @@ public class SerializeDB{
         m1.getMovie().setCastNames("Eguchi Takuya");
         m1.getMovie().setSynopsis("The story follows a spy who has to \"build a family\" to execute a mission, not realizing that the girl he adopts as his daughter is a telepath, and the woman he agrees to be in a marriage with is a skilled assassin.");
         m1.setTicketSales(777777d);
-		m1.setEndDate("1-Jan-2023");
+		m1.setEndDate("01-Jan-2023");
         Review r1 = new Review("User 1", "Spy x Family is an oddball tonal mashup that blends the action-packed and high-stakes world of spies with a heartwarming, family-friendly comedy.", 10);
         Review r2 = new Review("User 2", "Spy x Family is an anime of the year candidate.", 5);
         m1.setReviews(r1);
@@ -326,7 +326,7 @@ public class SerializeDB{
         m2.getMovie().setCastNames("Noah Centineo");
         m2.getMovie().setSynopsis("Nearly 5,000 years after he was bestowed with the almighty powers of the Egyptian gods -- and imprisoned just as quickly -- Black Adam is freed from his earthly tomb, ready to unleash his unique form of justice on the modern world.");
         m2.setTicketSales(0d);
-		m2.setEndDate("2-Jan-2023");
+		m2.setEndDate("02-Jan-2023");
         Review r3 = new Review("User 3", "watchable but not great.", 8);
         Review r4 = new Review("User 4", "good movie, lots of action and always good to see the Rock kicking butt", 9);
         m2.setReviews(r3);
@@ -345,7 +345,7 @@ public class SerializeDB{
         m3.getMovie().setSynopsis("In Marvel Studios' \"Black Panther: Wakanda Forever,\" Queen Ramonda, Shuri, M'Baku, Okoye and the Dora Milaje, fight to protect their nation from intervening world powers in the wake of King T'Challa's death."+
                                   " As the Wakandans strive to embrace their next chapter, the heroes must band together with the help of War Dog Nakia and Everett Ross, and forge a new path for the kingdom of Wakanda.");
         m3.setTicketSales(999999d);
-		m3.setEndDate("3-Jan-2023");
+		m3.setEndDate("03-Jan-2023");
         Review r5 = new Review("User 5", "Wakanda forever!", 7);
         Review r6 = new Review("User 6", "Rip Chadwick Boseman", 9);
         m3.setReviews(r5);
@@ -358,7 +358,7 @@ public class SerializeDB{
 		ShowTime showTime = new ShowTime();
 		showTime.setCinemaCode("R1");
 		showTime.setCineplexName("Jurong Point");
-		showTime.setDate("3-Jan-2023");
+		showTime.setDate("03-Jan-2023");
 		showTime.setStartTime("1400");
 		showTime.setEndTime("1600");
 		m2.setShowTimes(showTime);
