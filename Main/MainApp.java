@@ -79,7 +79,7 @@ public class MainApp {
                 else if (input.equals("4"))
                     ReviewManager.addReview(user, mList);
                 else if (input.equals("5"))
-                    BookingManager.makeBooking(cList, mList, bList, pList, user);
+                    BookingManager.makeBooking(cList, mList, bList, pList, user,ticketPrice);
                 else if (input.equals("6"))
                     BookingManager.printBookingHist(bList, user);
                 else
@@ -111,6 +111,7 @@ public class MainApp {
                     SystemManager.ChangePriceAdjustment(ticketPrice);
                 else if (input.equals("8"))
                     SystemManager.CreatePublicHoliday(pList);
+                    
                 else if (input.equals("9"))
                     MovieListingManager.sortTop5List(t5List);
                 else

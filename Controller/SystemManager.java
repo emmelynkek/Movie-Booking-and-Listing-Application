@@ -45,8 +45,24 @@ public class SystemManager{
 
         PublicHoliday ph = new PublicHoliday(name, date1);
         publicHolidayList.addPublicHoliday(ph); // *** change publicHolidayList to obj name of publichollist in main app
+        // //to be removed == showing list after creating
+        // int size =publicHolidayList.getList().size(); 
+        // System.out.println("size of phl:"); 
+        // System.out.println(size); 
 
+        // for(int i=0; i<size; i++){ 
+        //  System.out.println("---------------------------"); 
+
+        // System.out.println(i); 
+        // GregorianCalendar PHdate = publicHolidayList.getList().get(i); 
+        // System.out.println("print out public holiday"); 
+        // System.out.println(PHdate.get(GregorianCalendar.MONTH)) ; 
+        // System.out.println(PHdate.get(GregorianCalendar.DAY_OF_MONTH)) ; }
+    
     }
+
+
+
 
     public static void ChangePriceAdjustment(TicketPrice pa){ //admin can change base price and discounts
 
@@ -114,6 +130,34 @@ public class SystemManager{
                     ctpa = sc.nextDouble();
                     pa.setCinemaTypePA(ctpa);
                     break; 
+
+                case 9: 
+                    System.out.println("Printing current price adjustments...: "); 
+                    System.out.println("Base Price: "); 
+                    System.out.println(pa.getBasePrice()); 
+                    System.out.println("Elderly Price Adjustment (-):"); 
+                    System.out.println(pa.getElderlyPA()); 
+                    System.out.println("Student Price Adjustment (-):"); 
+                    System.out.println(pa.getStudentPA()); 
+                    System.out.println("Weekday Price Adjustment (-):"); 
+                    System.out.println(pa.getWeekdayPA()); 
+                    System.out.println("Weekend Price Adjustment (+):"); 
+                    System.out.println(pa.getWeekendPA()); 
+                    System.out.println("Public Holiday Price Adjustment (+):"); 
+                    System.out.println(pa.getPubHolPA()); 
+                    System.out.println("Movie Type Price Adjustment (+):"); 
+                    System.out.println(pa.getMovieTypePA()); 
+                    System.out.println("Cinema Type Price Adjustment (+):"); 
+                    System.out.println(pa.getCinemaTypePA()); 
+                  
+                
+
+
+
+
+    
+    
+                    break; 
                 
                 default: 
                     return; 
@@ -123,28 +167,39 @@ public class SystemManager{
 
     
 
-    /*public static void main(String[] args) throws Exception {
+     public static void main(String[] args) throws Exception {
+    //     PublicHolidayList phl = new PublicHolidayList(); 
+    //    CreatePublicHoliday(phl);
+    //    int size = phl.getList().size();
+    //    System.out.println(size); 
+    //    Scanner sc = new Scanner(System.in);
+    //    System.out.println("enter date to compare in dd-MMM-YYYY"); 
+    //    String date = sc.nextLine(); 
+    //    GregorianCalendar gcdate = stringToDate(date);
+
+
+    //    for(int i=0; i<size; i++){ 
+    //     System.out.println(i); 
+    //     GregorianCalendar PHdate = phl.getList().get(i); 
+    //     System.out.println(PHdate); 
+    //     System.out.println("---------------------------"); 
+    //     if(gcdate.get(GregorianCalendar.DAY_OF_MONTH) == PHdate.get(GregorianCalendar.DAY_OF_MONTH) && gcdate.get(GregorianCalendar.MONTH) == PHdate.get(GregorianCalendar.MONTH) ){ 
+    //         System.out.println("IS SAME"); 
+    //     } 
+
     
         
-        //  ChangePriceAdjustment(); 
-        // int size = publicHolidayList.size();
-        // System.out.println(size);
+     } 
 
-        //String date = "18-Jan-2002"; 
-        //GregorianCalendar gdate = stringToDate(date);
-        //System.out.println(gdate);
 
-        // for(int i=0; i<size; i++){ 
-        //     GregorianCalendar PHdate = publicHolidayList.get(i); 
-        //     if(gdate.get(GregorianCalendar.DAY_OF_MONTH) == PHdate.DAY_OF_MONTH ){ 
-        //        System.out.println("yes can work!"); 
-        //     } 
-            
-        //     // AND date.get(GregorianCalendar.MONTH) == PHdate.MONTH
 
-            
-        // }
-    }*/
+
+      
+
+
+    
+      
+    // }
 
 } 
 

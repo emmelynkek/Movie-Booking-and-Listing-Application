@@ -106,14 +106,18 @@ public class TicketPrice implements Serializable{
 
             for(int i=0; i<size; i++){ 
                 GregorianCalendar PHdate = phl.getList().get(i); 
+
                 if(date.get(GregorianCalendar.DAY_OF_MONTH) == PHdate.get(GregorianCalendar.DAY_OF_MONTH) && date.get(GregorianCalendar.MONTH) == PHdate.get(GregorianCalendar.MONTH) )
                     priceAdjustment += this.publicHolPA; 
+
             } 
 
             if (date.get(GregorianCalendar.DAY_OF_WEEK) == GregorianCalendar.MONDAY
                     || date.get(GregorianCalendar.DAY_OF_WEEK) == GregorianCalendar.TUESDAY
                     || date.get(GregorianCalendar.DAY_OF_WEEK) == GregorianCalendar.WEDNESDAY) {
+                        
                 priceAdjustment -= weekdayPA;
+
                 if (movie.getType() == CinemaMovie.Type.THREE_D) {
                     priceAdjustment += movTypePA;
                 }
@@ -122,19 +126,21 @@ public class TicketPrice implements Serializable{
                     || date.get(GregorianCalendar.DAY_OF_WEEK) == GregorianCalendar.SATURDAY
                     || date.get(GregorianCalendar.DAY_OF_WEEK) == GregorianCalendar.SUNDAY) {
                 priceAdjustment += weekendPA;
+
                 if (movie.getType() == CinemaMovie.Type.THREE_D) {
                     priceAdjustment += movTypePA;
+                    
                 }
             }
-            if (movie.getType() == CinemaMovie.Type.BLOCKBUSTER) {
-                priceAdjustment += movTypePA;
-            }
+
             
             if (cinema.getCinemaType() == Cinema.cinemaType.PLATINUM) {
                 priceAdjustment += cinemaTypePA;
+                
             }
 
         }
+        
         return this.basePrice + priceAdjustment;
     }
 

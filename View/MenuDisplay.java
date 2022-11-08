@@ -33,7 +33,7 @@ public class MenuDisplay {
         System.out.println("Press 4 to add new Movie showtime");
         System.out.println("Press 5 to update Movie showtime");
         System.out.println("Press 6 to remove Movie showtime");
-        System.out.println("Press 7 to change ticket prices");
+        System.out.println("Press 7 to change or view ticket prices");
         System.out.println("Press 8 to add public holidays");
         System.out.println("Press 9 to change Top 5 List sorting");
         System.out.println("Press 0 to Exit");
@@ -67,7 +67,8 @@ public class MenuDisplay {
         System.out.println("(6) Change public holiday price adjustment");
         System.out.println("(7) Change movie type price adjustment");
         System.out.println("(8) Change cinema type price adjustment");
-        System.out.println("(9) Exit");
+        System.out.println("(9) View current prices");
+        System.out.println("(10) exit");
         System.out.println("Enter the number of your choice: "); 
     }
 
