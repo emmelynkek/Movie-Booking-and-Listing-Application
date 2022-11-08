@@ -114,6 +114,34 @@ public class SystemManager{
                     ctpa = sc.nextDouble();
                     pa.setCinemaTypePA(ctpa);
                     break; 
+
+                case 9: 
+                    System.out.println("Printing current price adjustments...: "); 
+                    System.out.println("Base Price: "); 
+                    System.out.println(pa.getBasePrice()); 
+                    System.out.println("Elderly Price Adjustment (-):"); 
+                    System.out.println(pa.getElderlyPA()); 
+                    System.out.println("Student Price Adjustment (-):"); 
+                    System.out.println(pa.getStudentPA()); 
+                    System.out.println("Weekday Price Adjustment (-):"); 
+                    System.out.println(pa.getWeekdayPA()); 
+                    System.out.println("Weekend Price Adjustment (+):"); 
+                    System.out.println(pa.getWeekendPA()); 
+                    System.out.println("Public Holiday Price Adjustment (+):"); 
+                    System.out.println(pa.getPubHolPA()); 
+                    System.out.println("Movie Type Price Adjustment (+):"); 
+                    System.out.println(pa.getMovieTypePA()); 
+                    System.out.println("Cinema Type Price Adjustment (+):"); 
+                    System.out.println(pa.getCinemaTypePA()); 
+                  
+                
+
+
+
+
+    
+    
+                    break; 
                 
                 default: 
                     return; 

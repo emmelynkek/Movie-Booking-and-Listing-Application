@@ -67,7 +67,8 @@ public class MenuDisplay {
         System.out.println("(6) Change public holiday price adjustment");
         System.out.println("(7) Change movie type price adjustment");
         System.out.println("(8) Change cinema type price adjustment");
-        System.out.println("(9) Exit");
+        System.out.println("(9) View current prices");
+        System.out.println("(10) exit");
         System.out.println("Enter the number of your choice: "); 
     }
 
