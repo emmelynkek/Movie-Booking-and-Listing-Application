@@ -171,15 +171,15 @@ public class SeatLayout implements Serializable{
     }
 
 
-    public static void main(String[] args){
-        //testing methods
+    // public static void main(String[] args){
+    //     //testing methods
 
-        // SeatLayout s = new SeatLayout(); 
-        SeatLayout s = new SeatLayout();
-        s.setSeatavailability(5, 5, false); //booking seat
-        System.out.println(s.getSeatavailability(5, 5)); //shd return false when booked 
-        System.out.println(s.getSeatavailability(4, 4)); //shd return true 
-        s.getSeatlayout();
+    //     // SeatLayout s = new SeatLayout(); 
+    //     SeatLayout s = new SeatLayout();
+    //     s.setSeatavailability(5, 5, false); //booking seat
+    //     System.out.println(s.getSeatavailability(5, 5)); //shd return false when booked 
+    //     System.out.println(s.getSeatavailability(4, 4)); //shd return true 
+    //     s.getSeatlayout();
        
-    }
+    // }
 }
