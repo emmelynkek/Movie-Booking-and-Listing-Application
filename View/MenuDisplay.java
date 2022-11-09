@@ -1,39 +1,39 @@
 package View;
 
 public class MenuDisplay {
-public static void printLogin(){
+    public static void printLogin() {
         System.out.printf("\n");
         System.out.println(" +-------------------------+");
-        System.out.println(" | Press 1 for User Login  |");                                            
-        System.out.println(" |                         |");                                             
-        System.out.println(" | Press 2 for Admin Login |");                                             
-        System.out.println(" |                         |");                                             
-        System.out.println(" | Press any key to Exit   |");                                             
+        System.out.println(" | Press 1 for User Login  |");
+        System.out.println(" |                         |");
+        System.out.println(" | Press 2 for Admin Login |");
+        System.out.println(" |                         |");
+        System.out.println(" | Press any key to Exit   |");
         System.out.println(" +-------------------------+");
         System.out.printf("\n");
     }
 
-    public static void printUserMenu(){
+    public static void printUserMenu() {
         System.out.printf("\n");
-        System.out.println("+------------------------------------------+");                            
-        System.out.println("| Press 1 to view Movie List               |");                            
-        System.out.println("|                                          |");                            
-        System.out.println("| Press 2 to view Top 5 Ranking Movie List |");                            
-        System.out.println("|                                          |");                            
-        System.out.println("| Press 3 to view Movie details            |");                           
-        System.out.println("|                                          |");                            
-        System.out.println("| Press 4 to add Movie review              |");                            
-        System.out.println("|                                          |");                            
-        System.out.println("| Press 5 to book and purchase ticket      |");                           
-        System.out.println("|                                          |");                            
-        System.out.println("| Press 6 to view booking history          |");                            
-        System.out.println("|                                          |");                            
-        System.out.println("| Press 7 to Exit                          |");                            
-        System.out.println("+------------------------------------------+");  
+        System.out.println("+------------------------------------------+");
+        System.out.println("| Press 1 to view Movie List               |");
+        System.out.println("|                                          |");
+        System.out.println("| Press 2 to view Top 5 Ranking Movie List |");
+        System.out.println("|                                          |");
+        System.out.println("| Press 3 to view Movie details            |");
+        System.out.println("|                                          |");
+        System.out.println("| Press 4 to add Movie review              |");
+        System.out.println("|                                          |");
+        System.out.println("| Press 5 to book and purchase ticket      |");
+        System.out.println("|                                          |");
+        System.out.println("| Press 6 to view booking history          |");
+        System.out.println("|                                          |");
+        System.out.println("| Press 7 to Exit                          |");
+        System.out.println("+------------------------------------------+");
         System.out.printf("\n");
     }
 
-    public static void printAdminMenu(){
+    public static void printAdminMenu() {
         System.out.printf("\n");
         System.out.println("+-----------------------------------------+");
         System.out.println("| Press 1 to add new Movie                |");
@@ -59,7 +59,7 @@ public static void printLogin(){
         System.out.printf("\n");
     }
 
-    public static void printAgeMenu(){
+    public static void printAgeMenu() {
         System.out.printf("\n");
         System.out.println("Please select the movie-goer's age category: ");
         System.out.println("+-------------------+");
@@ -72,7 +72,7 @@ public static void printLogin(){
         System.out.printf("\n");
     }
 
-    public static void printSortMenu(){
+    public static void printSortMenu() {
         System.out.printf("\n");
         System.out.println("+------------------------------+");
         System.out.println("| Sort Top 5 List by:          |");
@@ -84,7 +84,7 @@ public static void printLogin(){
         System.out.printf("\n");
     }
 
-    public static void printPriceAdjustmentMenu(){
+    public static void printPriceAdjustmentMenu() {
         System.out.printf("\n");
         System.out.println("+--------------------------------------------+");
         System.out.println("| (1) Change base price                      |");
@@ -103,11 +103,13 @@ public static void printLogin(){
         System.out.println("|                                            |");
         System.out.println("| (8) Change cinema type price adjustment    |");
         System.out.println("|                                            |");
-        System.out.println("| (9) View current prices                    |");
+        System.out.println("| (9) Change seat type price adjustment      |");
         System.out.println("|                                            |");
-        System.out.println("| (10) exit                                  |");
+        System.out.println("| (10) View current price adjustments        |");
+        System.out.println("|                                            |");
+        System.out.println("| (11) exit                                  |");
         System.out.println("+--------------------------------------------+");
-        System.out.println("Enter the number of your choice: "); 
+        System.out.println("Enter the number of your choice: ");
     }
 
 }

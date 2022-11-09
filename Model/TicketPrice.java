@@ -12,6 +12,7 @@ public class TicketPrice implements Serializable{
     private double publicHolPA;
     private double movTypePA;
     private double cinemaTypePA;
+    private double seatTypePA;
 
     public enum MovieGoerAge{
         ADULT,
@@ -27,7 +28,8 @@ public class TicketPrice implements Serializable{
         this.weekendPA = 2.00;
         this.publicHolPA = 2.00; 
         this.movTypePA = 2.00;  
-        this.cinemaTypePA =10; 
+        this.cinemaTypePA = 10;
+        this.seatTypePA = 10;
     }
 
     public double getBasePrice() {
@@ -53,8 +55,13 @@ public class TicketPrice implements Serializable{
     public double getCinemaTypePA() {
         return cinemaTypePA;
     }
+
     public double getPubHolPA() {
         return publicHolPA;
+    }
+
+    public double getSeatPA() {
+        return seatTypePA;
     }
 
     public void setBasePrice(double bp) {
@@ -88,8 +95,11 @@ public class TicketPrice implements Serializable{
     public void setPubHolPA(double phpa) {
         this.publicHolPA = phpa;
     }
+    public void setSeatPA(double stpa) {
+        this.seatTypePA = stpa;
+    }
 
-    public double getAdjustedPrice(MovieGoerAge age, Cinema cinema, GregorianCalendar date, CinemaMovie movie, PublicHolidayList phl) {
+    public double getAdjustedPrice(MovieGoerAge age, Cinema cinema, GregorianCalendar date, CinemaMovie movie, PublicHolidayList phl, int seatRow) {
         double priceAdjustment = 0;
         // assuming that the original price for Adults is $9
     
@@ -136,7 +146,10 @@ public class TicketPrice implements Serializable{
             
             if (cinema.getCinemaType() == Cinema.cinemaType.PLATINUM) {
                 priceAdjustment += cinemaTypePA;
-                
+
+            }
+            if (seatRow == 7 || seatRow == 8) {
+                priceAdjustment += seatTypePA;
             }
 
         }

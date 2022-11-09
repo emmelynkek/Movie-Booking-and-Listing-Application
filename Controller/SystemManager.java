@@ -129,9 +129,16 @@ public class SystemManager{
                     double ctpa; 
                     ctpa = sc.nextDouble();
                     pa.setCinemaTypePA(ctpa);
+                    break;
+                    
+                case 9: 
+                    System.out.println("Enter seat type price adjustment: "); 
+                    double stpa; 
+                    stpa = sc.nextDouble();
+                    pa.setSeatPA(stpa);
                     break; 
 
-                case 9: 
+                case 10: 
                     System.out.println("Printing current price adjustments...: "); 
                     System.out.println("Base Price: "); 
                     System.out.println(pa.getBasePrice()); 
@@ -148,15 +155,9 @@ public class SystemManager{
                     System.out.println("Movie Type Price Adjustment (+):"); 
                     System.out.println(pa.getMovieTypePA()); 
                     System.out.println("Cinema Type Price Adjustment (+):"); 
-                    System.out.println(pa.getCinemaTypePA()); 
-                  
-                
-
-
-
-
-    
-    
+                    System.out.println(pa.getCinemaTypePA());
+                    System.out.println("Seat Type Price Adjustment (+):"); 
+                    System.out.println(pa.getSeatPA()); 
                     break; 
                 
                 default: 

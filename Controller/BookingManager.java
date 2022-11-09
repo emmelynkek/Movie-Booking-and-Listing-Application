@@ -85,8 +85,6 @@ public class BookingManager {
 
         GregorianCalendar cal = PublicHoliday.stringToDate(st.getDate());
 
-        double price = priceCalculator(cinema, movie, cal, phl,tp);
-
         // retrive seat layout from showtime object
         SeatLayout seatingPlan = st.getSeatLayout();
 
@@ -95,6 +93,8 @@ public class BookingManager {
             System.out.println("This cinema is fully booked.");
         } else {
             String seatID = seatSelector(seatingPlan);
+            int seatRow = seatID.charAt(1) - '0';
+            double price = priceCalculator(cinema, movie, cal, phl, tp, seatRow);
             Booking booking = new Booking();
             booking.setMovieTitle(movie.getMovie().getTitle());
             booking.setShowTime(st);
@@ -111,7 +111,8 @@ public class BookingManager {
 
     // the price of the ticket will be calculated based on the ages, movie show time
     // etc
-    public static double priceCalculator(Cinema cinema, CinemaMovie movie, GregorianCalendar date,PublicHolidayList phl, TicketPrice tp) {
+    public static double priceCalculator(Cinema cinema, CinemaMovie movie, GregorianCalendar date,
+            PublicHolidayList phl, TicketPrice tp, int SeatRow) {
         Scanner sc = new Scanner(System.in);
         MovieGoerAge age = null;
         MenuDisplay.printAgeMenu();
@@ -135,7 +136,7 @@ public class BookingManager {
                     break;
             }
         }
-        double finalPrice = tp.getAdjustedPrice(age, cinema, date, movie, phl);
+        double finalPrice = tp.getAdjustedPrice(age, cinema, date, movie, phl, SeatRow);
         return finalPrice;
     }
 
