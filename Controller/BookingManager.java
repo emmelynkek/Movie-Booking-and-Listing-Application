@@ -37,7 +37,7 @@ public class BookingManager {
         System.out.println("Movie: " + booking.getMovieTitle());
         System.out.printf("Movie Date & Time: %s %s to %s\n", showTime.getDate(), showTime.getStartTime(),
                 showTime.getEndTime());
-        System.out.println("Total Paid: $" + booking.getTotalPrice());
+        System.out.printf("Total Paid: $%.2f\n", booking.getTotalPrice());
         System.out.println("Booked By: " + booking.getUserID());
         System.out.printf("\n");
     }
