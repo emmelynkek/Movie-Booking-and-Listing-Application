@@ -128,6 +128,17 @@ public class SeatLayout implements Serializable{
         }
         }
         System.out.println();
+        System.out.println("                        |Entrance|                           ");
+        System.out.println("-------------------------------------------------------------");
+        System.out.println("LEGEND:");
+        System.out.println("( ): premium seats");
+        System.out.println("[ ]: premium seats");
+        System.out.println("(x) / [x]: booked seats");
+        System.out.println();
+        
+        
+
+
 
 
     }
@@ -171,15 +182,15 @@ public class SeatLayout implements Serializable{
     }
 
 
-    // public static void main(String[] args){
-    //     //testing methods
+    public static void main(String[] args){
+        //testing methods
 
-    //     // SeatLayout s = new SeatLayout(); 
-    //     SeatLayout s = new SeatLayout();
-    //     s.setSeatavailability(5, 5, false); //booking seat
-    //     System.out.println(s.getSeatavailability(5, 5)); //shd return false when booked 
-    //     System.out.println(s.getSeatavailability(4, 4)); //shd return true 
-    //     s.getSeatlayout();
+        // SeatLayout s = new SeatLayout(); 
+        SeatLayout s = new SeatLayout();
+        s.setSeatavailability(5, 5, false); //booking seat
+        System.out.println(s.getSeatavailability(5, 5)); //shd return false when booked 
+        System.out.println(s.getSeatavailability(4, 4)); //shd return true 
+        s.getSeatlayout();
        
-    // }
+    }
 }
