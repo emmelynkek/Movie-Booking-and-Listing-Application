@@ -25,7 +25,7 @@ public class Review implements Serializable{
         this.rating = rating;
     }
 
-    public float getRating(){
+    public int getRating(){
         return rating;
     }
 
