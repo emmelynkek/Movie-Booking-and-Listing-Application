@@ -51,22 +51,60 @@ public class SeatLayout implements Serializable{
 
         System.out.println();
 
-        for (int i = 0; i < row; i++) {
+        for (int i = 0; i < row; i++) { //for each row
             if(i != 9){ 
-                System.out.print(i+1 + "   ");
+                System.out.print(i+1 + "   "); //if one digit row, just add two spacings
 
             }
             else{ 
-                System.out.print(i+1 + "  ");
+                System.out.print(i+1 + "  "); //if two digit rows, add one spacing
 
             }
 
+            if (i ==3 || i ==4 ){ //premium for rows 4 and 5 
+
+                for (int j = 0; j < column ; j++) {
+               
+                    if (seats[i][j].getAvailable() == true){ 
+                       if(j==4){ //for i col 5, add two spacings after
+                        
+                        System.out.print("( )" + "    "); 
+    
+    
+                       }else{ 
+                        System.out.print("( )" + "  ");
+    
+                       }
+    
+                        
+                    }else{ 
+                        if(j==4){ 
+                            System.out.print("(x)" + "    ");
+    
+                        }
+                        else {System.out.print("(x)" + "  ");} 
+                    }
+    
+    
+                    
+                }
+                System.out.println();
+    
+
+
+
+
+            }
+
+            else {
 
             for (int j = 0; j < column ; j++) {
                
                 if (seats[i][j].getAvailable() == true){ 
-                   if(j==4){ 
-                    System.out.print("[ ]" + "    ");
+                   if(j==4){ //for i col 5, add two spacings after
+                    
+                    System.out.print("[ ]" + "    "); 
+
 
                    }else{ 
                     System.out.print("[ ]" + "  ");
@@ -86,6 +124,8 @@ public class SeatLayout implements Serializable{
                 
             }
             System.out.println();
+
+        }
         }
         System.out.println();
 
@@ -131,7 +171,7 @@ public class SeatLayout implements Serializable{
     }
 
 
-    /*public static void main(String[] args){
+    public static void main(String[] args){
         //testing methods
 
         // SeatLayout s = new SeatLayout(); 
@@ -141,5 +181,5 @@ public class SeatLayout implements Serializable{
         System.out.println(s.getSeatavailability(4, 4)); //shd return true 
         s.getSeatlayout();
        
-    }*/
+    }
 }
