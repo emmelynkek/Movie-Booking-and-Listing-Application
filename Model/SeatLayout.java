@@ -61,7 +61,7 @@ public class SeatLayout implements Serializable{
 
             }
 
-            if (i ==3 || i ==4 ){ //premium for rows 4 and 5 
+            if (i ==6 || i ==7 ){ //premium for rows 7 and 8
 
                 for (int j = 0; j < column ; j++) {
                
