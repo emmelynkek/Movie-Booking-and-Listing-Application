@@ -61,7 +61,7 @@ public class SeatLayout implements Serializable{
 
             }
 
-            if (i ==3 || i ==4 ){ //premium for rows 4 and 5 
+            if (i ==6 || i ==7 ){ //premium for rows 7 and 8
 
                 for (int j = 0; j < column ; j++) {
                
@@ -132,7 +132,7 @@ public class SeatLayout implements Serializable{
         System.out.println("-------------------------------------------------------------");
         System.out.println("LEGEND:");
         System.out.println("( ): premium seats");
-        System.out.println("[ ]: premium seats");
+        System.out.println("[ ]: standard seats");
         System.out.println("(x) / [x]: booked seats");
         System.out.println();
         

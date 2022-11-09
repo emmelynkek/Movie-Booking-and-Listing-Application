@@ -34,7 +34,7 @@ public class ShowTimeManager{ // Contains static methods to add/edit/remove Show
             return;
         showTime.setCinemaCode(cinema.getCode());
 
-        if(!cinemaMovie.isValidShowTime(showTime))  // Check if new show time will clash with show times in database 
+        if(!cinemaMovie.isValidShowTime(showTime))
             return;
 
         cinemaMovie.setShowTimes(showTime);
@@ -106,8 +106,7 @@ public class ShowTimeManager{ // Contains static methods to add/edit/remove Show
         else if (choice==3){
             System.out.println("Enter new date (format: dd-mmm-yyyy): ");
             input = sc.nextLine();
-            showTime.setDate(input);
-
+            
             ShowTime temp = new ShowTime();  // Create new ShowTime obj to check if new show time will clash with show times in database              
             temp.setCinemaCode(showTime.getCinemaCode());
             temp.setCineplexName(showTime.getCineplexName());
@@ -117,6 +116,7 @@ public class ShowTimeManager{ // Contains static methods to add/edit/remove Show
             if(!cinemaMovie.isValidShowTime(temp))
                 return;
 
+            showTime.setDate(input);
             System.out.println("Date updated!");
         }
         else if (choice==4){
@@ -134,7 +134,8 @@ public class ShowTimeManager{ // Contains static methods to add/edit/remove Show
             if(!cinemaMovie.isValidShowTime(temp))
                 return;
 
-            showTime.setStartTime(input);
+            showTime.setStartTime(start);
+            showTime.setEndTime(end);
             System.out.println("Start & end time updated!");
         }
     }

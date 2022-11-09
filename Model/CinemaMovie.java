@@ -140,7 +140,7 @@ public class CinemaMovie implements Serializable{
                 int stStart = Integer.parseInt(st.getStartTime());
                 int stEnd = Integer.parseInt(st.getEndTime());
                 int timeStart = Integer.parseInt(time.getStartTime());
-                int timeEnd = Integer.parseInt(st.getEndTime());
+                int timeEnd = Integer.parseInt(time.getEndTime());
                 if ((stStart >= timeStart && stStart <= timeEnd) || (stEnd >= timeStart && stEnd <= timeEnd)){
                     System.out.println("Error! Input show time clashes with show times in database.");
                     return false;
