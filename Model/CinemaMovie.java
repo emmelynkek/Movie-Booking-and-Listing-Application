@@ -94,24 +94,33 @@ public class CinemaMovie implements Serializable{
 
     public ShowTime searchShowTime(){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter showtime date (in dd-MMM-YYYY format):");
-        String date = sc.nextLine();
-        System.out.println("Enter movie start time (in military time format, e.g. 0100 for 1am):");
-        String start = sc.nextLine();
-        // System.out.println("Enter end time:");
-        // String end = sc.nextLine();
-        System.out.println("Enter Cineplex name:");
-        String name = sc.nextLine();
-        // System.out.println("Enter cinema code:");
-        // String code = sc.nextLine();
-        for (ShowTime showTime : showTimes){
-            if (showTime.getCineplexName().equals(name) && showTime.getDate().equals(date) && 
-                showTime.getStartTime().equals(start)){
-                return showTime;
-            }
+        int i=1;
+
+        if (showTimes.isEmpty()){
+            System.out.println("Error! Movie has no show times.");
+            return null;
         }
-        System.out.println("Error! Showtime not found.");
-        return null;
+
+        for (ShowTime showTime : showTimes){
+            System.out.printf("(%d) ", i);
+            showTime.displayShowTimes();
+            i++;
+        }
+        System.out.println("Select showtime: ");
+        String input = sc.nextLine();
+        try{
+            int index = Integer.parseInt(input);
+            if (index > showTimes.size() || index<1){
+                System.out.println("Error! Please select a showtime from the list.");
+                return null;
+            }
+            return showTimes.get(index-1);
+        }
+        catch (NumberFormatException e){
+            System.out.println("Error! Please select a showtime from the list.");
+            return null;
+        }
+
     }
 
     public void updateOverallRating(){  // Updates the overall rating. Called whenever a new Review is added
@@ -122,9 +131,24 @@ public class CinemaMovie implements Serializable{
             temp += review.getRating();
         }
         overallRating = temp / reviews.size();
-        //overallRating = String.format("%.1f", avg);
+    }
+
+    public Boolean isValidShowTime(ShowTime st){   // Returns false if start & end times of input ShowTime clashes with start & end times of other ShowTimes
+        for (ShowTime time : showTimes){
+            if (st.getCineplexName().equals(time.getCineplexName()) && st.getCinemaCode().equals(time.getCinemaCode())
+                && st.getDate().equals(time.getDate())){
+                int stStart = Integer.parseInt(st.getStartTime());
+                int stEnd = Integer.parseInt(st.getEndTime());
+                int timeStart = Integer.parseInt(time.getStartTime());
+                int timeEnd = Integer.parseInt(st.getEndTime());
+                if ((stStart >= timeStart && stStart <= timeEnd) || (stEnd >= timeStart && stEnd <= timeEnd)){
+                    System.out.println("Error! Input show time clashes with show times in database.");
+                    return false;
+                }        
+            }
+        }
+        return true;
     }
 
 }
-
 
