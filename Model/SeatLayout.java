@@ -132,7 +132,7 @@ public class SeatLayout implements Serializable{
         System.out.println("-------------------------------------------------------------");
         System.out.println("LEGEND:");
         System.out.println("( ): premium seats");
-        System.out.println("[ ]: premium seats");
+        System.out.println("[ ]: standard seats");
         System.out.println("(x) / [x]: booked seats");
         System.out.println();
         
