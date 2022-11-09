@@ -58,8 +58,8 @@ public class ShowTime implements Serializable{
     }
 
     public void displayShowTimes(){
-        System.out.print(cineplexName);
-        System.out.println(" "+date+" "+startTime+" to "+endTime);
+        System.out.printf("%s | Cinema %s | ",cineplexName, cinemaCode);
+        System.out.println(date+" "+startTime+" to "+endTime);
     }
 
 }
