@@ -40,7 +40,7 @@ public class SystemManager{
         System.out.println("Enter the date in format DD-MMM-YYYY:");
         String date = sc.nextLine(); 
         GregorianCalendar date1 = stringToDate(date); 
-        System.out.print(date1);
+        // System.out.print(date1);
     
 
         PublicHoliday ph = new PublicHoliday(name, date1);
