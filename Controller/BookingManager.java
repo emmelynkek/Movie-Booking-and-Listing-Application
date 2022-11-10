@@ -71,10 +71,7 @@ public class BookingManager {
         } else if (movie.getStatus() == Status.END_OF_SHOWING || movie.getStatus() == Status.COMING_SOON) {
             System.out.println("Error! Cannot book tickets for " + movie.getStatus() + " movie.");
             return;
-        } else {
-            for (ShowTime st : movie.getShowTimes())
-                st.displayShowTimes();
-        }
+        } 
 
         ShowTime st = movie.searchShowTime();
         if (st == null)
@@ -89,23 +86,28 @@ public class BookingManager {
         SeatLayout seatingPlan = st.getSeatLayout();
 
         // seat selection
-        if (seatingPlan.isFull() == true) {
-            System.out.println("This cinema is fully booked.");
-        } else {
-            String seatID = seatSelector(seatingPlan);
-            int seatRow = seatID.charAt(1) - '0';
-            double price = priceCalculator(cinema, movie, cal, phl, tp, seatRow);
-            Booking booking = new Booking();
-            booking.setMovieTitle(movie.getMovie().getTitle());
-            booking.setShowTime(st);
-            booking.setTransactionID(st.getCinemaCode());
-            booking.setTotalPrice(price);
-            booking.setUserID(user.getId());
-            booking.setSeatID(seatID);
-            System.out.println("Booking success!");
-            bList.addBooking(booking); // add the booking to Booking List
-            printBooking(booking);
-            movie.setTicketSales(movie.getTicketSales() + price);
+        try{
+            if (seatingPlan.isFull() == true) {
+                System.out.println("This cinema is fully booked.");
+            } else {
+                String seatID = seatSelector(seatingPlan);
+                int seatRow = seatID.charAt(1) - '0';
+                double price = priceCalculator(cinema, movie, cal, phl, tp, seatRow);
+                Booking booking = new Booking();
+                booking.setMovieTitle(movie.getMovie().getTitle());
+                booking.setShowTime(st);
+                booking.setTransactionID(st.getCinemaCode());
+                booking.setTotalPrice(price);
+                booking.setUserID(user.getId());
+                booking.setSeatID(seatID);
+                System.out.println("Booking success!");
+                bList.addBooking(booking); // add the booking to Booking List
+                printBooking(booking);
+                movie.setTicketSales(movie.getTicketSales() + price);
+            }
+        }
+        catch (ArrayIndexOutOfBoundsException e){
+            System.out.println("Error! Please select a valid row & column number.");
         }
     }
 
