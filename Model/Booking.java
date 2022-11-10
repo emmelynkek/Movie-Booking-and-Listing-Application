@@ -9,7 +9,7 @@ public class Booking implements Serializable{
     private ShowTime showTime; // Contains info about date, time, cinema code, cineplex name and seat layout
     private String transactionID;
     private double totalPrice;
-    private String userId;
+    private User user;
     private String seatID;
 
     public void setShowTime(ShowTime showTime){
@@ -47,12 +47,12 @@ public class Booking implements Serializable{
         return this.totalPrice;
     }
 
-    public void setUserID(String id) {
-        this.userId = id;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public String getUserID() {
-        return this.userId;
+    public User getUser() {
+        return this.user;
     }
 
     public void setSeatID(String seatID) {

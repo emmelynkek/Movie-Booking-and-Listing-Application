@@ -369,7 +369,7 @@ public class SerializeDB{
 		showTime.getSeatLayout().setSeatavailability(5, 5, false);
 		booking.setTransactionID("R1");
 		booking.setTotalPrice(10.5d);
-		booking.setUserID(user.getId());
+		booking.setUser(user);
 		booking.setSeatID("R5C5");
 		bList.addBooking(booking);
 

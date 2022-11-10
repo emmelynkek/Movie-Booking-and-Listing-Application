@@ -78,86 +78,93 @@ public class SystemManager{
                     double bp; 
                     bp = sc.nextDouble();
                     pa.setBasePrice(bp);
+                    System.out.println("Base price updated!");
                     break; 
 
                 case 2: 
-                    System.out.println("Enter student price adjustment: "); 
+                    System.out.println("Enter student discount: "); 
                     double spa; 
                     spa = sc.nextDouble();
                     pa.setStudentPA(spa);
-               
-                break; 
+                    System.out.println("Student discount updated!");
+                    break; 
 
                 case 3: 
-                    System.out.println("Enter elderly price adjustment: "); 
+                    System.out.println("Enter senior citizen discount: "); 
                     double epa; 
                     epa = sc.nextDouble();
                     pa.setElderlyPA(epa);
+                    System.out.println("Senior Citizen discount updated!");
                     break; 
 
                 case 4: 
-                    System.out.println("Enter weekday price adjustment: "); 
+                    System.out.println("Enter Mon/Tue/Wed discount: "); 
                     double wdpa; 
                     wdpa = sc.nextDouble();
                     pa.setWeekdayPA(wdpa);
+                    System.out.println("Mon/Tue/Wed discount updated!");
                     break; 
            
             
                 case 5: 
-                    System.out.println("Enter weekend price adjustment: "); 
+                    System.out.println("Enter weekend surcharge: "); 
                     double wpa; 
                     wpa = sc.nextDouble();
                     pa.setWeekendPA(wpa);
+                    System.out.println("Weekend surcharge updated!");
                     break; 
 
                 case 6: 
-                    System.out.println("Enter public holiday price adjustment: "); 
+                    System.out.println("Enter public holiday surcharge: "); 
                     double phpa; 
                     phpa = sc.nextDouble();
                     pa.setPubHolPA(phpa);
+                    System.out.println("Public Holiday surcharge updated!");
                     break; 
 
                 case 7: 
-                    System.out.println("Enter movie type price adjustment: "); 
-                    double mtpa; 
-                    mtpa = sc.nextDouble();
-                    pa.setMovieTypePA(mtpa);
+                    System.out.println("Enter 3D movie surcharge: "); 
+                    double tdpa; 
+                    tdpa = sc.nextDouble();
+                    pa.set3DPA(tdpa);
+                    System.out.println("3D movie surcharge updated!");
+                    break;
+                case 8: 
+                    System.out.println("Enter blockbuster movie surcharge: "); 
+                    double bbpa; 
+                    bbpa = sc.nextDouble();
+                    pa.setBlockbusterPA(bbpa);;
+                    System.out.println("Blockbuster movie surcharge updated!");
                     break; 
 
-                case 8: 
-                    System.out.println("Enter cinema type price adjustment: "); 
+                case 9: 
+                    System.out.println("Enter platinum suite surcharge: "); 
                     double ctpa; 
                     ctpa = sc.nextDouble();
                     pa.setCinemaTypePA(ctpa);
+                    System.out.println("Platinum suites surcharge updated!");
                     break;
                     
-                case 9: 
-                    System.out.println("Enter seat type price adjustment: "); 
+                case 10: 
+                    System.out.println("Enter premium seat surcharge: "); 
                     double stpa; 
                     stpa = sc.nextDouble();
                     pa.setSeatPA(stpa);
+                    System.out.println("Premium seat surcharge updated!");
                     break; 
 
-                case 10: 
+                case 11: 
                     System.out.println("Printing current price adjustments...: "); 
-                    System.out.println("Base Price: "); 
-                    System.out.println(pa.getBasePrice()); 
-                    System.out.println("Elderly Price Adjustment (-):"); 
-                    System.out.println(pa.getElderlyPA()); 
-                    System.out.println("Student Price Adjustment (-):"); 
-                    System.out.println(pa.getStudentPA()); 
-                    System.out.println("Weekday Price Adjustment (-):"); 
-                    System.out.println(pa.getWeekdayPA()); 
-                    System.out.println("Weekend Price Adjustment (+):"); 
-                    System.out.println(pa.getWeekendPA()); 
-                    System.out.println("Public Holiday Price Adjustment (+):"); 
-                    System.out.println(pa.getPubHolPA()); 
-                    System.out.println("Movie Type Price Adjustment (+):"); 
-                    System.out.println(pa.getMovieTypePA()); 
-                    System.out.println("Cinema Type Price Adjustment (+):"); 
-                    System.out.println(pa.getCinemaTypePA());
-                    System.out.println("Seat Type Price Adjustment (+):"); 
-                    System.out.println(pa.getSeatPA()); 
+                    System.out.printf("Base Price: $%.2f\n", pa.getBasePrice());
+                    System.out.printf("Student Discount: $%.2f\n", pa.getStudentPA());
+                    System.out.printf("Senior Citizen Discount: $%.2f\n", pa.getElderlyPA());
+                    System.out.printf("Mon/Tue/Wed Discount: $%.2f\n", pa.getWeekdayPA());
+                    System.out.printf("Weekend Surcharge: $%.2f\n", pa.getWeekendPA());
+                    System.out.printf("Public Holiday Surcharge: $%.2f\n", pa.getPubHolPA());
+                    System.out.printf("3D Movie Surcharge: $%.2f\n", pa.get3DPA());
+                    System.out.printf("Blockbuster Movie Surcharge: $%.2f\n", pa.getBlockbusterPA());
+                    System.out.printf("Platinum Suite Surcharge: $%.2f\n", pa.getCinemaTypePA());
+                    System.out.printf("Premium Seat Surcharge: $%.2f\n", pa.getSeatPA());
                     break; 
                 
                 default: 

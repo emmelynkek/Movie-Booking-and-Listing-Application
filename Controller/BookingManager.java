@@ -38,8 +38,9 @@ public class BookingManager {
         System.out.printf("Movie Date & Time: %s %s to %s\n", showTime.getDate(), showTime.getStartTime(),
                 showTime.getEndTime());
         System.out.printf("Total Paid: $%.2f\n", booking.getTotalPrice());
-        System.out.println("Booked By: " + booking.getUserID());
-        System.out.printf("\n");
+        System.out.println("Booked By: " + booking.getUser().getId());
+        System.out.println("Mobile Number: " + booking.getUser().getNum());
+        System.out.println("Email Address: "+booking.getUser().getEmail()+"\n");
     }
 
     public static void printBookingHist(BookingList bookingList, User user) {
@@ -48,7 +49,7 @@ public class BookingManager {
             return;
         }
         for (Booking booking : bookingList.getList()) {
-            if (booking.getUserID().equals(user.getId()))
+            if (booking.getUser().getId().equals(user.getId()))
                 printBooking(booking);
         }
     }
@@ -60,7 +61,8 @@ public class BookingManager {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter Movie Title to book ticket for: ");
         String input = sc.nextLine();
-
+        String seatIDs;
+        double totprice;
         CinemaMovie movie = mList.searchMovie(input);
         if (movie == null)
             return;
@@ -71,7 +73,7 @@ public class BookingManager {
         } else if (movie.getStatus() == Status.END_OF_SHOWING || movie.getStatus() == Status.COMING_SOON) {
             System.out.println("Error! Cannot book tickets for " + movie.getStatus() + " movie.");
             return;
-        } 
+        }
 
         ShowTime st = movie.searchShowTime();
         if (st == null)
@@ -86,27 +88,43 @@ public class BookingManager {
         SeatLayout seatingPlan = st.getSeatLayout();
 
         // seat selection
-        try{
+        try {
             if (seatingPlan.isFull() == true) {
                 System.out.println("This cinema is fully booked.");
             } else {
                 String seatID = seatSelector(seatingPlan);
+                seatIDs = seatID;
                 int seatRow = seatID.charAt(1) - '0';
                 double price = priceCalculator(cinema, movie, cal, phl, tp, seatRow);
+                totprice = price;
+                System.out.println("Enter selection:");
+                System.out.println("1: Select another seat");
+                System.out.println("2: Checkout");
+                int choice = sc.nextInt();
+                while (choice == 1) {
+                    seatID = seatSelector(seatingPlan);
+                    seatIDs = seatIDs + " " + seatID;
+                    seatRow = seatID.charAt(1) - '0';
+                    price = priceCalculator(cinema, movie, cal, phl, tp, seatRow);
+                    totprice += price;
+                    System.out.println("Enter selection:");
+                    System.out.println("1: Select another seat");
+                    System.out.println("2: Checkout");
+                    choice = sc.nextInt();
+                }
                 Booking booking = new Booking();
                 booking.setMovieTitle(movie.getMovie().getTitle());
                 booking.setShowTime(st);
                 booking.setTransactionID(st.getCinemaCode());
-                booking.setTotalPrice(price);
-                booking.setUserID(user.getId());
-                booking.setSeatID(seatID);
-                System.out.println("Booking success!");
+                booking.setUser(user);
+                booking.setSeatID(seatIDs);
+                booking.setTotalPrice(totprice);
+                System.out.println("Booking success!\n");
                 bList.addBooking(booking); // add the booking to Booking List
                 printBooking(booking);
                 movie.setTicketSales(movie.getTicketSales() + price);
             }
-        }
-        catch (ArrayIndexOutOfBoundsException e){
+        } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("Error! Please select a valid row & column number.");
         }
     }
@@ -141,21 +159,4 @@ public class BookingManager {
         double finalPrice = tp.getAdjustedPrice(age, cinema, date, movie, phl, SeatRow);
         return finalPrice;
     }
-
-    /*
-     * public static void main(String[] args) throws Exception {
-     * GregorianCalendar timing = new GregorianCalendar(2022, 12, 20, 13, 0);
-     * Cineplex jurongPoint = new Cineplex("Jurong Point");
-     * Cinema c = jurongPoint.getCinema().get(0);
-     * PublicHolidayList publicHoliday = new PublicHolidayList();
-     * Movie Minions = new Movie();
-     * Minions.setTitle("Minions");
-     * CinemaMovie cinemaM = new CinemaMovie();
-     * cinemaM.setType(CinemaMovie.Type.BLOCKBUSTER);
-     * ShowTime sTime = new ShowTime(timing, jurongPoint, c, Minions);
-     * MovieGoer user = new MovieGoer("test", 999, "test@gmail.com");
-     * BookingManager manager = new BookingManager();
-     * manager.makeBooking(sTime, user, publicHoliday);
-     * }
-     */
 }

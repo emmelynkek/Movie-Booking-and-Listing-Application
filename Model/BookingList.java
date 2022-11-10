@@ -19,7 +19,7 @@ public class BookingList implements Serializable{
 
     public Booking searchBooking(String userId){   
         for (Booking booking: bookingList){
-            if (booking.getUserID().equals(userId)){
+            if (booking.getUser().getId().equals(userId)){
                 return booking;
             }
         }

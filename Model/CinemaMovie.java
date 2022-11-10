@@ -9,7 +9,7 @@ public class CinemaMovie implements Serializable{
     }
 
     public enum Type{
-        THREE_D, BLOCKBUSTER; // THREE_D = 3D 
+        REGULAR, THREE_D, BLOCKBUSTER; // THREE_D = 3D 
     }
 
     private Movie movie;
