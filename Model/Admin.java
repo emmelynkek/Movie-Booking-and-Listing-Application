@@ -1,13 +1,13 @@
 package Model;
 
-public class Admin {
+public class Admin implements User{
     private String adminId;
-
-    public void setAdminId(String id){
+    
+    public void setId(String id){
         adminId = id;
     }
 
-    public String getAdminId(){
+    public String getId(){
         return adminId;
     }
 }
