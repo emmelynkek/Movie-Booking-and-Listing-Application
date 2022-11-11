@@ -5,7 +5,18 @@ import View.*;
 import Helper.*;
 import java.util.*;
 
-public class MovieListingManager { // Contains static methods to add/edit/remove Movie Listing (for Admin)
+/**
+  Contains static methods for admin to add/edit/remove a cinema movie from the Movie Listing.
+  @author Julian Wong
+  @version 1.0
+  @since 2022-11-12
+*/
+public class MovieListingManager {
+    
+    /**
+     * Method for admin to add a new cinema movie to the Movie Listing.
+     * @param list This is the list of all available cinema movies.
+     */
     public static void createMovieListing(MovieList list) {
         Movie movie = new Movie();
         Scanner sc = new Scanner(System.in);
@@ -62,7 +73,12 @@ public class MovieListingManager { // Contains static methods to add/edit/remove
         list.addMovie(cinemaMovie);
         System.out.println("Movie added to database!");
     }
-
+    
+    /**
+     * Method for Admin to update the attributes of a cinema movie in the Movie Listing.
+     * Admin can update movie status, movie type and End of Showing date.
+     * @param list This is the list of all available cinema movies.
+     */
     public static void updateMovieListing(MovieList list) {
         Scanner sc = new Scanner(System.in);
 
@@ -113,7 +129,11 @@ public class MovieListingManager { // Contains static methods to add/edit/remove
             list.checkEndDate();
         }
     }
-
+    
+    /**
+     * Method for admin to remove an existing cinema movie from the Movie Listing.
+     * @param list This is the list of all available cinema movies.
+     */
     public static void removeMovieListing(MovieList list) {
         Scanner sc = new Scanner(System.in);
 
@@ -125,7 +145,12 @@ public class MovieListingManager { // Contains static methods to add/edit/remove
         else
             System.out.println("Error! Failed to remove movie from database.");
     }
-
+    
+    /**
+     * Method for admin to control the ranking order of the Top 5 Movie Listing.
+     * Admin can set ranking to be by overall reviewer rating or total tickets sales.
+     * @param t5list This is the list of Top 5 Cinema Movies.
+     */
     public static void sortTop5List(Top5List t5List) {
         Scanner sc = new Scanner(System.in);
         MenuDisplay.printSortMenu();
