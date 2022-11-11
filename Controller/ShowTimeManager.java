@@ -4,7 +4,19 @@ import Helper.*;
 import java.util.*;
 import java.util.regex.*;
 
-public class ShowTimeManager{ // Contains static methods to add/edit/remove Show Times 
+/**
+  Contains static methods for Admin to add/edit/remove Show Times. 
+  @author Julian Wong
+  @version 1.0
+  @since 2022-11-12
+*/
+public class ShowTimeManager{
+    
+    /**
+     * Method for Admin to add a new Show Time to a Cinema Movie.
+     * @param cList This is the list of all available cineplexes.
+     * @param mList This is the list of all available cinema movies.
+     */
     public static void createShowTime(CineplexList cList, MovieList mList){
         Scanner sc = new Scanner(System.in);
 
@@ -47,7 +59,14 @@ public class ShowTimeManager{ // Contains static methods to add/edit/remove Show
         cinemaMovie.setShowTimes(showTime);
         System.out.println("New showtime created!");
     }
-
+    
+    /**
+     * Method for Admin to update the attributes of a Show Time for a Cinema Movie.
+     * Admin can update cineplex name, cinema code, date and start & end time.
+     * After getting user input, this method will create a new ShowTime obj and invoke isValidShowTime() to perform validation.
+     * @param cList This is the list of all available cineplexes.
+     * @param mList This is the list of all available cinema movies.
+     */
     public static void updateShowTime(CineplexList cList, MovieList mList){
         Scanner sc = new Scanner(System.in);
 
@@ -70,11 +89,11 @@ public class ShowTimeManager{ // Contains static methods to add/edit/remove Show
         if (choice==1){
             System.out.println("Enter new cineplex name: ");
             input = sc.nextLine();
-            Cineplex cineplex = cList.searchCineplex(input); // Search for Cineplex in database with given Cineplex name as input
+            Cineplex cineplex = cList.searchCineplex(input); 
             if (cineplex==null)
                 return;
 
-            ShowTime temp = new ShowTime();  // Create new ShowTime obj to check if new show time will clash with show times in database              
+            ShowTime temp = new ShowTime();           
             temp.setCinemaCode(showTime.getCinemaCode());
             temp.setCineplexName(input);
             temp.setDate(showTime.getDate());
@@ -83,19 +102,19 @@ public class ShowTimeManager{ // Contains static methods to add/edit/remove Show
             if(!cinemaMovie.isValidShowTime(temp))
                 return;
 
-            showTime.setCineplexName(cineplex.getName());  // This ensures that only Cineplex names stored in database can be assigned as new name
+            showTime.setCineplexName(cineplex.getName());  
             System.out.println("Cineplex name updated!");
         }
         else if (choice==2){
             System.out.println("Enter new cinema code (Regular cinemas: R0, R1, R2; Platinum cinema: P3): ");
             input = sc.nextLine();
-            Cineplex cineplex = cList.searchCineplex(showTime.getCineplexName()); //get Cineplex name of current showTime, and use it to search for corresponding Cineplex object
-            Cinema cinema = cineplex.searchCinema(input);  // Search for Cinema code in current Cineplex with given input code 
+            Cineplex cineplex = cList.searchCineplex(showTime.getCineplexName()); 
+            Cinema cinema = cineplex.searchCinema(input);  
             if (cinema==null){
                 return;
             }
 
-            ShowTime temp = new ShowTime();  // Create new ShowTime obj to check if new show time will clash with show times in database              
+            ShowTime temp = new ShowTime();  =        
             temp.setCinemaCode(input);
             temp.setCineplexName(showTime.getCineplexName());
             temp.setDate(showTime.getDate());
@@ -104,7 +123,7 @@ public class ShowTimeManager{ // Contains static methods to add/edit/remove Show
             if(!cinemaMovie.isValidShowTime(temp))
                 return;
 
-            showTime.setCinemaCode(cinema.getCode());   // This ensures that only Cinema codes stored in database can be assigned as new code
+            showTime.setCinemaCode(cinema.getCode());   
             System.out.println("Cinema code updated!");
         }
         else if (choice==3){
@@ -114,7 +133,7 @@ public class ShowTimeManager{ // Contains static methods to add/edit/remove Show
             if (!Format.isValidDateFormat(input))
                 return;
             
-            ShowTime temp = new ShowTime();  // Create new ShowTime obj to check if new show time will clash with show times in database              
+            ShowTime temp = new ShowTime();        
             temp.setCinemaCode(showTime.getCinemaCode());
             temp.setCineplexName(showTime.getCineplexName());
             temp.setDate(input);
@@ -137,7 +156,7 @@ public class ShowTimeManager{ // Contains static methods to add/edit/remove Show
             if (!Format.isValidTimeFormat(end))
                 return;
 
-            ShowTime temp = new ShowTime();  // Create new ShowTime obj to check if new show time will clash with show times in database               
+            ShowTime temp = new ShowTime();           
             temp.setCinemaCode(showTime.getCinemaCode());
             temp.setCineplexName(showTime.getCineplexName());
             temp.setDate(showTime.getDate());
@@ -151,7 +170,11 @@ public class ShowTimeManager{ // Contains static methods to add/edit/remove Show
             System.out.println("Start & end time updated!");
         }
     }
-
+    
+    /**
+     * Method for Admin to remove a Show Time of a Cinema Movie.
+     * @param mList This is the list of all available cinema movies.
+     */
     public static void removeShowTime(MovieList mList){
         Scanner sc = new Scanner(System.in);
 
