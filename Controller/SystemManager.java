@@ -1,6 +1,8 @@
 package Controller;
 import Model.*;
 import View.*;
+import Helper.Format;
+
 import java.text.*;
 import java.util.*;
 
@@ -15,15 +17,6 @@ public class SystemManager{
 
 
     public static GregorianCalendar stringToDate(String sdate) throws ParseException{ //convert input string to gregoriancalender date format
-        /*String[] splitDate = sdate.split("-");
-        int days = Integer.parseInt(splitDate[0]);
-        int month = (Integer.parseInt(splitDate[1]) - 1);
-        int year = Integer.parseInt(splitDate[2]);
-
-        GregorianCalendar dateConverted = new GregorianCalendar(year, month, days);
-        // System.out.println(dateConverted);
-        return dateConverted;*/
-
         DateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
         Date date = df.parse(sdate);
         GregorianCalendar cal = new GregorianCalendar();
@@ -38,27 +31,13 @@ public class SystemManager{
         System.out.println("Enter the Public Holiday:");
         String name = sc.nextLine(); 
         System.out.println("Enter the date in format DD-MMM-YYYY:");
-        String date = sc.nextLine(); 
+        String date = sc.nextLine();
+        if (!Format.isValidDateFormat(date))
+            return;
         GregorianCalendar date1 = stringToDate(date); 
-        // System.out.print(date1);
-    
 
         PublicHoliday ph = new PublicHoliday(name, date1);
-        publicHolidayList.addPublicHoliday(ph); // *** change publicHolidayList to obj name of publichollist in main app
-        // //to be removed == showing list after creating
-        // int size =publicHolidayList.getList().size(); 
-        // System.out.println("size of phl:"); 
-        // System.out.println(size); 
-
-        // for(int i=0; i<size; i++){ 
-        //  System.out.println("---------------------------"); 
-
-        // System.out.println(i); 
-        // GregorianCalendar PHdate = publicHolidayList.getList().get(i); 
-        // System.out.println("print out public holiday"); 
-        // System.out.println(PHdate.get(GregorianCalendar.MONTH)) ; 
-        // System.out.println(PHdate.get(GregorianCalendar.DAY_OF_MONTH)) ; }
-    
+        publicHolidayList.addPublicHoliday(ph); 
     }
 
 
@@ -173,41 +152,5 @@ public class SystemManager{
         }
     }
 
-    
-
-     public static void main(String[] args) throws Exception {
-    //     PublicHolidayList phl = new PublicHolidayList(); 
-    //    CreatePublicHoliday(phl);
-    //    int size = phl.getList().size();
-    //    System.out.println(size); 
-    //    Scanner sc = new Scanner(System.in);
-    //    System.out.println("enter date to compare in dd-MMM-YYYY"); 
-    //    String date = sc.nextLine(); 
-    //    GregorianCalendar gcdate = stringToDate(date);
-
-
-    //    for(int i=0; i<size; i++){ 
-    //     System.out.println(i); 
-    //     GregorianCalendar PHdate = phl.getList().get(i); 
-    //     System.out.println(PHdate); 
-    //     System.out.println("---------------------------"); 
-    //     if(gcdate.get(GregorianCalendar.DAY_OF_MONTH) == PHdate.get(GregorianCalendar.DAY_OF_MONTH) && gcdate.get(GregorianCalendar.MONTH) == PHdate.get(GregorianCalendar.MONTH) ){ 
-    //         System.out.println("IS SAME"); 
-    //     } 
-
-    
-        
-     } 
-
-
-
-
-      
-
-
-    
-      
-    // }
-
-} 
+}
 
