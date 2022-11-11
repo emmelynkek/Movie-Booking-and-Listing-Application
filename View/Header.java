@@ -15,39 +15,46 @@ public class Header {
         System.out.printf("\n");
     }
 
-    public static void printLogin(){
-        System.out.println("     __                _     ");
-        System.out.println("    / /   ____  ____ _(_)___ ");
-        System.out.println("   / /   / __ \\/ __ `/ / __ \\");
-        System.out.println("  / /___/ /_/ / /_/ / / / / /");
-        System.out.println(" /_____/\\____/\\__, /_/_/ /_/ ");
-        System.out.println("             /____/          ");
+    public static void printMovieList(){
+        System.out.printf("\n");
+        System.out.println("+---------------+");                 
+        System.out.println("| Movie Listing |");                  
+        System.out.println("+---------------+"); 
         System.out.printf("\n");
     }
 
-    public static void printAdminMenu(){
-
-        System.out.println("    ___       __          _          __  ___                ");
-        System.out.println("   /   | ____/ /___ ___  (_)___     /  |/  /__  ____  __  __");
-        System.out.println("  / /| |/ __  / __ `__ \\/ / __ \\   / /|_/ / _ \\/ __ \\/ / / /");
-        System.out.println(" / ___ / /_/ / / / / / / / / / /  / /  / /  __/ / / / /_/ / ");
-        System.out.println("/_/  |_\\__,_/_/ /_/ /_/_/_/ /_/  /_/  /_/\\___/_/ /_/\\__,_/  ");
-                                                                 
-             
+    public static void printTop5List(){
+        System.out.printf("\n");
+        System.out.println("+---------------+");                 
+        System.out.println("| Top 5 Listing |");                  
+        System.out.println("+---------------+"); 
+        System.out.printf("\n");                                                                    
     }
 
-    public static void printUserMenu(){
-
-        System.out.println("   __  __                  __  ___                ");
-        System.out.println("  / / / /_______  _____   /  |/  /__  ____  __  __");
-        System.out.println(" / / / / ___/ _ \\/ ___/  / /|_/ / _ \\/ __ \\/ / / /");
-        System.out.println("/ /_/ (__  )  __/ /     / /  / /  __/ / / / /_/ / ");
-        System.out.println("\\____/____/\\___/_/     /_/  /_/\\___/_/ /_/\\__,_/  ");
-                                                        
-      
+    public static void printMovieDetails(){
+        System.out.printf("\n");
+        System.out.println("+---------------+");                 
+        System.out.println("| Movie Details |");                  
+        System.out.println("+---------------+"); 
+        System.out.printf("\n");
     }
 
+    public static void printBookTicket(){
+        System.out.printf("\n");
+        System.out.println("+-------------------------+");                 
+        System.out.println("| Book & Purchase Tickets |");                  
+        System.out.println("+-------------------------+"); 
+        System.out.printf("\n");
+    }
 
+    
+    public static void printBookingHistory(){
+        System.out.printf("\n");
+        System.out.println("+-----------------+");                 
+        System.out.println("| Booking History |");                  
+        System.out.println("+-----------------+"); 
+        System.out.printf("\n");
+    }
 
     public static void main(String[] args){
         printMobalima();
