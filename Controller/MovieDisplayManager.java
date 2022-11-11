@@ -61,9 +61,8 @@ public class MovieDisplayManager{  // Contains static methods to display Movie L
 
     public static void displayMovieDetails(MovieList mList){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter title of movie to display details: ");
-        String input = sc.nextLine();
-        CinemaMovie cinemaMovie = mList.searchMovie(input);
+        
+        CinemaMovie cinemaMovie = mList.searchMovie();
         if (cinemaMovie==null)
             return;
         System.out.printf("\n");
