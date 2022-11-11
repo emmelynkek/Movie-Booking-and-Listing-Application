@@ -2,7 +2,7 @@ package Model;
 import java.io.*;
 
 /**
-    Represents the container Class used to store the accounts of our app users.
+    Represents the Interface class used to store the accounts of our app users.
     Can be implemented by any Class that has a data structure to store account information.
     All subclasses will be Serializable.
     @author Julian Wong
