@@ -1,6 +1,7 @@
 package Controller;
 import Model.*;
 import Model.CinemaMovie.Status;
+import View.*;
 
 import java.util.*;
 
@@ -13,6 +14,7 @@ public class MovieDisplayManager{  // Contains static methods to display Movie L
             System.out.printf("\n");
             return;
         }
+        Header.printMovieList();
         for (CinemaMovie movie: movieList){
             if (movie.getStatus() == Status.END_OF_SHOWING) continue;
             System.out.println("Movie title             | "+ movie.getMovie().getTitle());
@@ -35,13 +37,12 @@ public class MovieDisplayManager{  // Contains static methods to display Movie L
             System.out.printf("\n");
             return;
         }
-        else if (t5List.getSortBy() == Top5List.sortBy.RATING){
-            System.out.printf("\n");
+        Header.printTop5List();
+        if (t5List.getSortBy() == Top5List.sortBy.RATING){
             System.out.println("Top 5 List sorted by RATING:");
             System.out.printf("\n");
         }
         else if (t5List.getSortBy() == Top5List.sortBy.SALES){
-            System.out.printf("\n");
             System.out.println("Top 5 List sorted by TICKET SALES:");
             System.out.printf("\n");
         }
@@ -65,6 +66,7 @@ public class MovieDisplayManager{  // Contains static methods to display Movie L
         CinemaMovie cinemaMovie = mList.searchMovie();
         if (cinemaMovie==null)
             return;
+        Header.printMovieDetails();
         System.out.printf("\n");
         System.out.println("Movie title             | "+ cinemaMovie.getMovie().getTitle());
         System.out.println("Showing status          | "+ cinemaMovie.getStatus());
