@@ -172,7 +172,7 @@ public class TicketPrice implements Serializable {
                             || date.get(GregorianCalendar.DAY_OF_WEEK) == GregorianCalendar.WEDNESDAY) {
 
                         priceAdjustment -= weekdayPA;
-                        System.out.printf("Mon/Tue/Wed discount: -$%.2f\n", this.weekendPA);
+                        System.out.printf("Mon/Tue/Wed discount: -$%.2f\n", this.weekdayPA);
                     }
                 }
             }
