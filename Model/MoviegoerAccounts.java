@@ -1,37 +1,73 @@
 package Model;
 import java.util.*;
 
-
+/**
+  Represents the container Class used to store the accounts of Movie-goers who use our app.
+  @author Julian Wong
+  @version 1.0
+  @since 2022-11-12
+*/
 public class MoviegoerAccounts implements Accounts{
-    private HashMap<String, String> loginInfo; // Maps each user ID to a password
-    private HashMap<String, Moviegoer> accounts; // Maps each user ID to a User object
-
+    /**
+     * Data structre that maps each Movie-goer's ID to a password.
+     */
+    private HashMap<String, String> loginInfo;
+    
+    /**
+     * Data structre that maps each Movie-goer's ID to a Moviegoer object
+     */
+    private HashMap<String, Moviegoer> accounts; 
+    
+    /**
+     * Creates a new instance of MoviegoerAccounts to store Moviegoer account info.
+     */
     public MoviegoerAccounts(){
         loginInfo = new HashMap<String, String>();
         accounts = new HashMap<String, Moviegoer>();
     }
     
-    public void setAccount(Moviegoer user, String password){  // Stores user info in database
+    /**
+     * Adds a new Moviegoer into the database.
+     * @param user This is the Moviegoer object which contains info about the admin.
+     * @param password This is the password of the Moviegoer's account.
+     */
+    public void setAccount(Moviegoer user, String password){
         loginInfo.put(user.getId(), password);
         accounts.put(user.getId(), user);
     }
-   
-    public Boolean isUser(String inputId){   // Returns true if user ID exists in database
+    
+    /**
+     * Checks if if Moviegoer ID exists in database.
+     * @param inputId This is the ID inputted by the Moviegoer.
+     * @return true if Moviegoer ID exists in database; returns false if otherwise.
+     */
+    public Boolean isUser(String inputId){ 
         for (String id : loginInfo.keySet()) {
             if (inputId.equals(id))
                 return true;
         }
         return false;
     }
-
-    public Boolean validateUser(String id, String pwd){  // Returns true if user ID matches with password in database
+    
+    /**
+     * Checks if an input Moviegoer ID matches with the corresponding password in the database.
+     * @param id This is the ID inputted by the Moviegoer.
+     * @param pwd This is the password inputted by the Moviegoer.
+     * @return true if Moviegoer ID matches with password in database; returns false if otherwise.
+     */
+    public Boolean validateUser(String id, String pwd){ 
         if (pwd.equals(loginInfo.get(id)))
             return true;
         else
             return false;
     }
-
-    public Moviegoer getUser(String id){   // Get User object from the database by userID
+    
+    /**
+     * Method used to access a Moviegoer object by its corresponding Admin ID
+     * @param id This is the ID inputted by the Moviegoer.
+     * @return corresponding Moviegoer object from the database.
+     */
+    public Moviegoer getUser(String id){   
         return accounts.get(id);
     }
 }
