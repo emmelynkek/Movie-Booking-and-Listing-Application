@@ -3,13 +3,13 @@ package View;
 public class MenuDisplay {
     public static void printLogin() {
         System.out.printf("\n");
-        System.out.println(" +-------------------------+");
-        System.out.println(" | Press 1 for User Login  |");
-        System.out.println(" |                         |");
-        System.out.println(" | Press 2 for Admin Login |");
-        System.out.println(" |                         |");
-        System.out.println(" | Press any key to Exit   |");
-        System.out.println(" +-------------------------+");
+        System.out.println(" +-------------------------------+");
+        System.out.println(" | Press 1 for Movie-goer Login  |");
+        System.out.println(" |                               |");
+        System.out.println(" | Press 2 for Admin Login       |");
+        System.out.println(" |                               |");
+        System.out.println(" | Press any key to Exit         |");
+        System.out.println(" +-------------------------------+");
         System.out.printf("\n");
     }
 
