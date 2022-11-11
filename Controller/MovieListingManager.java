@@ -65,9 +65,8 @@ public class MovieListingManager { // Contains static methods to add/edit/remove
 
     public static void updateMovieListing(MovieList list) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter title of movie to update: ");
-        String input = sc.nextLine();
-        CinemaMovie cinemaMovie = list.searchMovie(input);
+
+        CinemaMovie cinemaMovie = list.searchMovie();
         if (cinemaMovie == null)
             return;
         int choice;
@@ -76,7 +75,7 @@ public class MovieListingManager { // Contains static methods to add/edit/remove
         System.out.println("2: Update movie type");
         System.out.println("3: Update movie End of Showing date");
         choice = sc.nextInt();
-        input = sc.nextLine();
+        String input = sc.nextLine();
         if (choice == 1) {
             System.out.println("Select new movie status: ");
             System.out.println("1: COMING_SOON");
@@ -117,9 +116,10 @@ public class MovieListingManager { // Contains static methods to add/edit/remove
 
     public static void removeMovieListing(MovieList list) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter title of movie to remove: ");
-        String input = sc.nextLine();
-        CinemaMovie cinemaMovie = list.searchMovie(input);
+
+        CinemaMovie cinemaMovie = list.searchMovie();
+        if (cinemaMovie==null)
+            return;
         if (list.getList().remove(cinemaMovie))
             System.out.println("Movie has been removed from database!");
         else

@@ -7,14 +7,13 @@ import java.util.regex.*;
 public class ShowTimeManager{ // Contains static methods to add/edit/remove Show Times 
     public static void createShowTime(CineplexList cList, MovieList mList){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter movie title to create show time for: ");
-        String input = sc.nextLine();
-        CinemaMovie cinemaMovie = mList.searchMovie(input);
+
+        CinemaMovie cinemaMovie = mList.searchMovie();
         if (cinemaMovie==null)
             return;
         ShowTime showTime = new ShowTime();
         System.out.println("Enter date (format: dd-mmm-yyyy):");
-        input = sc.nextLine();
+        String input = sc.nextLine();
         if (!Format.isValidDateFormat(input))
             return;
         showTime.setDate(input);
@@ -51,9 +50,8 @@ public class ShowTimeManager{ // Contains static methods to add/edit/remove Show
 
     public static void updateShowTime(CineplexList cList, MovieList mList){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter movie title to update show time: ");
-        String input = sc.nextLine();
-        CinemaMovie cinemaMovie = mList.searchMovie(input);
+
+        CinemaMovie cinemaMovie = mList.searchMovie();
         if (cinemaMovie==null)
             return;
         ShowTime showTime = cinemaMovie.searchShowTime();
@@ -67,7 +65,7 @@ public class ShowTimeManager{ // Contains static methods to add/edit/remove Show
         System.out.println("4: Update start & end time");
             
         choice = sc.nextInt();
-        input = sc.nextLine();
+        String input = sc.nextLine();
 
         if (choice==1){
             System.out.println("Enter new cineplex name: ");
@@ -91,7 +89,7 @@ public class ShowTimeManager{ // Contains static methods to add/edit/remove Show
         else if (choice==2){
             System.out.println("Enter new cinema code (Regular cinemas: R0, R1, R2; Platinum cinema: P3): ");
             input = sc.nextLine();
-            Cineplex cineplex = cList.searchCineplex(showTime.getCineplexName()); //get Cineplex name of current showTime, and use it to search for corresponding Cineplex object 
+            Cineplex cineplex = cList.searchCineplex(showTime.getCineplexName()); //get Cineplex name of current showTime, and use it to search for corresponding Cineplex object
             Cinema cinema = cineplex.searchCinema(input);  // Search for Cinema code in current Cineplex with given input code 
             if (cinema==null){
                 return;
@@ -156,9 +154,8 @@ public class ShowTimeManager{ // Contains static methods to add/edit/remove Show
 
     public static void removeShowTime(MovieList mList){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter movie title to remove show time: ");
-        String input = sc.nextLine();
-        CinemaMovie cinemaMovie = mList.searchMovie(input);
+
+        CinemaMovie cinemaMovie = mList.searchMovie();
         if (cinemaMovie==null)
             return;
             

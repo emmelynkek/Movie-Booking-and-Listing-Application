@@ -68,22 +68,17 @@ public class BookingManager {
         System.out.println("Email Address: " + booking.getUser().getEmail() + "\n");
     }
 
-    /**
-     * Prints all the receipts of the Bookings in a specified
-     * booking list for a specified user.
-     * @param bookingList the booking list to print the receipts for.
-     * @param user        the user who made the bookings. Only bookings
-     *                    made by the specified user will be printed.
-     */
-    public static void printBookingHist(BookingList bookingList, User user) {
-        if (bookingList.getList().isEmpty()) {
-            System.out.println("Error! Booking List is empty.");
-            return;
-        }
+    public static void printBookingHist(BookingList bookingList, Moviegoer user) {
+        Boolean empty = true;
+        Header.printBookingHistory();
         for (Booking booking : bookingList.getList()) {
-            if (booking.getUser().getId().equals(user.getId()))
+            if (booking.getUser().getId().equals(user.getId())){
                 printBooking(booking);
+                empty = false;
+            }
         }
+        if (empty)
+            System.out.println("Error! Booking history is empty.");
     }
 
     /**
@@ -101,13 +96,12 @@ public class BookingManager {
      * @throws Exception if seat chosen does not exist in the seating plan.
      */
     public static void makeBooking(CineplexList cList, MovieList mList, BookingList bList, PublicHolidayList phl,
-            User user, TicketPrice tp) throws Exception {
+            Moviegoer user, TicketPrice tp) throws Exception {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter Movie Title to book ticket for: ");
-        String input = sc.nextLine();
         String seatIDs;
         double totprice;
-        CinemaMovie movie = mList.searchMovie(input);
+        Header.printBookTicket();
+        CinemaMovie movie = mList.searchMovie();
         if (movie == null)
             return;
 

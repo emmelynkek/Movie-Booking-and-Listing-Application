@@ -2,13 +2,24 @@ package Controller;
 import Model.*;
 import View.*;
 import Helper.Format;
-
 import java.text.*;
 import java.util.*;
 
+/**
+  A manager class to help admin to create public holidays and change price adjustment
+  @author Emmelyn Kek 
+  @version 1.0
+  @since 2022-10-11
+ */
 
 public class SystemManager{
-   
+
+    /**
+     * Convert date in string format dd-MMM-YYYY to date in Gregorian Calender format
+     * @param sdate
+     * @return
+     * @throws ParseException
+     */
     public static GregorianCalendar stringToDate(String sdate) throws ParseException{ //convert input string to gregoriancalender date format
         DateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
         Date date = df.parse(sdate);
@@ -18,6 +29,11 @@ public class SystemManager{
 
     }
 
+    /**
+     * Creates public holiday
+     * @param publicHolidayList Public Holiday list that stores all the public holidays
+     * @throws ParseException On input error 
+     */
     public static void CreatePublicHoliday(PublicHolidayList publicHolidayList) throws ParseException{ //admin can create public holiday
         Scanner sc = new Scanner(System.in);
 
@@ -34,8 +50,10 @@ public class SystemManager{
     }
 
 
-
-
+    /**
+     * Allows user to change base price and price adjustment 
+     * @param pa Price Adjustment object to be changed
+     */
     public static void ChangePriceAdjustment(TicketPrice pa){ //admin can change base price and discounts
 
         Scanner sc = new Scanner(System.in);
