@@ -10,7 +10,7 @@ public class MainApp {
         Header.printMobalima();
 
         AdminAccounts adminDb = SerializeDB.readAdminAccounts("Data/AdminAccounts.txt");
-        UserAccounts userDb = SerializeDB.readUserAccounts("Data/UserAccounts.txt");
+        MoviegoerAccounts userDb = SerializeDB.readUserAccounts("Data/UserAccounts.txt");
         CineplexList cList = SerializeDB.readCineplexList("Data/CineplexList.txt");
         MovieList mList = SerializeDB.readMovieList("Data/MovieList.txt");
         mList.checkEndDate();
@@ -20,7 +20,7 @@ public class MainApp {
         TicketPrice ticketPrice = SerializeDB.readTicketPrice("Data/TicketPrice.txt");
 
         Scanner sc = new Scanner(System.in);
-        User user = null;
+        Moviegoer user = null;
         Admin admin = null;
         String id, pwd, input;
         
@@ -48,14 +48,13 @@ public class MainApp {
                     id = sc.nextLine();
                     System.out.println("Enter Admin password: ");
                     pwd = sc.nextLine();
-                    if (!adminDb.isAdmin(id))
+                    if (!adminDb.isUser(id))
                         System.out.println("Account not found!");
-                    else if (!adminDb.validateAdmin(id, pwd))
+                    else if (!adminDb.validateUser(id, pwd))
                         System.out.println("Wrong password!");
                     else{
                         System.out.println("Login success!");
-                        admin = new Admin();
-                        admin.setAdminId(id);
+                        admin = adminDb.getAdmin(id);
                     }
                     break;
                 default:
@@ -79,7 +78,7 @@ public class MainApp {
                 else if (input.equals("4"))
                     ReviewManager.addReview(user, mList);
                 else if (input.equals("5"))
-                    BookingManager.makeBooking(cList, mList, bList, pList, user,ticketPrice);
+                    BookingManager.makeBooking(cList, mList, bList, pList, user, ticketPrice    );
                 else if (input.equals("6"))
                     BookingManager.printBookingHist(bList, user);
                 else
@@ -111,7 +110,6 @@ public class MainApp {
                     SystemManager.ChangePriceAdjustment(ticketPrice);
                 else if (input.equals("8"))
                     SystemManager.CreatePublicHoliday(pList);
-                    
                 else if (input.equals("9"))
                     MovieListingManager.sortTop5List(t5List);
                 else
