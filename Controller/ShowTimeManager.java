@@ -89,10 +89,8 @@ public class ShowTimeManager{ // Contains static methods to add/edit/remove Show
         else if (choice==2){
             System.out.println("Enter new cinema code (Regular cinemas: R0, R1, R2; Platinum cinema: P3): ");
             input = sc.nextLine();
-            Cineplex cineplex = cList.searchCineplex(input); //get Cineplex name of current showTime, and use it to search for corresponding Cineplex object
-            if (cineplex==null)
-                return; 
-            Cinema cinema = cineplex.searchCinema(cineplex.getName());  // Search for Cinema code in current Cineplex with given input code 
+            Cineplex cineplex = cList.searchCineplex(showTime.getCineplexName()); //get Cineplex name of current showTime, and use it to search for corresponding Cineplex object
+            Cinema cinema = cineplex.searchCinema(input);  // Search for Cinema code in current Cineplex with given input code 
             if (cinema==null){
                 return;
             }
