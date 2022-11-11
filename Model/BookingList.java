@@ -16,14 +16,4 @@ public class BookingList implements Serializable{
     public void addBooking(Booking b) {
         bookingList.add(b);
     }
-
-    public Booking searchBooking(String userId){   
-        for (Booking booking: bookingList){
-            if (booking.getUser().getId().equals(userId)){
-                return booking;
-            }
-        }
-        System.out.printf("Error! Booking not found.\n");
-        return null;
-    }
 }
