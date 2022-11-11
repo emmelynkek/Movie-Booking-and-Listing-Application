@@ -5,14 +5,14 @@ import java.util.*;
 import java.io.*;
 
 public class SerializeDB{
-    public static UserAccounts readUserAccounts(String filename) {
-		UserAccounts pDetails = null;
+    public static MoviegoerAccounts readUserAccounts(String filename) {
+		MoviegoerAccounts pDetails = null;
 		FileInputStream fis = null;
 		ObjectInputStream in = null;
 		try {
 			fis = new FileInputStream(filename);
 			in = new ObjectInputStream(fis);
-			pDetails = (UserAccounts) in.readObject();
+			pDetails = (MoviegoerAccounts) in.readObject();
 			in.close();
 		} catch (IOException ex) {
 			ex.printStackTrace();
@@ -165,7 +165,7 @@ public class SerializeDB{
 		return pDetails;
 	}
 
-	public static void writeSerializedObject(String filename, UserAccounts db) {
+	public static void writeSerializedObject(String filename, MoviegoerAccounts db) {
 		FileOutputStream fos = null;
 		ObjectOutputStream out = null;
         try {
@@ -280,7 +280,7 @@ public class SerializeDB{
     public static void main(String[] args) throws Exception{ // run main method to create .txt files containing dummy data
 
 		AdminAccounts adminDb = new AdminAccounts();
-		UserAccounts userDb = new UserAccounts();
+		MoviegoerAccounts userDb = new MoviegoerAccounts();
 		CineplexList cList = new CineplexList();
 		MovieList mList = new MovieList();
 		Top5List t5List = new Top5List();
@@ -288,9 +288,15 @@ public class SerializeDB{
 		PublicHolidayList pList = new PublicHolidayList();
 		TicketPrice ticketPrice = new TicketPrice();
 
-        adminDb.setAccount("admin", "admin");
-		User user = new User("user", "81234567", "user@gmail.com");
-		userDb.setAccount(user, "user");
+		Admin admin = new Admin();
+		admin.setId("admin");
+        adminDb.setAccount(admin, "admin");
+
+		Moviegoer user1 = new Moviegoer("user1", "81234567", "user1@gmail.com");
+		userDb.setAccount(user1, "user1");
+
+		Moviegoer user2 = new Moviegoer("user2", "89765432", "user2@gmail.com");
+		userDb.setAccount(user2, "user2");
 
 		Cineplex cineplex1 = new Cineplex("Jurong Point");
         Cineplex cineplex2 = new Cineplex("Suntec City");
@@ -355,21 +361,54 @@ public class SerializeDB{
 		t5List.setSortBy(Top5List.sortBy.RATING);
 		t5List.sortList(mList);
 
-		ShowTime showTime = new ShowTime();
-		showTime.setCinemaCode("R1");
-		showTime.setCineplexName("Jurong Point");
-		showTime.setDate("03-Jan-2023");
-		showTime.setStartTime("1400");
-		showTime.setEndTime("1600");
-		m2.setShowTimes(showTime);
+		ShowTime st1 = new ShowTime();
+		st1.setCinemaCode("R1");
+		st1.setCineplexName("Jurong Point");
+		st1.setDate("01-Dec-2022");
+		st1.setStartTime("1400");
+		st1.setEndTime("1600");
+		m2.setShowTimes(st1);
+
+		ShowTime st2 = new ShowTime();
+		st2.setCinemaCode("R1");
+		st2.setCineplexName("Jurong Point");
+		st2.setDate("01-Dec-2022");
+		st2.setStartTime("1700");
+		st2.setEndTime("1900");
+		m2.setShowTimes(st2);
+
+		ShowTime st3 = new ShowTime();
+		st3.setCinemaCode("R1");
+		st3.setCineplexName("Jurong Point");
+		st3.setDate("25-Dec-2022");
+		st3.setStartTime("1400");
+		st3.setEndTime("1600");
+		m2.setShowTimes(st3);
+
+		ShowTime st4 = new ShowTime();
+		st4.setCinemaCode("R1");
+		st4.setCineplexName("Suntec City");
+		st4.setDate("01-Dec-2022");
+		st4.setStartTime("1400");
+		st4.setEndTime("1600");
+		m2.setShowTimes(st4);
+
+		ShowTime st5 = new ShowTime();
+		st5.setCinemaCode("P3");
+		st5.setCineplexName("Jurong Point");
+		st5.setDate("01-Dec-2022");
+		st5.setStartTime("1400");
+		st5.setEndTime("1600");
+		m2.setShowTimes(st5);
+
 
 		Booking booking = new Booking();
 		booking.setMovieTitle(m2.getMovie().getTitle());
-		booking.setShowTime(showTime);
-		showTime.getSeatLayout().setSeatavailability(5, 5, false);
+		booking.setShowTime(st1);
+		st1.getSeatLayout().setSeatavailability(5, 5, false);
 		booking.setTransactionID("R1");
 		booking.setTotalPrice(10.5d);
-		booking.setUser(user);
+		booking.setUser(user1);
 		booking.setSeatID("R5C5");
 		bList.addBooking(booking);
 
@@ -387,3 +426,4 @@ public class SerializeDB{
 
     } 
 }
+
