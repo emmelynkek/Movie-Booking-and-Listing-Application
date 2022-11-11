@@ -45,6 +45,7 @@ public class BookingManager {
 
     public static void printBookingHist(BookingList bookingList, Moviegoer user) {
         Boolean empty = true;
+        Header.printBookingHistory();
         for (Booking booking : bookingList.getList()) {
             if (booking.getUser().getId().equals(user.getId())){
                 printBooking(booking);
@@ -62,6 +63,7 @@ public class BookingManager {
         Scanner sc = new Scanner(System.in);
         String seatIDs;
         double totprice;
+        Header.printBookTicket();
         CinemaMovie movie = mList.searchMovie();
         if (movie == null)
             return;
