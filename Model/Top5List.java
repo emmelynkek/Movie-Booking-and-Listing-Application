@@ -5,36 +5,78 @@ import Model.CinemaMovie.Status;
 
 import java.io.*;
 
+/**
+  Represents the Class that contains the Top 5 cinema movies.
+  Cinema movies can be ranked by overall reviewer rating or total tickets sales.
+  Cinema movies are sorted in descending order.
+  @author Julian Wong
+  @version 1.0
+  @since 2022-11-12
+*/
 public class Top5List implements Serializable{
+    
+    /**
+     * The order used to sort the top 5 list.
+     */
     public enum sortBy{
         SALES, RATING; 
     }
-
+    
+    /**
+     * The list that stores the top 5 cinema movies
+     */
     private List <CinemaMovie> top5List;
+    
+    /**
+     * The order used to sort the top 5 list.
+     */
     private sortBy type;
     
-
+    /**
+     * Creates a new top 5 list object.
+     */
     public Top5List(){   
         top5List = new ArrayList <CinemaMovie>();
     }
-
+    
+    /**
+     * Method to access the list of top 5 cinema movies.
+     * @return the list of top 5 cinema movies.
+     */
     public List <CinemaMovie> getList(){
         return top5List;
     }
-
+    
+    /**
+     * Method to add a cinema movie to the list of top 5 cinema movies.
+     * @param movie The cinema movie to be added to the top 5 list.
+     */
     public void addMovie(CinemaMovie movie){
         top5List.add(movie);
     }
-
+    
+    /**
+     * Method to set the sorting order of the top 5 cinema movies.
+     * @param type The sorting order of the top 5 cinema movies.
+     */
     public void setSortBy(sortBy type){
         this.type = type;
     }
-
+    
+    /**
+     * Method to access the sorting order of the top 5 cinema movies.
+     * @return the sorting order of the top 5 cinema movies.
+     */
     public sortBy getSortBy(){
         return type;
     }
-
-    public void sortList(MovieList movieList){ //Method to sort Top 5 List based on sortBy
+    
+    /**
+     * Method to sort Top 5 List based on sortBy.
+     * Method is called whenever Movie-goer wants to display the top 5 list.
+     * @param movieList The list of all available cinema movies, which will be used as the reference to build the top 5 list.
+     */
+    public void sortList(MovieList movieList){
 
         List <CinemaMovie> temp = new ArrayList <CinemaMovie>();
         top5List.clear();
@@ -53,14 +95,20 @@ public class Top5List implements Serializable{
                 top5List.add(temp.remove(0));
         }
     }
-
+    
+    /**
+     * A Comparator class that sorts the top 5 list by total ticket sales.
+     */
     public static final Comparator<CinemaMovie> TicketSalesComparator = new Comparator<CinemaMovie>() {
         @Override
         public int compare(CinemaMovie m1, CinemaMovie m2) {
             return (int) (m2.getTicketSales() - m1.getTicketSales());
         }
     };
-
+    
+    /**
+     * A Comparator class that sorts the top 5 list by overall reviwer rating.
+     */
     public static final Comparator<CinemaMovie> OverallRatingComparator = new Comparator<CinemaMovie>() {
         @Override
         public int compare(CinemaMovie m1, CinemaMovie m2) {
