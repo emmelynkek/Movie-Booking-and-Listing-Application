@@ -1,30 +1,36 @@
 package Model;
 import java.util.*;
-import java.io.*;
 
-public class AdminAccounts implements Serializable{
-    private HashMap<String, String> adminAccounts;  // Maps each Admin ID to a passworD
+public class AdminAccounts implements Accounts{
+    private HashMap<String, String> loginInfo; // Maps each admin ID to a password
+    private HashMap<String, Admin> accounts; // Maps each admin ID to a Admin object
 
     public AdminAccounts(){
-        adminAccounts = new HashMap<String, String>();
+        loginInfo = new HashMap<String, String>();
+        accounts = new HashMap<String, Admin>();
     }
     
-    public void setAccount(String id, String password){  // Stores Admin ID and password in database
-        adminAccounts.put(id, password);
+    public void setAccount(Admin admin, String password){  // Stores admin info in database
+        loginInfo.put(admin.getId(), password);
+        accounts.put(admin.getId(), admin);
     }
    
-    public Boolean isAdmin(String inputId){   // Returns true if Admin ID exists in database
-        for (String id : adminAccounts.keySet()) {
+    public Boolean isUser(String inputId){   // Returns true if admin ID exists in database
+        for (String id : loginInfo.keySet()) {
             if (inputId.equals(id))
                 return true;
         }
         return false;
     }
 
-    public Boolean validateAdmin(String id, String pwd){  // Returns true if Admin ID matches with corresponding password in database
-        if (pwd.equals(adminAccounts.get(id)))
+    public Boolean validateUser(String id, String pwd){  // Returns true if admin ID matches with password in database
+        if (pwd.equals(loginInfo.get(id)))
             return true;
         else
             return false;
+    }
+
+    public Admin getAdmin(String id){   // Get admin object from the database by adminID
+        return accounts.get(id);
     }
 }
