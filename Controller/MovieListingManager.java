@@ -2,6 +2,7 @@ package Controller;
 
 import Model.*;
 import View.*;
+import Helper.*;
 import java.util.*;
 
 public class MovieListingManager { // Contains static methods to add/edit/remove Movie Listing (for Admin)
@@ -40,6 +41,9 @@ public class MovieListingManager { // Contains static methods to add/edit/remove
             cinemaMovie.setStatus(CinemaMovie.Status.NOW_SHOWING);
         System.out.println("Enter End of Showing date (format: dd-mmm-yyyy): ");
         input = sc.nextLine();
+        if (!Format.isValidDateFormat(input))
+            return;
+
         cinemaMovie.setEndDate(input);
         System.out.println("Select movie type:");
         System.out.println("1: Regular");
@@ -102,6 +106,9 @@ public class MovieListingManager { // Contains static methods to add/edit/remove
         } else if (choice == 3) {
             System.out.println("Enter new End of Showing date (format: dd-mmm-yyyy): ");
             input = sc.nextLine();
+            if (!Format.isValidDateFormat(input))
+                return;
+                
             cinemaMovie.setEndDate(input);
             System.out.println("Movie End of Showing date updated!");
             list.checkEndDate();
