@@ -8,14 +8,7 @@ import java.util.*;
 
 
 public class SystemManager{
-    //admin can: 
-    //1. create public holiday and rates (done)
-    //2. control prices for weekdays and holidays (done)
-    //3. control prices for different ages  (done)
-    //4. control rankings (wip, waiting for update)
-    //5. create/update/delete movie listings (wip, waiting for update)
-
-
+   
     public static GregorianCalendar stringToDate(String sdate) throws ParseException{ //convert input string to gregoriancalender date format
         DateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
         Date date = df.parse(sdate);

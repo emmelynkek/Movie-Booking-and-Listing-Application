@@ -17,13 +17,6 @@ public class PublicHoliday implements Serializable {
     } 
 
     public static GregorianCalendar stringToDate(String sdate) throws ParseException{ //convert input string to gregoriancalender date format
-        /*String[] splitDate = sdate.split("-");
-        int days = Integer.parseInt(splitDate[0]);
-        int month = (Integer.parseInt(splitDate[1]) - 1);
-        int year = Integer.parseInt(splitDate[2]);
-
-        GregorianCalendar dateConverted = new GregorianCalendar(year, month, days);
-        return dateConverted;*/
 
         DateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
         Date date = df.parse(sdate);
