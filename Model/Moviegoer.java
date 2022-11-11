@@ -66,5 +66,5 @@ public class Moviegoer implements User{
     public String getEmail() {
         return this.email;
     }
-
+ 
 }
