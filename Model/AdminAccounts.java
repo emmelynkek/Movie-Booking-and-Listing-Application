@@ -1,36 +1,74 @@
 package Model;
 import java.util.*;
 
-public class AdminAccounts implements Accounts{
-    private HashMap<String, String> loginInfo; // Maps each admin ID to a password
-    private HashMap<String, Admin> accounts; // Maps each admin ID to a Admin object
+/**
+  Represents the container Class used to store the accounts of app administrators.
+  @author Julian Wong
+  @version 1.0
+  @since 2022-11-12
+*/
 
+public class AdminAccounts implements Accounts{
+    /**
+     * Data structre that maps each admin ID to a password.
+     */
+    private HashMap<String, String> loginInfo;
+    
+    /**
+     * Data structre that maps each admin ID to a Admin object
+     */
+    private HashMap<String, Admin> accounts;
+    
+    /**
+     * Creates a new instance of AdminAccounts to store Admin account info.
+     */
     public AdminAccounts(){
         loginInfo = new HashMap<String, String>();
         accounts = new HashMap<String, Admin>();
     }
     
-    public void setAccount(Admin admin, String password){  // Stores admin info in database
+    /**
+     * Adds a new Admin into the database.
+     * @param admin This is the Admin object which contains info about the admin.
+     * @param password This is the password of the Admin's account.
+     */
+    public void setAccount(Admin admin, String password){
         loginInfo.put(admin.getId(), password);
         accounts.put(admin.getId(), admin);
     }
-   
-    public Boolean isUser(String inputId){   // Returns true if admin ID exists in database
+    
+    /**
+     * Checks if if admin ID exists in database.
+     * @param inputId This is the ID inputted by the Admin.
+     * @return true if Admin ID exists in database; returns false if otherwise.
+     */
+    public Boolean isUser(String inputId){
         for (String id : loginInfo.keySet()) {
             if (inputId.equals(id))
                 return true;
         }
         return false;
     }
-
-    public Boolean validateUser(String id, String pwd){  // Returns true if admin ID matches with password in database
+    
+    /**
+     * Checks if an input Admin ID matches with the corresponding password in the database.
+     * @param inputId This is the ID inputted by the Admin.
+     * @param pwd This is the password inputted by the Admin.
+     * @return true if Admin ID matches with password in database; returns false if otherwise.
+     */
+    public Boolean validateUser(String id, String pwd){ 
         if (pwd.equals(loginInfo.get(id)))
             return true;
         else
             return false;
     }
-
-    public Admin getAdmin(String id){   // Get admin object from the database by adminID
+    
+    /**
+     * Method used to access an Admin object by its corresponding Admin ID
+     * @param id This is the ID inputted by the Admin.
+     * @return corresponding Admin object from the database.
+     */
+    public Admin getAdmin(String id){  
         return accounts.get(id);
     }
 }
