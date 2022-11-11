@@ -4,7 +4,19 @@ import Controller.*;
 import java.util.*;
 import java.io.*;
 
+/**
+  A Class used to read and write Object data to an external .txt file.
+  @author Julian Wong
+  @version 1.0
+  @since 2022-11-12
+*/
 public class SerializeDB{
+    /**
+     * Method to read MoviegoerAccounts Object from a .txt file.
+     * @param filename The file path of the .txt file to be read.
+     * @return MoviegoerAccounts object that has been read from the target .txt file.
+     * @throws IOException if object to be read is not Serializeable.
+     */
     public static MoviegoerAccounts readUserAccounts(String filename) {
 		MoviegoerAccounts pDetails = null;
 		FileInputStream fis = null;
@@ -24,7 +36,12 @@ public class SerializeDB{
 		//System.out.println();
 		return pDetails;
 	}
-
+    /**
+     * Method to read AdminAccounts Object from a .txt file.
+     * @param filename The file path of the .txt file to be read.
+     * @return AdminAccounts object that has been read from the target .txt file.
+     * @throws IOException if object to be read is not Serializeable.
+     */
     public static AdminAccounts readAdminAccounts(String filename) {
 		AdminAccounts pDetails = null;
 		FileInputStream fis = null;
@@ -44,7 +61,13 @@ public class SerializeDB{
 		//System.out.println();
 		return pDetails;
 	}
-
+	
+    /**
+     * Method to read CineplexList Object from a .txt file.
+     * @param filename The file path of the .txt file to be read.
+     * @return CineplexList object that has been read from the target .txt file.
+     * @throws IOException if object to be read is not Serializeable.
+     */
     public static CineplexList readCineplexList(String filename) {
 		CineplexList pDetails = null;
 		FileInputStream fis = null;
@@ -64,7 +87,13 @@ public class SerializeDB{
 		//System.out.println();
 		return pDetails;
 	}
-
+	
+    /**
+     * Method to read MovieList Object from a .txt file.
+     * @param filename The file path of the .txt file to be read.
+     * @return MovieList object that has been read from the target .txt file.
+     * @throws IOException if object to be read is not Serializeable.
+     */
     public static MovieList readMovieList(String filename) {
 		MovieList pDetails = null;
 		FileInputStream fis = null;
@@ -104,7 +133,13 @@ public class SerializeDB{
 		//System.out.println();
 		return pDetails;
 	}
-
+	
+       /**
+        * Method to read BookingList Object from a .txt file.
+        * @param filename The file path of the .txt file to be read.
+        * @return BookingList object that has been read from the target .txt file.
+	* @throws IOException if object to be read is not Serializeable.
+        */
 	public static BookingList readBookingList(String filename) {
 		BookingList pDetails = null;
 		FileInputStream fis = null;
@@ -124,7 +159,13 @@ public class SerializeDB{
 		//System.out.println();
 		return pDetails;
 	}
-
+	
+       /**
+        * Method to read PublicHolidayList Object from a .txt file.
+        * @param filename The file path of the .txt file to be read.
+        * @return PublicHolidayList object that has been read from the target .txt file.
+	* @throws IOException if object to be read is not Serializeable.
+        */
 	public static PublicHolidayList readPublicHolidayList(String filename) {
 		PublicHolidayList pDetails = null;
 		FileInputStream fis = null;
@@ -144,7 +185,13 @@ public class SerializeDB{
 		//System.out.println();
 		return pDetails;
 	}
-
+	
+       /**
+        * Method to read TicketPrice Object from a .txt file.
+        * @param filename The file path of the .txt file to be read.
+        * @return TicketPrice object that has been read from the target .txt file.
+	* @throws IOException if object to be read is not Serializeable.
+        */
 	public static TicketPrice readTicketPrice(String filename) {
 		TicketPrice pDetails = null;
 		FileInputStream fis = null;
@@ -164,7 +211,13 @@ public class SerializeDB{
 		//System.out.println();
 		return pDetails;
 	}
-
+	
+       /**
+        * Method to write MoviegoerAccounts Object to a .txt file.
+        * @param filename The file path of the .txt file to be written to.
+        * @param db The MoviegoerAccounts Object to be written.
+	* @throws IOException if object to be written is not Serializeable.
+        */
 	public static void writeSerializedObject(String filename, MoviegoerAccounts db) {
 		FileOutputStream fos = null;
 		ObjectOutputStream out = null;
@@ -178,8 +231,14 @@ public class SerializeDB{
             ex.printStackTrace();
         }
 	}
-
-    public static void writeSerializedObject(String filename, AdminAccounts db) {
+	
+       /**
+        * Method to write AdminAccounts Object to a .txt file.
+        * @param filename The file path of the .txt file to be written to.
+        * @param db The AdminAccounts Object to be written.
+	* @throws IOException if object to be written is not Serializeable.
+        */
+    	public static void writeSerializedObject(String filename, AdminAccounts db) {
 		FileOutputStream fos = null;
 		ObjectOutputStream out = null;
         try {
@@ -193,6 +252,12 @@ public class SerializeDB{
         }
 	}
 
+       /**
+	* Method to write CineplexList Object to a .txt file.
+	* @param filename The file path of the .txt file to be written to.
+	* @param db The CineplexList Object to be written.
+	* @throws IOException if object to be written is not Serializeable.
+	*/
     public static void writeSerializedObject(String filename, CineplexList db) {
 		FileOutputStream fos = null;
 		ObjectOutputStream out = null;
@@ -207,6 +272,12 @@ public class SerializeDB{
         }
 	}
 
+       /**
+	* Method to write MovieList Object to a .txt file.
+	* @param filename The file path of the .txt file to be written to.
+	* @param db The MovieList Object to be written.
+	* @throws IOException if object to be written is not Serializeable.
+	*/
     public static void writeSerializedObject(String filename, MovieList db) {
 		FileOutputStream fos = null;
 		ObjectOutputStream out = null;
@@ -220,7 +291,13 @@ public class SerializeDB{
             ex.printStackTrace();
         }
 	}
-
+	
+       /**
+	* Method to write Top5List Object to a .txt file.
+	* @param filename The file path of the .txt file to be written to.
+	* @param db The Top5List Object to be written.
+	* @throws IOException if object to be written is not Serializeable.
+	*/
 	public static void writeSerializedObject(String filename, Top5List db) {
 		FileOutputStream fos = null;
 		ObjectOutputStream out = null;
@@ -234,7 +311,13 @@ public class SerializeDB{
             ex.printStackTrace();
         }
 	}
-
+	
+       /**
+	* Method to write BookingList Object to a .txt file.
+	* @param filename The file path of the .txt file to be written to.
+	* @param db The BookingList Object to be written.
+	* @throws IOException if object to be written is not Serializeable.
+	*/
 	public static void writeSerializedObject(String filename, BookingList db) {
 		FileOutputStream fos = null;
 		ObjectOutputStream out = null;
@@ -248,7 +331,13 @@ public class SerializeDB{
             ex.printStackTrace();
         }
 	}
-
+	
+       /**
+	* Method to write PublicHolidayList Object to a .txt file.
+	* @param filename The file path of the .txt file to be written to.
+	* @param db The PublicHolidayList Object to be written.
+	* @throws IOException if object to be written is not Serializeable.
+	*/
 	public static void writeSerializedObject(String filename, PublicHolidayList db) {
 		FileOutputStream fos = null;
 		ObjectOutputStream out = null;
@@ -262,7 +351,13 @@ public class SerializeDB{
             ex.printStackTrace();
         }
 	}
-
+	
+       /**
+	* Method to write TicketPrice Object to a .txt file.
+	* @param filename The file path of the .txt file to be written to.
+	* @param db The TicketPrice Object to be written.
+	* @throws IOException if object to be written is not Serializeable.
+	*/
 	public static void writeSerializedObject(String filename, TicketPrice db) {
 		FileOutputStream fos = null;
 		ObjectOutputStream out = null;
@@ -276,8 +371,11 @@ public class SerializeDB{
             ex.printStackTrace();
         }
 	}
-
-    public static void main(String[] args) throws Exception{ // run main method to create .txt files containing dummy data
+	
+    /**
+     * Main method to be run to create .txt files containing dummy data
+     */
+    public static void main(String[] args) throws Exception{ 
 
 		AdminAccounts adminDb = new AdminAccounts();
 		MoviegoerAccounts userDb = new MoviegoerAccounts();
