@@ -1,17 +1,17 @@
 package Model;
 import java.util.*;
-import java.io.*;
 
-public class UserAccounts implements Serializable{
+
+public class MoviegoerAccounts implements Accounts{
     private HashMap<String, String> loginInfo; // Maps each user ID to a password
-    private HashMap<String, User> accounts; // Maps each user ID to a User object
+    private HashMap<String, Moviegoer> accounts; // Maps each user ID to a User object
 
-    public UserAccounts(){
+    public MoviegoerAccounts(){
         loginInfo = new HashMap<String, String>();
-        accounts = new HashMap<String, User>();
+        accounts = new HashMap<String, Moviegoer>();
     }
     
-    public void setAccount(User user, String password){  // Stores user info in database
+    public void setAccount(Moviegoer user, String password){  // Stores user info in database
         loginInfo.put(user.getId(), password);
         accounts.put(user.getId(), user);
     }
@@ -31,7 +31,7 @@ public class UserAccounts implements Serializable{
             return false;
     }
 
-    public User getUser(String id){   // Get User object from the database by userID
+    public Moviegoer getUser(String id){   // Get User object from the database by userID
         return accounts.get(id);
     }
 }
