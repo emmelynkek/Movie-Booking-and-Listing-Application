@@ -3,8 +3,7 @@ package Model;
 import java.io.*;
 
 /**
- * Represents a cinema hall in a cineplex.
- * A cinema can show many different movies at different times.
+ * Represents a cinema hall in a cineplex. A cinema can show many different movies at different times.
  * @author  Ng Li Lin Evonne
  * @version 1.0
  * @since   2022-10-26
@@ -50,9 +49,7 @@ public class Cinema implements Serializable {
 
     /**
      * Changes the code of this Cinema.
-     * @param code This Cinema's new code.
-     *             Should include an alphabet representing
-     *             this Cinema's type and a number.
+     * @param code This Cinema's new code. Should include an alphabet representing this Cinema's type and a number.
      */
     public void setCode(String code) {
         this.code = code;
@@ -68,8 +65,7 @@ public class Cinema implements Serializable {
 
     /**
      * Changes the type of this Cinema.
-     * @param t This Cinema's new type.
-     *          Should be either Regular or Platinum.
+     * @param t This Cinema's new type. Should be either Regular or Platinum.
      */
     public void setCinemaType(cinemaType t) {
         this.type = t;

@@ -37,22 +37,4 @@ public class BookingList implements Serializable {
     public void addBooking(Booking b) {
         bookingList.add(b);
     }
-
-    /**
-     * Searches the list of bookings in this BookingList for 
-     * a specified Booking made by a specified user.
-     * @param userId the username of the user who made the
-     *               specified Booking.
-     * @return       the Booking made by the specified user.
-     *               If no Booking can be found, a null is returned.
-     */
-    public Booking searchBooking(String userId){   
-        for (Booking booking: bookingList){
-            if (booking.getUser().getId().equals(userId)){
-                return booking;
-            }
-        }
-        System.out.printf("Error! Booking not found.\n");
-        return null;
-    }
 }

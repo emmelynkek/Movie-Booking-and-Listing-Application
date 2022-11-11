@@ -5,8 +5,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
- * Represents a booking made by a user. One booking
- * is made for each transaction.
+ * Represents a booking made by a user. One booking is made for each transaction.
  * @author  Ng Li Lin Evonne
  * @version 1.0
  * @since   2022-10-30
@@ -36,7 +35,7 @@ public class Booking implements Serializable {
     /**
      * The user that made this booking.
      */
-    private User user;
+    private Moviegoer moviegoer;
 
     /**
      * The seats booked for this booking.
@@ -76,8 +75,7 @@ public class Booking implements Serializable {
     }
 
     /**
-     * Sets the transaction ID of this Booking. Transaction
-     * ID contains the cinema code and datetime of booking.
+     * Sets the transaction ID of this Booking. Transaction ID contains the cinema code and datetime of booking.
      * @param cinemaCode the cinema code of the cinema in
      *                   this Booking.
      */
@@ -97,8 +95,7 @@ public class Booking implements Serializable {
     }
 
     /**
-     * Sets the total amount paid by the user during the
-     * transaction.
+     * Sets the total amount paid by the user during the transaction.
      * @param price the total price of the tickets for
      *              this Booking.
      */
@@ -118,21 +115,20 @@ public class Booking implements Serializable {
      * Sets the user who made this Booking.
      * @param user This Booking's user.
      */
-    public void setUser(User user) {
-        this.user = user;
+    public void setMoviegoer(Moviegoer moviegoer) {
+        this.moviegoer = moviegoer;
     }
 
     /**
      * Gets the user who made this Booking.
      * @return this Booking's user.
      */
-    public User getUser() {
-        return this.user;
+    public Moviegoer getMoviegoer() {
+        return this.moviegoer;
     }
 
     /**
-     * Sets the ID(s) of the seats booked by the user for
-     * this Booking. Seat IDs are arranged according to
+     * Sets the ID(s) of the seats booked by the user for this Booking. Seat IDs are arranged according to
      * the order the seats are booked.
      * @param seatID This Booking's seat ID(s).
      */
