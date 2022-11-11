@@ -19,14 +19,32 @@ public class MovieList implements Serializable{
         movieList.add(movie);
     }
 
-    public CinemaMovie searchMovie(String title){   
-        for (CinemaMovie movie: movieList){
-            if (movie.getMovie().getTitle().equals(title)){
-                return movie;
-            }
+    public CinemaMovie searchMovie(){
+        Scanner sc = new Scanner(System.in);
+        int i=1;
+
+        if (movieList.isEmpty()){
+            System.out.println("Error! Movie has no show times.");
+            return null;
         }
-        System.out.printf("Error! Movie not found.\n");
-        return null;
+
+        for (CinemaMovie movie : movieList)
+            System.out.printf("(%d) %s \n", i++, movie.getMovie().getTitle());
+
+        System.out.println("Select movie: ");
+        String input = sc.nextLine();
+        try{
+            int index = Integer.parseInt(input);
+            if (index > movieList.size() || index<1){
+                System.out.println("Error! Please select a movie from the list.");
+                return null;
+            }
+            return movieList.get(index-1);
+        }
+        catch (NumberFormatException e){
+            System.out.println("Error! Please select a movie from the list.");
+            return null;
+        }   
     }
 
     public void checkEndDate(){   // Check endDate of each CinemaMovie and update status to END_OF_SHOWING if endDate == current date.
