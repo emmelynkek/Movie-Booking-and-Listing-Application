@@ -87,14 +87,6 @@ public class SystemManager{
                     break; 
 
                 case 2: 
-                    /* double spa; 
-                    Exception exception1; 
-
-                    spa = sc.nextDouble();
-                    pa.setStudentPA(spa);
-                    System.out.println("Student discount updated!");
-                    break; */ 
-
                     double spa; 
                     Exception exception1; 
                     do {
@@ -116,12 +108,6 @@ public class SystemManager{
                     break; 
 
                 case 3: 
-                    /* System.out.println("Enter senior citizen discount: "); 
-                    double epa; 
-                    epa = sc.nextDouble();
-                    pa.setElderlyPA(epa);
-                    System.out.println("Senior Citizen discount updated!");
-                    break; */ 
                     double epa; 
                     Exception exception2; 
                     do {
@@ -144,12 +130,6 @@ public class SystemManager{
 
 
                 case 4: 
-                    // System.out.println("Enter Mon/Tue/Wed discount: "); 
-                    // double wdpa; 
-                    // wdpa = sc.nextDouble();
-                    // pa.setWeekdayPA(wdpa);
-                    // System.out.println("Mon/Tue/Wed discount updated!");
-                    // break; 
                     double wdpa; 
                     Exception exception3; 
                     do {
@@ -172,12 +152,6 @@ public class SystemManager{
            
             
                 case 5: 
-                    // System.out.println("Enter weekend surcharge: "); 
-                    // double wpa; 
-                    // wpa = sc.nextDouble();
-                    // pa.setWeekendPA(wpa);
-                    // System.out.println("Weekend surcharge updated!");
-                    // break; 
                     double wpa; 
                     Exception exception4; 
                     do {
@@ -199,12 +173,6 @@ public class SystemManager{
            
 
                 case 6: 
-                    // System.out.println("Enter public holiday surcharge: "); 
-                    // double phpa; 
-                    // phpa = sc.nextDouble();
-                    // pa.setPubHolPA(phpa);
-                    // System.out.println("Public Holiday surcharge updated!");
-                    // break; 
                     double phpa; 
                     Exception exception5; 
                     do {
@@ -226,12 +194,6 @@ public class SystemManager{
                     break; 
 
                 case 7: 
-                    // System.out.println("Enter 3D movie surcharge: "); 
-                    // double tdpa; 
-                    // tdpa = sc.nextDouble();
-                    // pa.set3DPA(tdpa);
-                    // System.out.println("3D movie surcharge updated!");
-                    // break;
                     double tdpa; 
                     Exception exception6; 
                     do {
@@ -252,12 +214,6 @@ public class SystemManager{
                     System.out.println("3D movie surcharge updated!");
                     break; 
                 case 8: 
-                    // System.out.println("Enter blockbuster movie surcharge: "); 
-                    // double bbpa; 
-                    // bbpa = sc.nextDouble();
-                    // pa.setBlockbusterPA(bbpa);;
-                    // System.out.println("Blockbuster movie surcharge updated!");
-                    // break; 
                     double bbpa; 
                     Exception exception7; 
                     do {
@@ -279,12 +235,6 @@ public class SystemManager{
                     break;
 
                 case 9: 
-                    // System.out.println("Enter platinum suite surcharge: "); 
-                    // double ctpa; 
-                    // ctpa = sc.nextDouble();
-                    // pa.setCinemaTypePA(ctpa);
-                    // System.out.println("Platinum suites surcharge updated!");
-                    // break;
                     double ctpa; 
                     Exception exception8; 
                     do {
@@ -306,12 +256,6 @@ public class SystemManager{
                     break;
                     
                 case 10: 
-                    // System.out.println("Enter premium seat surcharge: "); 
-                    // double stpa; 
-                    // stpa = sc.nextDouble();
-                    // pa.setSeatPA(stpa);
-                    // System.out.println("Premium seat surcharge updated!");
-                    // break; 
                     double stpa; 
                     Exception exception9; 
                     do {
