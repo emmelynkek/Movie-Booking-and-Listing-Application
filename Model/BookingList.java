@@ -3,7 +3,7 @@ import java.io.Serializable;
 import java.util.*;
 
 /**
- * Represents a list of bookings made on MOBALIMA.
+ * Represents a list of bookings made on MOBLIMA.
  * @author  Ng Li Lin Evonne
  * @version 1.0
  * @since   2022-10-30

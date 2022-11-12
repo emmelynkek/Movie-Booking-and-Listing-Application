@@ -13,7 +13,7 @@ import java.time.format.*;
 public class MovieList implements Serializable{
     
     /**
-     * List of all avaliable cinema movies.
+     * List of all available cinema movies.
      */
     private List <CinemaMovie> movieList;  
     

@@ -114,7 +114,7 @@ public class ShowTimeManager{
                 return;
             }
 
-            ShowTime temp = new ShowTime();  =        
+            ShowTime temp = new ShowTime();        
             temp.setCinemaCode(input);
             temp.setCineplexName(showTime.getCineplexName());
             temp.setDate(showTime.getDate());
