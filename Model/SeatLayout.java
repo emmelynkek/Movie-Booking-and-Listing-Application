@@ -116,6 +116,27 @@ public class SeatLayout implements Serializable{
                 System.out.println();
             }
 
+            else if (i ==8 || i ==9 ){ 
+
+                for (int j = 0; j < column ; j++) {
+               
+                    if (seats[i][j].getAvailable() == true){ 
+                       if(j==4){ 
+                        System.out.print("{ }" + "    "); 
+                       }else{ 
+                        System.out.print("{ }" + "  ");
+                       }
+
+                    }else{ 
+                        if(j==4){ 
+                            System.out.print("{x}" + "    ");
+                        }
+                        else {System.out.print("{x}" + "  ");} 
+                    }     
+                }
+                System.out.println();
+            }
+
             else {
             for (int j = 0; j < column ; j++) {
                
@@ -142,7 +163,8 @@ public class SeatLayout implements Serializable{
         System.out.println("LEGEND:");
         System.out.println("( ): premium seats");
         System.out.println("[ ]: standard seats");
-        System.out.println("(x) / [x]: booked seats");
+        System.out.println("{ }: couple seats");
+        System.out.println("(x) / [x] / {x}: booked seats");
         System.out.println();
     }
 
@@ -211,4 +233,12 @@ public class SeatLayout implements Serializable{
         }
         return true;
     }
+
+    public static void main(String[] args){
+
+        SeatLayout sl = new SeatLayout(); 
+        sl.getSeatlayout();
+
+
+    } 
 }
