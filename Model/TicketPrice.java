@@ -61,8 +61,8 @@ public class TicketPrice implements Serializable {
         SENIOR_CITIZEN
     }
     
-    /** 
-     * Creates a new ticket price object with preset base price and price adjustment 
+    /**
+     * Creates a new ticket price object with preset values of prices
      */
     public TicketPrice() {
         this.basePrice = 9.50;
