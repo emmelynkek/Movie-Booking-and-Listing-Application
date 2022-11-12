@@ -35,28 +35,63 @@ public class BookingManager {
         layout.getSeatlayout();
         int row = 1;
         int col = 1;
+        boolean condition = true; 
         do {
-            Exception exception;
+            // Exception exception;
+            // do {
+            //     exception = null;
+            //     System.out.println("Enter a row number: ");
+            //     try {
+            //         row = sc.nextInt();
+            //         System.out.println("Enter column number: ");
+            //         col = sc.nextInt();
+            //     } catch (InputMismatchException e) {
+            //         System.out.println("Error! Please input a number value!");
+            //         exception = e;
+            //     }
+            // } while (exception != null);
+
+            Exception exception1;
+
             do {
-                exception = null;
-                System.out.println("Enter a row number: ");
+                exception1 = null;
+                /* Get the vallue */ 
+                System.out.println("Enter the row number: ");
                 try {
                     row = sc.nextInt();
-                    System.out.println("Enter column number: ");
+                } catch (InputMismatchException e) {
+                    System.out.println("Error! Please input a number value!");
+                    sc.next();
+                    exception1 = e;
+                }
+            } while (exception1 != null);
+
+
+         
+            Exception exception2;
+
+            do {
+                exception2 = null;
+                /* Get the vallue */ 
+                System.out.println("Enter the column number: ");
+                try {
                     col = sc.nextInt();
                 } catch (InputMismatchException e) {
                     System.out.println("Error! Please input a number value!");
-                    exception = e;
+                    sc.next();
+                    exception2 = e;
                 }
-            } while (exception != null);
+            } while (exception2 != null);
+
+
             if (layout.getSeatavailability(row, col) == true) {
                 layout.setSeatavailability(row, col, false);
                 System.out.println("Seat successfully booked!");
-                break;
+                condition = false; 
             } else {
                 System.out.println("The seat is not available. Please choose another seat.");
             }
-        } while (true);
+        } while (condition);
         return "R" + row + "C" + col;
     }
 
