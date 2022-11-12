@@ -9,7 +9,7 @@ import java.util.*;
 /**
  * BookingManager is a control class which handles bookings by the user. BookingManager contains methods 
  * that allow users to select seats, calculate price of ticket, create a new booking and view bookings.
- * @author  Ng Li Lin Evonne
+ * @author  Evonne Ng
  * @version 2.0
  * @since   2022-11-06
  */
@@ -156,7 +156,7 @@ public class BookingManager {
                 System.out.println("Booking success!\n");
                 bList.addBooking(booking); 
                 printBooking(booking);
-                movie.setTicketSales(movie.getTicketSales() + price);
+                movie.setTicketSales(movie.getTicketSales() + totprice);
             }
         } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("Error! Please select a valid row & column number.");

@@ -4,7 +4,7 @@ import java.io.*;
 
 /**
  * Represents a cinema hall in a cineplex. A cinema can show many different movies at different times.
- * @author  Ng Li Lin Evonne
+ * @author  Evonne Ng
  * @version 1.0
  * @since   2022-10-26
  */

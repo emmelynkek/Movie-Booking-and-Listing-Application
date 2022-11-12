@@ -6,12 +6,12 @@ import View.*;
 import java.util.*;
 
 /**
-  This is the Main function of our application.
-  Run this file to run the app.
-  @author Julian Wong
-  @version 1.0
-  @since 2022-11-12
-*/
+ * This is the Main function of our application.
+ * Run this file to run the app.
+ * @author  Julian Wong
+ * @version 1.0
+ * @since   2022-11-12
+ */
 public class MainApp {
     public static void main(String[] args) throws Exception{
         Header.printMobalima();

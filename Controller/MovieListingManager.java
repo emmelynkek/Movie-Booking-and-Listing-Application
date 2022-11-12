@@ -7,14 +7,14 @@ import java.util.*;
 
 /**
   Contains static methods for admin to add/edit/remove a cinema movie from the Movie Listing.
-  @author Julian Wong
+  @author  Julian Wong
   @version 1.0
-  @since 2022-11-12
+  @since   2022-11-12
 */
 public class MovieListingManager {
     
     /**
-     * Method for admin to add a new cinema movie to the Movie Listing.
+     * Adds a new cinema movie to the Movie Listing.
      * @param list This is the list of all available cinema movies.
      */
     public static void createMovieListing(MovieList list) {
@@ -75,7 +75,7 @@ public class MovieListingManager {
     }
     
     /**
-     * Method for Admin to update the attributes of a cinema movie in the Movie Listing.
+     * Updates the attributes of a cinema movie in the Movie Listing.
      * Admin can update movie status, movie type and End of Showing date.
      * @param list This is the list of all available cinema movies.
      */
@@ -131,7 +131,7 @@ public class MovieListingManager {
     }
     
     /**
-     * Method for admin to remove an existing cinema movie from the Movie Listing.
+     * Removes an existing cinema movie from the Movie Listing.
      * @param list This is the list of all available cinema movies.
      */
     public static void removeMovieListing(MovieList list) {
@@ -147,7 +147,7 @@ public class MovieListingManager {
     }
     
     /**
-     * Method for admin to control the ranking order of the Top 5 Movie Listing.
+     * Changes the ranking order of the Top 5 Movie Listing.
      * Admin can set ranking to be by overall reviewer rating or total tickets sales.
      * @param t5list This is the list of Top 5 Cinema Movies.
      */

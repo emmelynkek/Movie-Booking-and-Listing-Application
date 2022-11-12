@@ -4,7 +4,7 @@ import java.util.*;
 
 /**
  * Represents a list of bookings made on MOBLIMA.
- * @author  Ng Li Lin Evonne
+ * @author  Evonne Ng
  * @version 1.0
  * @since   2022-10-30
  */

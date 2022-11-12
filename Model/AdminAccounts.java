@@ -10,12 +10,12 @@ import java.util.*;
 
 public class AdminAccounts implements Accounts{
     /**
-     * Data structre that maps each admin ID to a password.
+     * Data structure that maps each admin ID to a password.
      */
     private HashMap<String, String> loginInfo;
     
     /**
-     * Data structre that maps each admin ID to a Admin object
+     * Data structure that maps each admin ID to a Admin object
      */
     private HashMap<String, Admin> accounts;
     
@@ -64,7 +64,7 @@ public class AdminAccounts implements Accounts{
     }
     
     /**
-     * Method used to access an Admin object by its corresponding Admin ID
+     * Gets an Admin object by its corresponding Admin ID
      * @param id This is the ID inputted by the Admin.
      * @return corresponding Admin object from the database.
      */

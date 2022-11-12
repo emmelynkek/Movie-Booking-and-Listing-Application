@@ -13,7 +13,7 @@ public class Admin implements User{
     private String adminId;
     
     /**
-     * Method to set or modify the ID for this Admin object.
+     * Sets or modifies the ID for this Admin object.
      * @param id This is the ID of this administrator.
      */
     public void setId(String id){
@@ -21,7 +21,7 @@ public class Admin implements User{
     }
     
     /**
-     * Method to access ID of this administrator.
+     * Gets ID of this administrator.
      * @return ID of this administrator.
      */
     public String getId(){

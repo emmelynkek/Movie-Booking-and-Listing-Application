@@ -7,9 +7,9 @@ import java.util.*;
 
 /**
   A manager class to help admin to create public holidays and change price adjustment
-  @author Emmelyn Kek 
+  @author  Emmelyn Kek 
   @version 1.0
-  @since 2022-10-11
+  @since   2022-10-11
  */
 
 public class SystemManager{

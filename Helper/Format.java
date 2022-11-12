@@ -11,7 +11,7 @@ import java.util.regex.*;
 public class Format {
     
     /**
-     * Method to check if input time string is in Military Time format.
+     * Checks if input time string is in Military Time format.
      * @param input This is the input String to be checked.
      * @return true if input time string is in Military Time format; return false if otherwise.
      */
@@ -27,7 +27,7 @@ public class Format {
     }
     
     /**
-     * Method to check if input date string is in DD-MMM-YYYY format.
+     * Checks if input date string is in DD-MMM-YYYY format.
      * @param input This is the input string to be checked.
      * @return true if input date string is in in DD-MMM-YYYY format; return false if otherwise.
      */

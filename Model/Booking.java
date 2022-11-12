@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatter;
 
 /**
  * Represents a booking made by a user. One booking is made for each transaction.
- * @author  Ng Li Lin Evonne
+ * @author  Evonne Ng
  * @version 1.0
  * @since   2022-10-30
  */

@@ -6,14 +6,14 @@ import java.util.regex.*;
 
 /**
   Contains static methods for Admin to add/edit/remove Show Times. 
-  @author Julian Wong
+  @author  Julian Wong
   @version 1.0
-  @since 2022-11-12
+  @since   2022-11-12
 */
 public class ShowTimeManager{
     
     /**
-     * Method for Admin to add a new Show Time to a Cinema Movie.
+     * Adds a new Show Time to a Cinema Movie.
      * @param cList This is the list of all available cineplexes.
      * @param mList This is the list of all available cinema movies.
      */
@@ -61,7 +61,7 @@ public class ShowTimeManager{
     }
     
     /**
-     * Method for Admin to update the attributes of a Show Time for a Cinema Movie.
+     * Updates the attributes of a Show Time for a Cinema Movie.
      * Admin can update cineplex name, cinema code, date and start & end time.
      * After getting user input, this method will create a new ShowTime obj and invoke isValidShowTime() to perform validation.
      * @param cList This is the list of all available cineplexes.
@@ -172,7 +172,7 @@ public class ShowTimeManager{
     }
     
     /**
-     * Method for Admin to remove a Show Time of a Cinema Movie.
+     * Removes a Show Time of a Cinema Movie.
      * @param mList This is the list of all available cinema movies.
      */
     public static void removeShowTime(MovieList mList){

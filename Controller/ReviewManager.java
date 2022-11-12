@@ -4,15 +4,15 @@ import java.util.*;
 
 /**
   Contains static methods for movie-goers to add a review to a cinema movie.
-  @author Julian Wong
+  @author  Julian Wong
   @version 1.0
-  @since 2022-11-12
+  @since   2022-11-12
 */
 public class ReviewManager {
     
     /**
-     * Method to add a review to a cinema movie.
-     * @param user The user who will be making the review
+     * Adds a review to a cinema movie.
+     * @param user  The user who will be making the review
      * @param mList The list of all available cinema movies.
      */
     public static void addReview(Moviegoer user, MovieList mList){
