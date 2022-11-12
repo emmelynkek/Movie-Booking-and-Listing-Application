@@ -422,7 +422,7 @@ public class SerializeDB{
 		CinemaMovie m2 = new CinemaMovie();
         m2.setMovie(new Movie());                        //creating Movie obj
         m2.setStatus(CinemaMovie.Status.NOW_SHOWING);    // initialise attributes
-        m2.setType(CinemaMovie.Type.BLOCKBUSTER);
+		m2.setType(CinemaMovie.Type.THREE_D);
         m2.getMovie().setTitle("Black Adam");
         m2.getMovie().setDirectorName("Jaume Collet-Serra");
         m2.getMovie().setCastNames("Dwayne Johnson");
@@ -454,8 +454,67 @@ public class SerializeDB{
         Review r6 = new Review("User 6", "Rip Chadwick Boseman", 9);
         m3.setReviews(r5);
         m3.setReviews(r6);
-        mList.addMovie(m3);
-
+		mList.addMovie(m3);
+		
+		CinemaMovie m4 = new CinemaMovie();
+        m4.setMovie(new Movie());                        //creating Movie obj
+        m4.setStatus(CinemaMovie.Status.NOW_SHOWING);    // initialise attributes
+        m4.setType(CinemaMovie.Type.REGULAR);
+        m4.getMovie().setTitle("Ajoomma");
+        m4.getMovie().setDirectorName("He Shuming");
+        m4.getMovie().setCastNames("Hong Huifang");
+        m4.getMovie().setCastNames("Jung Dong-Hwan");
+		m4.getMovie().setCastNames("Kang Hyung Suk");
+		m4.getMovie().setCastNames("Yeo Jingoo");
+        m4.getMovie().setSynopsis("Inspired by the director’s mother, AJOOMMA is the story of a woman’s journey of self-discovery, where Auntie learns to embrace her new independent life with renewed confidence and panache.");
+        m4.setTicketSales(45000d);
+		m4.setEndDate("03-Jan-2023");
+        Review r7 = new Review("User 7", "Yeo Jingoo OPPA! Saranghae <3", 7);
+        Review r8 = new Review("User 6", "Nice Singapore Korea collab", 6);
+        m4.setReviews(r7);
+        m4.setReviews(r8);
+		mList.addMovie(m4);
+		
+		CinemaMovie m5 = new CinemaMovie();
+        m5.setMovie(new Movie());                        //creating Movie obj
+        m5.setStatus(CinemaMovie.Status.NOW_SHOWING);    // initialise attributes
+        m5.setType(CinemaMovie.Type.REGULAR);
+        m5.getMovie().setTitle("Uunchai");
+        m5.getMovie().setDirectorName("Sooraj R. Barjatya");
+        m5.getMovie().setCastNames("Anupam Kher");
+        m5.getMovie().setCastNames("Amitabh Bachchan");
+		m5.getMovie().setCastNames("Boman Irani");
+		m5.getMovie().setCastNames("Sarika");
+		m5.getMovie().setCastNames("Neena Gupta");
+		m5.getMovie().setCastNames("Parineeti Chopra");
+        m5.getMovie().setSynopsis("The Amitabh Bachchan-Anupam Kher-Boman Irani trio leave their cozy Delhi lives to trek to Everest Base Camp with friendship as their only motivation. Embark on the journey of a lifetime with Team Uunchai.");
+        m5.setTicketSales(31230d);
+		m5.setEndDate("03-Dec-2023");
+        Review r9 = new Review("User 9", "Heartwarming film!", 6);
+        Review r10 = new Review("User 10", "Love the cast", 4);
+        m5.setReviews(r9);
+        m5.setReviews(r10);
+		mList.addMovie(m5);
+		
+		CinemaMovie m6 = new CinemaMovie();
+        m6.setMovie(new Movie());                        //creating Movie obj
+        m6.setStatus(CinemaMovie.Status.PREVIEW);    // initialise attributes
+        m6.setType(CinemaMovie.Type.BLOCKBUSTER);
+        m6.getMovie().setTitle("Hell Hole");
+        m6.getMovie().setDirectorName("Sam Loh");
+        m6.getMovie().setCastNames("Justin Cheung");
+        m6.getMovie().setCastNames("Jennifer Yu");
+		m6.getMovie().setCastNames("Lam Yiu Sing");
+		m6.getMovie().setCastNames("Raymond Chiu");
+        m6.getMovie().setSynopsis("This is a tale about love, loss, suffering and karma. A loving mother makes a death pact with a spirit, sacrificing herself to save her son. Years later, the son is bullied in a medical school and dies tragically. Now both mother and son have been reunited as vengeful spirits and are back to exact revenge on those who have wronged them.");
+        m6.setTicketSales(74300d);
+		m6.setEndDate("03-Jan-2023");
+		Review r11 = new Review("User 11", "Thrilling movie!", 3);
+        Review r12 = new Review("User 12", "Mediocre plot~~", 4);
+		m6.setReviews(r11);
+		m6.setReviews(r12);
+		mList.addMovie(m6);
+		
 		t5List.setSortBy(Top5List.sortBy.RATING);
 		t5List.sortList(mList);
 
