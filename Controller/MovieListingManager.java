@@ -38,40 +38,45 @@ public class MovieListingManager {
 
         CinemaMovie cinemaMovie = new CinemaMovie();
         cinemaMovie.setMovie(movie);
-        System.out.println("Select movie status: ");
-        System.out.println("1: COMING_SOON");
-        System.out.println("2: PREVIEW");
-        System.out.println("3: NOW_SHOWING");
-        int choice = sc.nextInt();
-        input = sc.nextLine();
-        if (choice == 1)
-            cinemaMovie.setStatus(CinemaMovie.Status.COMING_SOON);
-        else if (choice == 2)
-            cinemaMovie.setStatus(CinemaMovie.Status.PREVIEW);
-        else if (choice == 3)
-            cinemaMovie.setStatus(CinemaMovie.Status.NOW_SHOWING);
-        System.out.println("Enter End of Showing date (format: dd-mmm-yyyy): ");
-        input = sc.nextLine();
-        if (!Format.isValidDateFormat(input))
-            return;
+        try{
+            System.out.println("Select movie status: ");
+            System.out.println("1: COMING_SOON");
+            System.out.println("2: PREVIEW");
+            System.out.println("3: NOW_SHOWING");
+            int choice = sc.nextInt();
+            input = sc.nextLine();
+            if (choice == 1)
+                cinemaMovie.setStatus(CinemaMovie.Status.COMING_SOON);
+            else if (choice == 2)
+                cinemaMovie.setStatus(CinemaMovie.Status.PREVIEW);
+            else if (choice == 3)
+                cinemaMovie.setStatus(CinemaMovie.Status.NOW_SHOWING);
+            System.out.println("Enter End of Showing date (format: dd-mmm-yyyy): ");
+            input = sc.nextLine();
+            if (!Format.isValidDateFormat(input))
+                return;
 
-        cinemaMovie.setEndDate(input);
-        System.out.println("Select movie type:");
-        System.out.println("1: Regular");
-        System.out.println("2: 3D");
-        System.out.println("3: Blockbuster");
-        choice = sc.nextInt();
-        input = sc.nextLine();
-        if (choice == 1)
-            cinemaMovie.setType(CinemaMovie.Type.REGULAR);
-        else if (choice == 2)
-            cinemaMovie.setType(CinemaMovie.Type.THREE_D);
-        else if (choice == 3)
-            cinemaMovie.setType(CinemaMovie.Type.BLOCKBUSTER);
-        cinemaMovie.setOverallRating(0f);
-        cinemaMovie.setTicketSales(0f);
-        list.addMovie(cinemaMovie);
-        System.out.println("Movie added to database!");
+            cinemaMovie.setEndDate(input);
+            System.out.println("Select movie type:");
+            System.out.println("1: Regular");
+            System.out.println("2: 3D");
+            System.out.println("3: Blockbuster");
+            choice = sc.nextInt();
+            input = sc.nextLine();
+            if (choice == 1)
+                cinemaMovie.setType(CinemaMovie.Type.REGULAR);
+            else if (choice == 2)
+                cinemaMovie.setType(CinemaMovie.Type.THREE_D);
+            else if (choice == 3)
+                cinemaMovie.setType(CinemaMovie.Type.BLOCKBUSTER);
+            cinemaMovie.setOverallRating(0f);
+            cinemaMovie.setTicketSales(0f);
+            list.addMovie(cinemaMovie);
+            System.out.println("Movie added to database!");
+        }
+        catch(InputMismatchException e){
+            System.out.println("Error! Invalid input entered.");
+        }
     }
     
     /**
@@ -86,47 +91,53 @@ public class MovieListingManager {
         if (cinemaMovie == null)
             return;
         int choice;
-        System.out.println("Select attribute to update: ");
-        System.out.println("1: Update movie status");
-        System.out.println("2: Update movie type");
-        System.out.println("3: Update movie End of Showing date");
-        choice = sc.nextInt();
-        String input = sc.nextLine();
-        if (choice == 1) {
-            System.out.println("Select new movie status: ");
-            System.out.println("1: COMING_SOON");
-            System.out.println("2: PREVIEW");
-            System.out.println("3: NOW_SHOWING");
+
+        try{
+            System.out.println("Select attribute to update: ");
+            System.out.println("1: Update movie status");
+            System.out.println("2: Update movie type");
+            System.out.println("3: Update movie End of Showing date");
             choice = sc.nextInt();
-            if (choice == 1)
-                cinemaMovie.setStatus(CinemaMovie.Status.COMING_SOON);
-            else if (choice == 2)
-                cinemaMovie.setStatus(CinemaMovie.Status.PREVIEW);
-            else if (choice == 3)
-                cinemaMovie.setStatus(CinemaMovie.Status.NOW_SHOWING);
-            System.out.println("Movie status updated!");
-        } else if (choice == 2) {
-            System.out.println("Select new movie type:");
-            System.out.println("1: Regular");
-            System.out.println("2: 3D");
-            System.out.println("3: Blockbuster");
-            choice = sc.nextInt();
-            if (choice == 1)
-                cinemaMovie.setType(CinemaMovie.Type.REGULAR);
-            else if (choice == 2)
-                cinemaMovie.setType(CinemaMovie.Type.THREE_D);
-            else if (choice == 3)
-                cinemaMovie.setType(CinemaMovie.Type.BLOCKBUSTER);
-            System.out.println("Movie type updated!");
-        } else if (choice == 3) {
-            System.out.println("Enter new End of Showing date (format: dd-mmm-yyyy): ");
-            input = sc.nextLine();
-            if (!Format.isValidDateFormat(input))
-                return;
-                
-            cinemaMovie.setEndDate(input);
-            System.out.println("Movie End of Showing date updated!");
-            list.checkEndDate();
+            String input = sc.nextLine();
+            if (choice == 1) {
+                System.out.println("Select new movie status: ");
+                System.out.println("1: COMING_SOON");
+                System.out.println("2: PREVIEW");
+                System.out.println("3: NOW_SHOWING");
+                choice = sc.nextInt();
+                if (choice == 1)
+                    cinemaMovie.setStatus(CinemaMovie.Status.COMING_SOON);
+                else if (choice == 2)
+                    cinemaMovie.setStatus(CinemaMovie.Status.PREVIEW);
+                else if (choice == 3)
+                    cinemaMovie.setStatus(CinemaMovie.Status.NOW_SHOWING);
+                System.out.println("Movie status updated!");
+            } else if (choice == 2) {
+                System.out.println("Select new movie type:");
+                System.out.println("1: Regular");
+                System.out.println("2: 3D");
+                System.out.println("3: Blockbuster");
+                choice = sc.nextInt();
+                if (choice == 1)
+                    cinemaMovie.setType(CinemaMovie.Type.REGULAR);
+                else if (choice == 2)
+                    cinemaMovie.setType(CinemaMovie.Type.THREE_D);
+                else if (choice == 3)
+                    cinemaMovie.setType(CinemaMovie.Type.BLOCKBUSTER);
+                System.out.println("Movie type updated!");
+            } else if (choice == 3) {
+                System.out.println("Enter new End of Showing date (format: dd-mmm-yyyy): ");
+                input = sc.nextLine();
+                if (!Format.isValidDateFormat(input))
+                    return;
+                    
+                cinemaMovie.setEndDate(input);
+                System.out.println("Movie End of Showing date updated!");
+                list.checkEndDate();
+            }
+        }
+        catch (InputMismatchException e){
+            System.out.println("Error! Invalid input entered.");
         }
     }
     
