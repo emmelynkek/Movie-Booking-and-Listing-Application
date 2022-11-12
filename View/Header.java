@@ -9,7 +9,7 @@ package View;
 public class Header {
     
     /**
-     * Method to print MOBALIMA text art and welcome banner.
+     * Prints MOBLIMA text art and welcome banner.
      */
     public static void printMobalima(){
         
@@ -26,7 +26,7 @@ public class Header {
     }
     
     /**
-     * Method to print movie listing breadcrumbs.
+     * Prints movie listing breadcrumbs.
      */
     public static void printMovieList(){
         System.out.printf("\n");
@@ -37,7 +37,7 @@ public class Header {
     }
     
     /**
-     * Method to print top 5 listing breadcrumbs.
+     * Prints top 5 listing breadcrumbs.
      */
     public static void printTop5List(){
         System.out.printf("\n");
@@ -48,7 +48,7 @@ public class Header {
     }
     
     /**
-     * Method to print movie details breadcrumbs.
+     * Prints movie details breadcrumbs.
      */
     public static void printMovieDetails(){
         System.out.printf("\n");
@@ -59,7 +59,7 @@ public class Header {
     }
     
     /**
-     * Method to print book ticket breadcrumbs.
+     * Prints book ticket breadcrumbs.
      */
     public static void printBookTicket(){
         System.out.printf("\n");
@@ -70,7 +70,7 @@ public class Header {
     }
 
     /**
-     * Method to print booking history breadcrumbs.
+     * Prints booking history breadcrumbs.
      */
     public static void printBookingHistory(){
         System.out.printf("\n");

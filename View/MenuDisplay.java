@@ -1,6 +1,16 @@
 package View;
 
+/**
+ * Represents the user interface for all the menus used in our application.
+ * @author Evonne Ng
+ * @version 1.0
+ * @since 2022-11-11
+ */
 public class MenuDisplay {
+
+    /**
+     * Prints the menu display for the login page.
+     */
     public static void printLogin() {
         System.out.printf("\n");
         System.out.println(" +-------------------------------+");
@@ -13,6 +23,9 @@ public class MenuDisplay {
         System.out.printf("\n");
     }
 
+    /**
+     * Prints the menu display for users after they log in into the application.
+     */
     public static void printUserMenu() {
         System.out.printf("\n");
         System.out.println("+------------------------------------------+");
@@ -33,6 +46,9 @@ public class MenuDisplay {
         System.out.printf("\n");
     }
 
+    /**
+     * Prints the menu display for admin after they log in into the application.
+     */
     public static void printAdminMenu() {
         System.out.printf("\n");
         System.out.println("+-----------------------------------------+");
@@ -59,6 +75,9 @@ public class MenuDisplay {
         System.out.printf("\n");
     }
 
+    /**
+     * Prints the menu display for users to select their age category.
+     */
     public static void printAgeMenu() {
         System.out.printf("\n");
         System.out.println("Please select the movie-goer's age category: ");
@@ -72,6 +91,9 @@ public class MenuDisplay {
         System.out.printf("\n");
     }
 
+    /**
+     * Prints the menu display to let admin configure how the top 5 movie list is sorted.
+     */
     public static void printSortMenu() {
         System.out.printf("\n");
         System.out.println("+------------------------------+");
@@ -84,6 +106,9 @@ public class MenuDisplay {
         System.out.printf("\n");
     }
 
+    /**
+     * Prints the menu display to allow admin to change the price adjustments.
+     */
     public static void printPriceAdjustmentMenu() {
         System.out.printf("\n");
         System.out.println("+--------------------------------------------+");

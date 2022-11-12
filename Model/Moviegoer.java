@@ -25,8 +25,8 @@ public class Moviegoer implements User{
     
     /**
      * Creates a new Moviegoer with the given input parameters.
-     * @param id This is the ID of the Moviegoer.
-     * @param num This is the mobile number of the Moviegoer.
+     * @param id This is the ID of this Moviegoer.
+     * @param num This is the mobile number of this Moviegoer.
      * @param email This is the email address of this Moviegoer.
      */
     public Moviegoer(String id, String num, String email) {
@@ -36,32 +36,32 @@ public class Moviegoer implements User{
     }
     
     /**
-     * Method to set or modify the ID for this Moviegoer object.
-     * @param id This is the ID inputted by the Moviegoer.
+     * Sets or modifies the ID for this Moviegoer.
+     * @param id This Moviegoer's username.
      */
     public void setId(String id){
         userId = id;
     }
     
     /**
-     * Method to access the ID for this Moviegoer object.
-     * @return ID of the Moviegoer.
+     * Gets the ID for this Moviegoer.
+     * @return ID of this Moviegoer.
      */
     public String getId(){
         return userId;
     }
     
     /**
-     * Method to access the mobile number for this Moviegoer object.
-     * @return mobile number of the Moviegoer.
+     * Gets the mobile number of this Moviegoer.
+     * @return mobile number of this Moviegoer.
      */
     public String getNum() {
         return this.mobileNum;
     }
     
     /**
-     * Method to access the email address for this Moviegoer object.
-     * @return email address of the Moviegoer.
+     * Gets the email address for this Moviegoer.
+     * @return email address of this Moviegoer.
      */
     public String getEmail() {
         return this.email;

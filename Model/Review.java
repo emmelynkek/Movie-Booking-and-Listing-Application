@@ -20,16 +20,16 @@ public class Review implements Serializable{
     private String description;
     
     /**
-     * Integer in the range of 0 to 10
+     * Moviegoer's rating in the review. Integer in the range of 0 to 10.
      * Each rating will affect the overall reviewer rating of the cinema movie.
      */
     private int rating;  
     
     /**
-     * Method to create a review.
-     * @param id This is the user ID of the movie-goer who posted the review.
-     * @param description This is the text description of the review.
-     * @param rating This is the rating given by a movie-goer.
+     * Creates a review.
+     * @param id This is the user ID of the movie-goer who posted this Review.
+     * @param description This is the text description of this Review.
+     * @param rating This is the rating given by a movie-goer in this Review.
      */
     public Review(String id, String description, int rating){
         this.userId = id;
@@ -39,23 +39,23 @@ public class Review implements Serializable{
     }
     
     /**
-     * Method to set the text description of the review.
-     * @param description This is the text description of the review.
+     * Sets the text description of this review.
+     * @param description This is the text description of this review.
      */
     public void setDescription(String description){
         this.description = description;
     }
     
     /**
-     * Method to access the text description of the review.
-     * @return text description of the review.
+     * Gets the text description of this review.
+     * @return text description of this review.
      */
     public String getDescription(){
         return description;
     }
     
     /**
-     * Method to set the rating given by a movie-goer to the cinema movie.
+     * Sets the rating given by a movie-goer to the cinema movie.
      * @param rating This is the rating given by a movie-goer to the cinema movie.
      */
     public void setRating(int rating){
@@ -63,31 +63,31 @@ public class Review implements Serializable{
     }
     
     /**
-     * Method to access the individual rating of the review.
-     * @return the individual rating of the review.
+     * Gets the individual rating of this review.
+     * @return the individual rating of this review.
      */
     public int getRating(){
         return rating;
     }
     
     /**
-     * Method to set the user ID of the movie-goer who posted the review.
-     * @param id This is the user ID of the movie-goer who posted the review.
+     * Sets the user ID of the movie-goer who posted this Review.
+     * @param id This is the user ID of the movie-goer who posted this Review.
      */
     public void setUserId(String id){
         this.userId = id;
     }
     
     /**
-     * Method to access the user ID of the movie-goer who posted the review.
-     * @return the the user ID of the movie-goer who posted the review.
+     * Gets the user ID of the movie-goer who posted this review.
+     * @return the user ID of the movie-goer who posted this review.
      */
     public String getUserId(){
         return userId;
     }
     
     /**
-     * Method to display the details of a review.
+     * Displays the details of a review.
      * The user id of the reviewer, review description and individual rating will be displayed.
      */
     public void displayReview(){

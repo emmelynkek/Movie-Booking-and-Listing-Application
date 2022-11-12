@@ -40,23 +40,23 @@ public class Top5List implements Serializable{
     }
     
     /**
-     * Method to access the list of top 5 cinema movies.
-     * @return the list of top 5 cinema movies.
+     * Gets the list of top 5 cinema movies from this Top5List.
+     * @return the list of top 5 cinema movies of this Top5List.
      */
     public List <CinemaMovie> getList(){
         return top5List;
     }
     
     /**
-     * Method to add a cinema movie to the list of top 5 cinema movies.
-     * @param movie The cinema movie to be added to the top 5 list.
+     * Adds a cinema movie to the list of top 5 cinema movies.
+     * @param movie The cinema movie to be added to this top 5 list.
      */
     public void addMovie(CinemaMovie movie){
         top5List.add(movie);
     }
     
     /**
-     * Method to set the sorting order of the top 5 cinema movies.
+     * Changes the sorting order of the top 5 cinema movies.
      * @param type The sorting order of the top 5 cinema movies.
      */
     public void setSortBy(sortBy type){
@@ -64,7 +64,7 @@ public class Top5List implements Serializable{
     }
     
     /**
-     * Method to access the sorting order of the top 5 cinema movies.
+     * Gets the sorting order of the top 5 cinema movies.
      * @return the sorting order of the top 5 cinema movies.
      */
     public sortBy getSortBy(){
@@ -72,8 +72,7 @@ public class Top5List implements Serializable{
     }
     
     /**
-     * Method to sort Top 5 List based on sortBy.
-     * Method is called whenever Movie-goer wants to display the top 5 list.
+     * Sorts Top 5 List based on sortBy. Method is called whenever Movie-goer wants to display the top 5 list.
      * @param movieList The list of all available cinema movies, which will be used as the reference to build the top 5 list.
      */
     public void sortList(MovieList movieList){
