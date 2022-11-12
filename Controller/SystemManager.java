@@ -5,6 +5,7 @@ import Helper.Format;
 import java.text.*;
 import java.util.*;
 
+
 /**
   A manager class to help admin to create public holidays and change price adjustment
   @author Emmelyn Kek 
@@ -49,7 +50,7 @@ public class SystemManager{
         publicHolidayList.addPublicHoliday(ph); 
     }
 
-
+   
     /**
      * Allows user to change base price and price adjustment 
      * @param pa Price Adjustment object to be changed
@@ -62,86 +63,274 @@ public class SystemManager{
             int choice; 
             choice = sc.nextInt();
             String buffer = sc.nextLine();
+          
             switch(choice){ 
                 case 1: 
-                    System.out.println("Enter base price: "); 
                     double bp; 
-                    bp = sc.nextDouble();
-                    pa.setBasePrice(bp);
+                    Exception exception; 
+                    do {
+                        exception = null;
+                
+                        System.out.println("Enter the base price value: ");
+                        try {
+                            bp = sc.nextDouble();
+                            pa.setBasePrice(bp);
+                        } catch (InputMismatchException e) {
+                            System.out.println("Error! Please input a number value!");
+                            sc.next();
+                            exception = e;
+                        }
+                    } while (exception != null);
+                 
+                    
                     System.out.println("Base price updated!");
                     break; 
 
                 case 2: 
-                    System.out.println("Enter student discount: "); 
-                    double spa; 
+                    /* double spa; 
+                    Exception exception1; 
+
                     spa = sc.nextDouble();
                     pa.setStudentPA(spa);
                     System.out.println("Student discount updated!");
+                    break; */ 
+
+                    double spa; 
+                    Exception exception1; 
+                    do {
+                        exception1 = null;
+                        /* Get the vallue */ 
+                        System.out.println("Enter the student discount: ");
+                        try {
+                            spa = sc.nextDouble();
+                            pa.setStudentPA(spa);
+                        } catch (InputMismatchException e) {
+                            System.out.println("Error! Please input a number value!");
+                            sc.next();
+                            exception1 = e;
+                        }
+                    } while (exception1 != null);
+               
+
+                    System.out.println("Student price updated!");
                     break; 
 
                 case 3: 
-                    System.out.println("Enter senior citizen discount: "); 
+                    /* System.out.println("Enter senior citizen discount: "); 
                     double epa; 
                     epa = sc.nextDouble();
                     pa.setElderlyPA(epa);
                     System.out.println("Senior Citizen discount updated!");
+                    break; */ 
+                    double epa; 
+                    Exception exception2; 
+                    do {
+                        exception2 = null;
+                        /* Get the vallue */ 
+                        System.out.println("Enter the senior citizen discount: ");
+                        try {
+                            epa = sc.nextDouble();
+                            pa.setElderlyPA(epa);;
+                        } catch (InputMismatchException e) {
+                            System.out.println("Error! Please input a number value!");
+                            sc.next();
+                            exception2 = e;
+                        }
+                    } while (exception2 != null);
+
+
+                    System.out.println("Senior citizen discount updated!");
                     break; 
 
+
                 case 4: 
-                    System.out.println("Enter Mon/Tue/Wed discount: "); 
+                    // System.out.println("Enter Mon/Tue/Wed discount: "); 
+                    // double wdpa; 
+                    // wdpa = sc.nextDouble();
+                    // pa.setWeekdayPA(wdpa);
+                    // System.out.println("Mon/Tue/Wed discount updated!");
+                    // break; 
                     double wdpa; 
-                    wdpa = sc.nextDouble();
-                    pa.setWeekdayPA(wdpa);
+                    Exception exception3; 
+                    do {
+                        exception3 = null;
+                        /* Get the vallue */ 
+                        System.out.println("Enter Mon/Tue/Wed discount: ");
+                        try {
+                            wdpa = sc.nextDouble();
+                            pa.setWeekdayPA(wdpa);
+                        } catch (InputMismatchException e) {
+                            System.out.println("Error! Please input a number value!");
+                            sc.next();
+                            exception3 = e;
+                        }
+                    } while (exception3 != null);
+                   
+
                     System.out.println("Mon/Tue/Wed discount updated!");
                     break; 
            
             
                 case 5: 
-                    System.out.println("Enter weekend surcharge: "); 
+                    // System.out.println("Enter weekend surcharge: "); 
+                    // double wpa; 
+                    // wpa = sc.nextDouble();
+                    // pa.setWeekendPA(wpa);
+                    // System.out.println("Weekend surcharge updated!");
+                    // break; 
                     double wpa; 
-                    wpa = sc.nextDouble();
-                    pa.setWeekendPA(wpa);
+                    Exception exception4; 
+                    do {
+                        exception4 = null;
+                        /* Get the vallue */ 
+                        System.out.println("Enter weekend surcharge: ");
+                        try {
+                            wpa = sc.nextDouble();
+                            pa.setWeekendPA(wpa);
+                        } catch (InputMismatchException e) {
+                            System.out.println("Error! Please input a number value!");
+                            sc.next();
+                            exception4 = e;
+                        }
+                    } while (exception4 != null);
+                   
                     System.out.println("Weekend surcharge updated!");
                     break; 
+           
 
                 case 6: 
-                    System.out.println("Enter public holiday surcharge: "); 
+                    // System.out.println("Enter public holiday surcharge: "); 
+                    // double phpa; 
+                    // phpa = sc.nextDouble();
+                    // pa.setPubHolPA(phpa);
+                    // System.out.println("Public Holiday surcharge updated!");
+                    // break; 
                     double phpa; 
-                    phpa = sc.nextDouble();
-                    pa.setPubHolPA(phpa);
-                    System.out.println("Public Holiday surcharge updated!");
+                    Exception exception5; 
+                    do {
+                        exception5 = null;
+                        /* Get the vallue */ 
+                        System.out.println("Enter public holiday surcharge: ");
+                        try {
+                            phpa = sc.nextDouble();
+                            pa.setPubHolPA(phpa);
+                        } catch (InputMismatchException e) {
+                            System.out.println("Error! Please input a number value!");
+                            sc.next();
+                            exception5= e;
+                        }
+                    } while (exception5 != null);
+                  
+
+                    System.out.println("Public holiday surcharge updated!");
                     break; 
 
                 case 7: 
-                    System.out.println("Enter 3D movie surcharge: "); 
+                    // System.out.println("Enter 3D movie surcharge: "); 
+                    // double tdpa; 
+                    // tdpa = sc.nextDouble();
+                    // pa.set3DPA(tdpa);
+                    // System.out.println("3D movie surcharge updated!");
+                    // break;
                     double tdpa; 
-                    tdpa = sc.nextDouble();
-                    pa.set3DPA(tdpa);
+                    Exception exception6; 
+                    do {
+                        exception6 = null;
+                        /* Get the vallue */ 
+                        System.out.println("Enter 3D movie surcharge: ");
+                        try {
+                            tdpa = sc.nextDouble();
+                            pa.set3DPA(tdpa);
+                        } catch (InputMismatchException e) {
+                            System.out.println("Error! Please input a number value!");
+                            sc.next();
+                            exception6= e;
+                        }
+                    } while (exception6 != null);
+        
+
                     System.out.println("3D movie surcharge updated!");
-                    break;
-                case 8: 
-                    System.out.println("Enter blockbuster movie surcharge: "); 
-                    double bbpa; 
-                    bbpa = sc.nextDouble();
-                    pa.setBlockbusterPA(bbpa);;
-                    System.out.println("Blockbuster movie surcharge updated!");
                     break; 
+                case 8: 
+                    // System.out.println("Enter blockbuster movie surcharge: "); 
+                    // double bbpa; 
+                    // bbpa = sc.nextDouble();
+                    // pa.setBlockbusterPA(bbpa);;
+                    // System.out.println("Blockbuster movie surcharge updated!");
+                    // break; 
+                    double bbpa; 
+                    Exception exception7; 
+                    do {
+                        exception7 = null;
+                        /* Get the vallue */ 
+                        System.out.println("Enter blockbuster movie surcharge: ");
+                        try {
+                            bbpa = sc.nextDouble();
+                            pa.setBlockbusterPA(bbpa);
+                        } catch (InputMismatchException e) {
+                            System.out.println("Error! Please input a number value!");
+                            sc.next();
+                            exception7= e;
+                        }
+                    } while (exception7 != null);
+            
+
+                    System.out.println("Blockbuster movie surcharge updated!");
+                    break;
 
                 case 9: 
-                    System.out.println("Enter platinum suite surcharge: "); 
+                    // System.out.println("Enter platinum suite surcharge: "); 
+                    // double ctpa; 
+                    // ctpa = sc.nextDouble();
+                    // pa.setCinemaTypePA(ctpa);
+                    // System.out.println("Platinum suites surcharge updated!");
+                    // break;
                     double ctpa; 
-                    ctpa = sc.nextDouble();
-                    pa.setCinemaTypePA(ctpa);
-                    System.out.println("Platinum suites surcharge updated!");
+                    Exception exception8; 
+                    do {
+                        exception8 = null;
+                        /* Get the vallue */ 
+                        System.out.println("Enter plainum suite surcharge: ");
+                        try {
+                            ctpa = sc.nextDouble();
+                            pa.setCinemaTypePA(ctpa);
+                        } catch (InputMismatchException e) {
+                            System.out.println("Error! Please input a number value!");
+                            sc.next();
+                            exception8= e;
+                        }
+                    } while (exception8 != null);
+               
+
+                    System.out.println("Platinum suite surcharge updated!");
                     break;
                     
                 case 10: 
-                    System.out.println("Enter premium seat surcharge: "); 
+                    // System.out.println("Enter premium seat surcharge: "); 
+                    // double stpa; 
+                    // stpa = sc.nextDouble();
+                    // pa.setSeatPA(stpa);
+                    // System.out.println("Premium seat surcharge updated!");
+                    // break; 
                     double stpa; 
-                    stpa = sc.nextDouble();
-                    pa.setSeatPA(stpa);
+                    Exception exception9; 
+                    do {
+                        exception9 = null;
+                        /* Get the vallue */ 
+                        System.out.println("Enter premium seat surcharge: ");
+                        try {
+                            stpa = sc.nextDouble();
+                            pa.setSeatPA(stpa);
+                        } catch (InputMismatchException e) {
+                            System.out.println("Error! Please input a number value!");
+                            sc.next();
+                            exception9= e;
+                        }
+                    } while (exception9 != null);
+                 
+
                     System.out.println("Premium seat surcharge updated!");
-                    break; 
+                    break;
 
                 case 11: 
                     System.out.println("Printing current price adjustments...: "); 
